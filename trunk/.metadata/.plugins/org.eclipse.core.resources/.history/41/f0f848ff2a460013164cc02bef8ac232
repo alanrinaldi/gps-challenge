@@ -1,0 +1,17 @@
+package gpschallengeTest;
+
+public class Moto implements Estado {
+
+	@Override
+	public Estado getEstado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void nuevoEstado(Estado unEstado) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

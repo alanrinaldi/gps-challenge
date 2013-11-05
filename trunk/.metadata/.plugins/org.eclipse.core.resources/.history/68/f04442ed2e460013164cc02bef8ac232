@@ -1,0 +1,21 @@
+package gpschallengeTest;
+
+public class Vehiculo {
+
+	private Estado estadoVehiculo;
+	
+	public Vehiculo(Estado auto) {
+		estadoVehiculo = auto;
+	}
+
+	public Estado getEstado(){
+		
+		return estadoVehiculo.getEstado();
+		
+	}
+
+
+	
+	
+	
+}
