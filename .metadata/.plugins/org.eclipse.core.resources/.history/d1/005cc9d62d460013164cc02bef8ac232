@@ -1,0 +1,22 @@
+package gpschallengeTest;
+
+import org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+public class VehiculoTest {
+	
+	@Test
+	public void deberiaInicializarVehiculo(){
+		
+		Estado auto = new Auto();
+		
+		Vehiculo vehiculo = new Vehiculo(auto);
+		
+		assertEquals(auto,vehiculo.getEstado());
+		
+		
+	}
+	
+
+}
