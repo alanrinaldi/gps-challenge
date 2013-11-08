@@ -1,4 +1,4 @@
-package gpschallengeTest;
+package gpschallenge;
 
 public interface Estado {
 
