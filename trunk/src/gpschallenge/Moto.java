@@ -1,8 +1,8 @@
-package gpschallengeTest;
+package gpschallenge;
 
 public class Moto implements Estado {
 
-	Moto(){}
+	public Moto(){}
 	private Moto unicaInstancia = null;
 	
 	@Override

@@ -1,8 +1,8 @@
-package gpschallengeTest;
+package gpschallenge;
 
 public class CuatroPorCuatro implements Estado {
 
-	CuatroPorCuatro(){}
+	public CuatroPorCuatro(){}
 	private CuatroPorCuatro unicaInstancia = null;
 	
 	@Override

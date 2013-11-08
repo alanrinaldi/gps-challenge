@@ -1,8 +1,8 @@
-package gpschallengeTest;
+package gpschallenge;
 
 public class Auto implements Estado {
 	
-	Auto(){}
+	public Auto(){}
 	private Auto unicaInstancia = null;
 	
 	@Override
