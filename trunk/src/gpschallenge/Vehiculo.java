@@ -2,16 +2,16 @@ package gpschallenge;
 
 public class Vehiculo {
 
-	private Estado estadoVehiculo;
+	private EstadoVehiculo estadoVehiculo;
 	private int cantMovimientos;
 	
-	public Vehiculo(Estado estado) {
+	public Vehiculo(EstadoVehiculo estado) {
 		estadoVehiculo = estado;
 	}
 
-	public Estado getEstado(){
+	public EstadoVehiculo getEstado(){
 		
-		return estadoVehiculo.getEstado();
+		return estadoVehiculo;
 		
 	}
 	

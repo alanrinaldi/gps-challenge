@@ -1,25 +1,18 @@
 package gpschallenge;
 
-public class Moto implements Estado {
-
-	public Moto(){}
-	private Moto unicaInstancia = null;
-	
-	@Override
-	public Moto getEstado() {
-		
+public class Moto implements EstadoVehiculo {
+	private static Moto unicaInstancia = null;
+	private Moto(){}
+	public static Moto getInstancia(){
 		if (unicaInstancia == null){
 			unicaInstancia = new Moto();
 		}
 		return unicaInstancia;
-
+	}
+	public void afectar(Afectable unAfectable) {
+		((AfectableAMoto)unAfectable).afectarMoto(this);
 		
 	}
 
-	@Override
-	public void nuevoEstado(Estado unEstado) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
+
