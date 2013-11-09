@@ -1,6 +1,6 @@
 package gpschallenge;
 
-public class CuatroXCuatro implements EstadoVehiculo {
+public class CuatroXCuatro extends EstadoVehiculo {
 	private static CuatroXCuatro unicaInstancia = null;
 	private CuatroXCuatro(){}
 	public static CuatroXCuatro getInstancia(){
@@ -10,8 +10,7 @@ public class CuatroXCuatro implements EstadoVehiculo {
 		return unicaInstancia;
 	}
 	public void afectar(Afectable unAfectable) {
-		((AfectableACuatroXCuatro)unAfectable).afectarCuatroXCuatro(this);
+		unAfectable.afectarCuatroXCuatro(this);
 	}
-
 }
 

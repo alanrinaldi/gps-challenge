@@ -1,10 +1,7 @@
 package gpschallenge;
 
 public class Vehiculo {
-
-	private EstadoVehiculo estadoVehiculo;
-	private int cantMovimientos;
-	
+	private EstadoVehiculo estadoVehiculo = null;
 	public Vehiculo(EstadoVehiculo estado) {
 		estadoVehiculo = estado;
 	}
@@ -14,15 +11,4 @@ public class Vehiculo {
 		return estadoVehiculo;
 		
 	}
-	
-	public int getCantMovimientos(){
-		
-		return cantMovimientos;
-		
-	}
-
-
-	
-	
-	
 }

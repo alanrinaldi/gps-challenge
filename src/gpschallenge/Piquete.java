@@ -4,7 +4,7 @@ package gpschallenge;
  * @author delpinor
  *
  */
-public class Piquete extends Obstaculo implements AfectableAAuto, AfectableAMoto, AfectableACuatroXCuatro {
+public class Piquete extends Obstaculo implements Afectable{
 	@Override
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
 		// TODO Auto-generated method stub
