@@ -10,7 +10,7 @@ public class VehiculoTest {
 	@Test
 	public void deberiaInicializarVehiculo(){
 		
-		Estado auto = new Auto();
+		EstadoVehiculo auto = Auto.getInstancia();
 		
 		Vehiculo vehiculo = new Vehiculo(auto);
 		
@@ -22,26 +22,26 @@ public class VehiculoTest {
 	@Test
 	public void deberiaCoincidirTipoVehiculo(){
 		
-		Estado auto = new Auto();
+		EstadoVehiculo auto = Auto.getInstancia();
 		
 		Vehiculo vehiculo = new Vehiculo(auto);
 		
-		assertEquals(auto.getEstado(),vehiculo.getEstado());
+		assertEquals(auto,vehiculo.getEstado());
 	}
 	
 	@Test
 	public void cambiarEstadoAUnVehiculo(){
 		
-		Estado auto = new Auto();
-		Estado moto = new Moto();
+		EstadoVehiculo auto = Auto.getInstancia();
+		EstadoVehiculo moto = Auto.getInstancia();
 		
 		Vehiculo vehiculo = new Vehiculo(auto);
 		
-		assertEquals(auto.getEstado(),vehiculo.getEstado());
+		assertEquals(auto,vehiculo.getEstado());
 		
 		vehiculo = new Vehiculo(moto);
 		
-		assertEquals(moto.getEstado(),vehiculo.getEstado());
+		assertEquals(moto,vehiculo.getEstado());
 		
 	}
 
