@@ -1,6 +1,6 @@
 package gpschallenge;
 
-public class Moto implements EstadoVehiculo {
+public class Moto extends EstadoVehiculo {
 	private static Moto unicaInstancia = null;
 	private Moto(){}
 	public static Moto getInstancia(){
@@ -10,9 +10,7 @@ public class Moto implements EstadoVehiculo {
 		return unicaInstancia;
 	}
 	public void afectar(Afectable unAfectable) {
-		((AfectableAMoto)unAfectable).afectarMoto(this);
-		
+		unAfectable.afectarMoto(this);
 	}
-
 }
 

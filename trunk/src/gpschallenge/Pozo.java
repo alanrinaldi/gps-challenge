@@ -4,13 +4,17 @@ package gpschallenge;
  * @author delpinor
  *
  */
-public class Pozo extends Obstaculo implements AfectableAAuto, AfectableAMoto {
+public class Pozo extends Obstaculo implements Afectable{
 	public void afectarMoto(Moto unaMoto) {
-		//Como afecta a motos
+		unaMoto.sumarMovimientos(3);
 	}
 
 	public void afectarAuto(Auto unAuto) {
-		//Como afecta a motos
+		unAuto.sumarMovimientos(3);
+	}
+
+	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
+		unaCuatroXCuatro.sumarMovimientos(0);
 	}
 	
 }

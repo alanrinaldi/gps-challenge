@@ -4,7 +4,7 @@ package gpschallenge;
  * @author delpinor
  *
  */
-public class ControlPolicial extends Obstaculo implements AfectableAAuto, AfectableAMoto, AfectableACuatroXCuatro {
+public class ControlPolicial extends Obstaculo implements Afectable {
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
 		
 	}
