@@ -1,9 +1,11 @@
 package gpschallengeTest;
-import static org.junit.Assert.*;
-import gpschallenge.Posicion;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.*;
+
+import org.junit.*;
+
+import gpschallenge.*;
+
 
 public class PosicionTest {
 	private Posicion unaPosicion = null;

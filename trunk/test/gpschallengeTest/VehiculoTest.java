@@ -1,9 +1,12 @@
 package gpschallengeTest;
 
+
 import static org.junit.Assert.*;
-import gpschallenge.*;
 
 import org.junit.Test;
+
+import gpschallenge.*
+;
 
 public class VehiculoTest {
 	
@@ -33,7 +36,7 @@ public class VehiculoTest {
 	public void cambiarEstadoAUnVehiculo(){
 		
 		EstadoVehiculo auto = Auto.getInstancia();
-		EstadoVehiculo moto = Auto.getInstancia();
+		EstadoVehiculo moto = Moto.getInstancia();
 		
 		Vehiculo vehiculo = new Vehiculo(auto);
 		
