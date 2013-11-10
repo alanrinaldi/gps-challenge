@@ -7,19 +7,20 @@ package gpschallenge;
 public class Piquete extends Obstaculo implements Afectable{
 	@Override
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
-		// TODO Auto-generated method stub
+		// No hace nada, no suma movimiento y mantiene la posicion actual
 		
 	}
 
 	@Override
 	public void afectarMoto(Moto unaMoto) {
-		// TODO Auto-generated method stub
+		
+		unaMoto.sumarMovimientos(2);
 		
 	}
 
 	@Override
 	public void afectarAuto(Auto unAuto) {
-		// TODO Auto-generated method stub
+		// No hace nada, no suma movimiento y mantiene la posicion actual
 		
 	}
 	
