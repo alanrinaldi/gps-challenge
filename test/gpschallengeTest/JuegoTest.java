@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import gpschallenge.Juego;
+import gpschallenge.*;
 
 
 public class JuegoTest {
