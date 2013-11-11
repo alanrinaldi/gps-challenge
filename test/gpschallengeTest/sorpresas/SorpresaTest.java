@@ -1,10 +1,10 @@
 package gpschallengeTest.sorpresas;
 
 import static org.junit.Assert.assertEquals;
-
 import gpschallenge.componentes.sorpresas.*;
 import gpschallenge.componentes.vehiculos.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class SorpresaTest {
@@ -12,7 +12,11 @@ public class SorpresaTest {
 	EstadoVehiculo auto = Auto.getInstancia();
 	EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia();
 	Vehiculo vehiculo = new Vehiculo(auto);
-	
+	@Before
+	public void setUp(){
+		auto.reiniciarValoresACero();
+		cuatroxcuatro.reiniciarValoresACero();
+	}
 	
 	@Test
 	public void sorpresaFavorableActuaCorrectamente() {
@@ -25,15 +29,14 @@ public class SorpresaTest {
 	}
 
 	@Test
-	public void sorpresadesFavorableActuaCorrectamente() {
+	public void sorpresaDesfavorableActuaCorrectamente() {
 		
 		Sorpresa sorpresa = new SorpresaDesfavorable();
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getEstado().getCantMovimientos(),0); 
+		assertEquals (vehiculo.getEstado().getCantMovimientos(),1); 
 		
-		/*Esta igualado a 0 ya que quedo con -1 la cantidad de movimientos del anterior test*/
 	} 
 	
 	

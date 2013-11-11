@@ -8,6 +8,7 @@ public abstract class EstadoVehiculo {
 	private Posicion ubicacionActual = new Posicion(0,0);
 	private Posicion ubicacionAnterior = new Posicion(0,0);
 	private int cantMovimientos = 0;
+	private boolean demorado = false;
 	
 	public abstract void afectar(Afectable unAfectable);
 	public void reiniciarValoresACero(){
@@ -15,6 +16,7 @@ public abstract class EstadoVehiculo {
 		this.cantMovimientos = 0;
 		this.ubicacionActual = new Posicion(0,0);
 		this.ubicacionAnterior = new Posicion(0,0);
+		this.demorado = false;
 	}
 	
 	public void sumarMovimientos(int valor){
@@ -42,5 +44,11 @@ public abstract class EstadoVehiculo {
 	public Posicion getPosicionAnterior(){
 		/* Retorna la posición anterior del Vehículo */
 			return this.ubicacionAnterior;
+	}
+	public boolean estaDemorado() {
+		return demorado;
+	}
+	public void demorar() {
+		this.demorado = true;
 	}
 }
