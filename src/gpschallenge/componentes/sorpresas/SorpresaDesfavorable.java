@@ -3,7 +3,6 @@ package gpschallenge.componentes.sorpresas;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 
-
 public class SorpresaDesfavorable extends Sorpresa {
 
 	int valor;
