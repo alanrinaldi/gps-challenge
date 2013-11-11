@@ -23,6 +23,9 @@ public class PozoTest {
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
+		unaMoto.reiniciarValoresACero();
+		una4x4.reiniciarValoresACero();
+		unAuto.reiniciarValoresACero();
 	}
 	@Test
 	public void debePenalizarConTresMovimientosAMotos(){
