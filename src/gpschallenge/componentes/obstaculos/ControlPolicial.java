@@ -8,7 +8,6 @@ import gpschallenge.componentes.vehiculos.Moto;
  *
  */
 public class ControlPolicial extends Obstaculo implements Afectable {
-	/* Probabilid de afectar a un determinado vehículo*/
 	private static int VALOR_PENALIZACION = 3;
 	private static double PROBABILIDAD_MOTO = 0.8;
 	private static double PROBABILIDAD_AUTO = 0.5;
@@ -17,7 +16,7 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 		return (Math.random() < unValor ? true : false);
 	}
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION movimientos. Es probable que quede demorado. /*
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_CUATROPORCUATRO */
 		unaCuatroXCuatro.sumarMovimientos(VALOR_PENALIZACION);
 		if(afectaVehiculo(PROBABILIDAD_CUATROPORCUATRO)){
@@ -25,7 +24,7 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 		}
 	}
 	public void afectarMoto(Moto unaMoto) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION movimientos. Es probable que quede demorado. /*
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_MOTO */
 		unaMoto.sumarMovimientos(VALOR_PENALIZACION);
 		if(afectaVehiculo(PROBABILIDAD_MOTO)){
@@ -34,7 +33,7 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 		
 	}
 	public void afectarAuto(Auto unAuto) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION movimientos. Es probable que quede demorado. /*
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_AUTO */
 		unAuto.sumarMovimientos(VALOR_PENALIZACION);
 		if(afectaVehiculo(PROBABILIDAD_AUTO)){
