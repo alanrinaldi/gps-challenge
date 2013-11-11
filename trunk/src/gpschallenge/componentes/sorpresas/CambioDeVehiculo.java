@@ -1,4 +1,9 @@
-package gpschallenge;
+package gpschallenge.componentes.sorpresas;
+
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
+import gpschallenge.componentes.vehiculos.Vehiculo;
+
+
 
 public class CambioDeVehiculo extends Sorpresa {
 	
