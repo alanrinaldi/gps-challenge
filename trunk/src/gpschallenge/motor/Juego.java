@@ -6,12 +6,14 @@ public class Juego {
 
 	private Mapa mapa;
 	private ArrayList<String> records;
+	private Jugador jugador;
 	
-	public Juego(){
+	public Juego(Jugador unJugador){
 		
-		mapa = new Mapa();
+		mapa = new Mapa(2,2);
 		mapa.inicializarJuego();
 		records = cargarRecords();
+		jugador = unJugador;
 		
 	}
 	
@@ -24,10 +26,17 @@ public class Juego {
 
 		return mapa;
 		
-	}
+	}	
+	
 	public Object getPosiciones() {
 
 		return records;
+		
+	}
+	
+	public Jugador getJugador(){
+		
+		return jugador;
 		
 	}
 	
