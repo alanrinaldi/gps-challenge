@@ -18,26 +18,26 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_CUATROPORCUATRO */
-		unaCuatroXCuatro.sumarMovimientos(VALOR_PENALIZACION);
+		
 		if(afectaVehiculo(PROBABILIDAD_CUATROPORCUATRO)){
-			unaCuatroXCuatro.demorar();
+			unaCuatroXCuatro.sumarMovimientos(VALOR_PENALIZACION);
 		}
 	}
 	public void afectarMoto(Moto unaMoto) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_MOTO */
-		unaMoto.sumarMovimientos(VALOR_PENALIZACION);
+		
 		if(afectaVehiculo(PROBABILIDAD_MOTO)){
-			unaMoto.demorar();
+			unaMoto.sumarMovimientos(VALOR_PENALIZACION);
 		}
 		
 	}
 	public void afectarAuto(Auto unAuto) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
 	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_AUTO */
-		unAuto.sumarMovimientos(VALOR_PENALIZACION);
+		
 		if(afectaVehiculo(PROBABILIDAD_AUTO)){
-			unAuto.demorar();
+			unAuto.sumarMovimientos(VALOR_PENALIZACION);
 		}
 	}
 	

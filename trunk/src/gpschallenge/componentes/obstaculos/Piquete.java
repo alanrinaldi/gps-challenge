@@ -1,5 +1,6 @@
 package gpschallenge.componentes.obstaculos;
 
+
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.CuatroXCuatro;
 import gpschallenge.componentes.vehiculos.Moto;
