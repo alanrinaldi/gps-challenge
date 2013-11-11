@@ -1,15 +1,9 @@
 package gpschallengeTest.sorpresas;
 
 import static org.junit.Assert.assertEquals;
-import gpschallenge.componentes.obstaculos.CambioDeVehiculo;
-import gpschallenge.componentes.sorpresas.Regla;
-import gpschallenge.componentes.sorpresas.Sorpresa;
-import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
-import gpschallenge.componentes.sorpresas.SorpresaFavorable;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.EstadoVehiculo;
-import gpschallenge.componentes.vehiculos.Vehiculo;
+
+import gpschallenge.componentes.sorpresas.*;
+import gpschallenge.componentes.vehiculos.*;
 
 import org.junit.Test;
 
