@@ -24,5 +24,11 @@ public class Posicion {
 			return true;
 		return false;
 	}
+	public void sumarPosicion(Posicion unaPosicion) {
+		this.x += unaPosicion.getX();
+		this.y += unaPosicion.getY();
+		
+	}
+
 
 }
