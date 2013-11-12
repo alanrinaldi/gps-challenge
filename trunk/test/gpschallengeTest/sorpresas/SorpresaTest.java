@@ -9,13 +9,11 @@ import org.junit.Test;
 
 public class SorpresaTest {
 
-	EstadoVehiculo auto = Auto.getInstancia();
-	EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia();
-	Vehiculo vehiculo = new Vehiculo(auto);
+	Vehiculo vehiculo = new Vehiculo(Auto.getInstancia());
+	CuatroXCuatro cuatroXCuatro = CuatroXCuatro.getInstancia();
 	@Before
 	public void setUp(){
-		auto.reiniciarValoresACero();
-		cuatroxcuatro.reiniciarValoresACero();
+		vehiculo.reiniciarValoresACero();
 	}
 	
 	@Test
@@ -25,7 +23,7 @@ public class SorpresaTest {
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getEstado().getCantMovimientos(),-1);
+		assertEquals (vehiculo.getCantMovimientos(),-1);
 	}
 
 	@Test
@@ -35,7 +33,7 @@ public class SorpresaTest {
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getEstado().getCantMovimientos(),1); 
+		assertEquals (vehiculo.getCantMovimientos(),1); 
 		
 	} 
 	
@@ -50,7 +48,7 @@ public class SorpresaTest {
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getEstado(),cuatroxcuatro);
-		assertEquals (vehiculo.getEstado().getCantMovimientos(),0);
+		assertEquals (vehiculo.getEstado(),cuatroXCuatro);
+		assertEquals (vehiculo.getCantMovimientos(),0);
 	}
 }

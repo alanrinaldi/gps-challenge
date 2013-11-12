@@ -2,7 +2,7 @@ package gpschallenge.componentes.vehiculos;
 
 import gpschallenge.componentes.obstaculos.Afectable;
 
-public class CuatroXCuatro extends EstadoVehiculo {
+public class CuatroXCuatro implements EstadoVehiculo {
 	private static CuatroXCuatro unicaInstancia = null;
 	private CuatroXCuatro(){}
 	public static CuatroXCuatro getInstancia(){
@@ -11,8 +11,8 @@ public class CuatroXCuatro extends EstadoVehiculo {
 		}
 		return unicaInstancia;
 	}
-	public void afectar(Afectable unAfectable) {
-		unAfectable.afectarCuatroXCuatro(this);
+	public void afectar(Afectable unAfectable, Vehiculo unVehiculo) {
+		unAfectable.afectarCuatroXCuatro(unVehiculo);
 	}
 }
 

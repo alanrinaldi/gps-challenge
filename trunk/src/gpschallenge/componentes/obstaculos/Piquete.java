@@ -1,9 +1,8 @@
 package gpschallenge.componentes.obstaculos;
 
 
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.Moto;
+
+import gpschallenge.componentes.vehiculos.Vehiculo;
 
 /**
  * @author delpinor
@@ -11,18 +10,18 @@ import gpschallenge.componentes.vehiculos.Moto;
  */
 public class Piquete extends Obstaculo implements Afectable{
 	private static int VALOR_PENALIZACION = 2;
-	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
-		unaCuatroXCuatro.setPosicion(unaCuatroXCuatro.getPosicionAnterior());
+	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
+		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
 		
 	}
 
-	public void afectarMoto(Moto unaMoto) {
-		unaMoto.sumarMovimientos(VALOR_PENALIZACION);
+	public void afectarMoto(Vehiculo unVehiculo) {
+		unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 		
 	}
 
-	public void afectarAuto(Auto unAuto) {
-		unAuto.setPosicion(unAuto.getPosicionAnterior());
+	public void afectarAuto(Vehiculo unVehiculo) {
+		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
 		
 	}
 	

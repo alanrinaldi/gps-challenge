@@ -1,8 +1,6 @@
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.Moto;
+import gpschallenge.componentes.vehiculos.Vehiculo;
 /**
  * @author delpinor
  *
@@ -15,29 +13,29 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 	private boolean afectaVehiculo(double unValor){
 		return (Math.random() < unValor ? true : false);
 	}
-	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
+	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
 	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_CUATROPORCUATRO */
 		
 		if(afectaVehiculo(PROBABILIDAD_CUATROPORCUATRO)){
-			unaCuatroXCuatro.sumarMovimientos(VALOR_PENALIZACION);
+			unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 		}
 	}
-	public void afectarMoto(Moto unaMoto) {
+	public void afectarMoto(Vehiculo unVehiculo) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
 	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_MOTO */
 		
 		if(afectaVehiculo(PROBABILIDAD_MOTO)){
-			unaMoto.sumarMovimientos(VALOR_PENALIZACION);
+			unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 		}
 		
 	}
-	public void afectarAuto(Auto unAuto) {
+	public void afectarAuto(Vehiculo unVehiculo) {
 	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
 	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_AUTO */
 		
 		if(afectaVehiculo(PROBABILIDAD_AUTO)){
-			unAuto.sumarMovimientos(VALOR_PENALIZACION);
+			unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 		}
 	}
 	

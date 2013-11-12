@@ -13,7 +13,7 @@ public class SorpresaDesfavorable extends Sorpresa {
 	
 	public void aplicarIncidencia(Vehiculo vehiculo){
 		
-		vehiculo.getEstado().sumarMovimientos(valor);
+		vehiculo.sumarMovimientos(valor);
 		
 	}
 }
