@@ -14,7 +14,7 @@ public class SorpresaFavorable extends Sorpresa {
 	
 	public void aplicarIncidencia(Vehiculo vehiculo){
 		
-		vehiculo.getEstado().restarMovimientos (valor);
+		vehiculo.restarMovimientos (valor);
 		
 	}
 }

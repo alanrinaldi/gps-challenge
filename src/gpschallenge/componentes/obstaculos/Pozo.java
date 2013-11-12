@@ -11,19 +11,17 @@ import gpschallenge.componentes.vehiculos.*;
  */
 public class Pozo extends Obstaculo implements Afectable{
 	private static int VALOR_PENALIZACION = 3;
-	public Pozo(){
-		
-	}
-	public void afectarMoto(Moto unaMoto) {
-		unaMoto.sumarMovimientos(VALOR_PENALIZACION);
+	public Pozo(){}
+	public void afectarMoto(Vehiculo unVehiculo) {
+		unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 	}
 
-	public void afectarAuto(Auto unAuto) {
-		unAuto.sumarMovimientos(VALOR_PENALIZACION);
+	public void afectarAuto(Vehiculo unVehiculo) {
+		unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 	}
 
-	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
-		unaCuatroXCuatro.sumarMovimientos(0);
+	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
+		unVehiculo.sumarMovimientos(0);
 	}
 	
 }

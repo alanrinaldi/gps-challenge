@@ -1,12 +1,12 @@
 package gpschallengeTest.obstaculos;
 
 import static org.junit.Assert.*;
-
 import gpschallenge.componentes.obstaculos.ControlPolicial;
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.CuatroXCuatro;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Moto;
+import gpschallenge.componentes.vehiculos.Vehiculo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +21,9 @@ public class ControlPolicialTest {
 	private Moto unaMoto = null;
 	private Auto unAuto = null;
 	private CuatroXCuatro una4x4 = null;
-	public double porcentajeDeAparicion(EstadoVehiculo unVehiculo){
+	private Vehiculo unVehiculo = new Vehiculo();
+	public double porcentajeDeAparicion(EstadoVehiculo unEstado){
+		unVehiculo.setEstado(unEstado);
 		double cantidad = 0;
 		/* Pruebo 1000 casos y calculo la probabilidad de ser penalizado */
 		for(int i = 0; i < 1000; i++){
@@ -42,9 +44,6 @@ public class ControlPolicialTest {
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
-		unaMoto.reiniciarValoresACero();
-		una4x4.reiniciarValoresACero();
-		unAuto.reiniciarValoresACero();
 	}
 	@Test
 	public void probabilidadDeSerPenalizadoAuto(){
