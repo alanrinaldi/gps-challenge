@@ -19,7 +19,7 @@ public class CambioDeVehiculo extends Sorpresa {
 	
 	public void aplicarIncidencia(Vehiculo vehiculo){
 		
-		nuevoestado = regla.obtenernuevoestado(vehiculo);
+		nuevoestado = regla.obtenerNuevoEestado(vehiculo);
 		vehiculo.setEstado(nuevoestado);
 		
 	}
