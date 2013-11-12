@@ -16,7 +16,7 @@ public class Regla {
 	EstadoVehiculo moto = Moto.getInstancia();
 	EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia();
 	
-	public EstadoVehiculo obtenernuevoestado (Vehiculo vehiculo) {
+	public EstadoVehiculo obtenerNuevoEestado (Vehiculo vehiculo) {
 			
 		estado = vehiculo.getEstado();
 		
