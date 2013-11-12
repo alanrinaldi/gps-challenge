@@ -16,16 +16,16 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 		return (Math.random() < unValor ? true : false);
 	}
 	public void afectarCuatroXCuatro(CuatroXCuatro unaCuatroXCuatro) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
-	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_CUATROPORCUATRO */
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
+	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_CUATROPORCUATRO */
 		
 		if(afectaVehiculo(PROBABILIDAD_CUATROPORCUATRO)){
 			unaCuatroXCuatro.sumarMovimientos(VALOR_PENALIZACION);
 		}
 	}
 	public void afectarMoto(Moto unaMoto) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
-	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_MOTO */
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
+	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_MOTO */
 		
 		if(afectaVehiculo(PROBABILIDAD_MOTO)){
 			unaMoto.sumarMovimientos(VALOR_PENALIZACION);
@@ -33,8 +33,8 @@ public class ControlPolicial extends Obstaculo implements Afectable {
 		
 	}
 	public void afectarAuto(Auto unAuto) {
-	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. Es probable que quede demorado. /*
-	 * La probabilidad que quede demorado depende del valor PROBABILIDAD_AUTO */
+	/* Penaliza con movimientos al vehiculo con la cantidad VALOR_PENALIZACION. /*
+	 * La probabilidad de ser penalizado depende del valor PROBABILIDAD_AUTO */
 		
 		if(afectaVehiculo(PROBABILIDAD_AUTO)){
 			unAuto.sumarMovimientos(VALOR_PENALIZACION);
