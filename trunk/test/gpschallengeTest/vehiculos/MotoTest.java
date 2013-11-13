@@ -1,15 +1,16 @@
+
 package gpschallengeTest.vehiculos;
 import static org.junit.Assert.*;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class MotoTest {
 	private Vehiculo unVehiculo = null;
 	private Posicion unaPosicion = null;
+
 	@Before
 	public void setUp(){
 		unVehiculo = new Vehiculo();
