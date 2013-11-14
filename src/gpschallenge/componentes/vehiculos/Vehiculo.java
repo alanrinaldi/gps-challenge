@@ -37,9 +37,11 @@ public class Vehiculo {
 		cantMovimientos += valor;
 	}
 	
-	public void restarMovimientos(int valor){
+	/* 
+	 * public void restarMovimientos(int valor){
 		cantMovimientos -= valor;
-	}
+	} 
+	 */
 	
 	public int getCantMovimientos(){
 		return cantMovimientos;
