@@ -1,7 +1,7 @@
 
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.utililidades.ObjetoDelMapa;
+import gpschallenge.motor.ObjetoDelMapa;
 
 /**
  * @author delpinor

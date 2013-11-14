@@ -34,6 +34,7 @@ public class ControlPolicialTest {
 			}
 			unVehiculo.reiniciarValoresACero();
 		}
+		/* Redondeo a un valor double de tipo 0.0 */
 		double valor = cantidad/1000;
 		valor = Math.rint(valor*10)/10;
 		return valor;
