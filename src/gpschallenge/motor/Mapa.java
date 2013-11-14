@@ -13,7 +13,14 @@ public class Mapa {
 	HashMap<Posicion,Sorpresa> mapaSorpresas;
 	HashMap<Posicion,Obstaculo> mapaObstaculos;
 	ArrayList<Posicion> posicionesMapa;
-	
+	private static Mapa unicoMapa = null;
+	private Mapa(){}
+	public static Mapa getInstancia(){
+		if(unicoMapa == null){
+			unicoMapa = new Mapa();
+		}
+		return unicoMapa;
+	}
 	public Mapa(int ancho, int alto){
 		
 		HashMap<Posicion,Sorpresa> mapaSorpresas = new HashMap<Posicion,Sorpresa>();

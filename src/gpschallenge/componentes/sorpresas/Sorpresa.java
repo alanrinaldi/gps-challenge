@@ -1,7 +1,7 @@
 package gpschallenge.componentes.sorpresas;
 
-import gpschallenge.componentes.utililidades.ObjetoDelMapa;
 import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.motor.ObjetoDelMapa;
 
 
 
