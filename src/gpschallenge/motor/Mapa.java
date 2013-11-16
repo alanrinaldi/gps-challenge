@@ -1,5 +1,6 @@
 package gpschallenge.motor;
 
+
 import gpschallenge.componentes.obstaculos.Obstaculo;
 import gpschallenge.componentes.sorpresas.Sorpresa;
 import gpschallenge.componentes.utililidades.Posicion;
@@ -10,8 +11,9 @@ import java.util.HashMap;
 
 public class Mapa {
 	
-	HashMap<Posicion,Sorpresa> mapaSorpresas;
+	
 	HashMap<Posicion,Obstaculo> mapaObstaculos;
+	HashMap<Posicion,Sorpresa> mapaSorpresas;
 	ArrayList<Posicion> posicionesMapa;
 	private static Mapa unicoMapa = null;
 	private Mapa(){}
@@ -23,8 +25,8 @@ public class Mapa {
 	}
 	public Mapa(int ancho, int alto){
 		
-		HashMap<Posicion,Sorpresa> mapaSorpresas = new HashMap<Posicion,Sorpresa>();
-		HashMap<Posicion,Obstaculo> mapaObstaculos = new HashMap<Posicion,Obstaculo>();
+		mapaSorpresas = new HashMap<Posicion,Sorpresa>();
+		mapaObstaculos = new HashMap<Posicion,Obstaculo>();
 		ArrayList<Posicion> posicionesMapa = new ArrayList<Posicion>();
 		for (int i=0; i<ancho-2; i++){
 			for (int j=0; j<alto-2; j++){
@@ -52,10 +54,15 @@ public class Mapa {
 		
 	}
 	
-	public void aplicarIncidenciasEnPosicion(Posicion unaPosicion, Vehiculo unVehiculo){
+	public void aplicarSorpresasEnPosicion(Posicion unaPosicion, Vehiculo unVehiculo){
 		
 		mapaSorpresas.get(unaPosicion).aplicarIncidencia(unVehiculo);
-		//mapaObstaculos.get(unaPosicion).
+		
+	}
+	
+	public void aplicarObstaculosEnPosicion(Posicion unaPosicion, Vehiculo unVehiculo){
+		
+		mapaObstaculos.get(unaPosicion).getPenalizacion();
 		
 	}
 

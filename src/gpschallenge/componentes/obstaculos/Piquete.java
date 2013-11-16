@@ -9,7 +9,9 @@ import gpschallenge.componentes.vehiculos.Vehiculo;
  *
  */
 public class Piquete extends Obstaculo implements Afectable{
+	
 	private static int VALOR_PENALIZACION = 2;
+	
 	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
 		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
 		

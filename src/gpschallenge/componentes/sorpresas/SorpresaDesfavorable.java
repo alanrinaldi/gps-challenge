@@ -8,12 +8,12 @@ public class SorpresaDesfavorable extends Sorpresa {
 	int valor;
 	
 	public SorpresaDesfavorable() {
-		valor = 1;
+		valor = 25;
 	}
 	
 	public void aplicarIncidencia(Vehiculo vehiculo){
 		
-		vehiculo.sumarMovimientos(valor);
+		vehiculo.sumarporcentajeMovimientos(valor);
 		
 	}
 }

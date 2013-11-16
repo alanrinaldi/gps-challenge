@@ -14,6 +14,7 @@ public class SorpresaTest {
 	@Before
 	public void setUp(){
 		vehiculo.reiniciarValoresACero();
+		vehiculo.sumarMovimientos(10);
 	}
 	
 	@Test
@@ -23,9 +24,9 @@ public class SorpresaTest {
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getCantMovimientos(),-1);
+		assertEquals (vehiculo.getCantMovimientos(),8);
 	}
-
+	
 	@Test
 	public void sorpresaDesfavorableActuaCorrectamente() {
 		
@@ -33,11 +34,11 @@ public class SorpresaTest {
 		
 		sorpresa.aplicarIncidencia(vehiculo);
 		
-		assertEquals (vehiculo.getCantMovimientos(),1); 
+		assertEquals (vehiculo.getCantMovimientos(),12); 
 		
 	} 
 	
-	
+
 	@Test
 	public void cambiadeEstadoCorrectamente(){
 		
@@ -49,6 +50,6 @@ public class SorpresaTest {
 		sorpresa.aplicarIncidencia(vehiculo);
 		
 		assertEquals (vehiculo.getEstado(),cuatroXCuatro);
-		assertEquals (vehiculo.getCantMovimientos(),0);
+		assertEquals (vehiculo.getCantMovimientos(),10);
 	}
 }
