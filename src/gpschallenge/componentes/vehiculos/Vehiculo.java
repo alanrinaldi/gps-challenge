@@ -3,14 +3,15 @@ package gpschallenge.componentes.vehiculos;
 import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.direccionamiento.Direccion;
-import gpschallenge.motor.Mapa;
+import gpschallenge.mapa.Esquina;
+//import gpschallenge.motor.Mapa;
 
 public class Vehiculo {
-	private Posicion ubicacionActual = new Posicion(0,0);
-	private Posicion ubicacionAnterior = new Posicion(0,0);
+	private Esquina ubicacionActual = new Esquina(new Posicion(0,0));
+	private Esquina ubicacionAnterior = new Esquina(new Posicion(0,0));
 	private EstadoVehiculo estado = null;
 	private int cantMovimientos = 0;
-	private Mapa mapa;
+//	private Mapa mapa;
 	
 	public Vehiculo(){}
 	
@@ -29,8 +30,8 @@ public class Vehiculo {
 	public void reiniciarValoresACero(){
 	/* Setea a valores iniciales(cero) */
 		this.cantMovimientos = 0;
-		this.ubicacionActual = new Posicion(0,0);
-		this.ubicacionAnterior = new Posicion(0,0);
+		this.ubicacionActual = new Esquina(new Posicion(0,0));
+		this.ubicacionAnterior = new Esquina(new Posicion(0,0));
 	}
 	
 	public void sumarMovimientos(int valor){
@@ -58,17 +59,17 @@ public class Vehiculo {
 		return cantMovimientos;
 	}
 	
-	public void setPosicion(Posicion unaPos){
+	public void setPosicion(Esquina unaEsquina){
 		this.ubicacionAnterior = this.ubicacionActual;
-		this.ubicacionActual = unaPos;
+		this.ubicacionActual = unaEsquina;
 	}
 	
-	public Posicion getPosicionActual(){
+	public Esquina getPosicionActual(){
 	/* Retorna la posición actual del Vehículo */
 		return this.ubicacionActual;
 	}
 	
-	public Posicion getPosicionAnterior(){
+	public Esquina getPosicionAnterior(){
 		/* Retorna la posición anterior del Vehículo */
 			return this.ubicacionAnterior;
 	}
@@ -79,11 +80,24 @@ public class Vehiculo {
 	public void moverA(Direccion unaDireccion){
 		
 		this.ubicacionAnterior = this.ubicacionActual;
-		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
+		if (this.ubicacionActual.puedeMoverseADireccion(unaDireccion)){
+			
+			ubicacionActual.devolverCalleEnDireccion(unaDireccion).afectarA(this);
+			
+		
+			if (ubicacionActual.devolverCalleEnDireccion(unaDireccion).verificarQueEsquinaEs(ubicacionActual)){
+				
+				ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getOtraEsquina();
+			
+			}
+			
+			else ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getUnaEsquina();
+		}
+		/*this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
 		if (this.mapa.hayObjetosEnPosicion(ubicacionActual)){
 			
-		}/*Falta completar el if */
-		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
+		}Falta completar el if
+		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());*/
 		
 	}
 }
