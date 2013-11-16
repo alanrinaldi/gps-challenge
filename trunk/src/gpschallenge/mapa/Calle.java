@@ -29,8 +29,8 @@ public class Calle {
 	
 	public void afectarA(Vehiculo unVehiculo){
 		
-		unaSorpresa.aplicarIncidencia(unVehiculo);
-		unVehiculo.afectar(unAfectable);
+		if (unaSorpresa != null) unaSorpresa.aplicarIncidencia(unVehiculo);
+		if (unAfectable != null)unVehiculo.afectar(unAfectable);
 		
 	}
 
