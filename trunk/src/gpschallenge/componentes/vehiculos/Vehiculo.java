@@ -77,7 +77,7 @@ public class Vehiculo {
 		estado.afectar(unAfectable, this);
 	}
 	
-	public void moverA(Direccion unaDireccion){
+	public void moverA(Direccion unaDireccion) {
 		
 		this.ubicacionAnterior = this.ubicacionActual;
 		if (this.ubicacionActual.puedeMoverseADireccion(unaDireccion)){
@@ -93,11 +93,13 @@ public class Vehiculo {
 			
 			else ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getUnaEsquina();
 		}
+		
+		this.sumarMovimientos(1);
 		/*this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
 		if (this.mapa.hayObjetosEnPosicion(ubicacionActual)){
 			
 		}Falta completar el if
 		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());*/
-		
+			
 	}
 }
