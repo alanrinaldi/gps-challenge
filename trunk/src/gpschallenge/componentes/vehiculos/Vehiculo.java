@@ -37,11 +37,22 @@ public class Vehiculo {
 		cantMovimientos += valor;
 	}
 	
-	/* 
-	 * public void restarMovimientos(int valor){
+	
+	 public void restarMovimientos(int valor){
 		cantMovimientos -= valor;
 	} 
-	 */
+	
+	 public void sumarporcentajeMovimientos (int valor){
+			int auxiliar;
+			auxiliar = (cantMovimientos*valor)/100;
+			this.sumarMovimientos(auxiliar);		
+		} 
+	 
+	public void restarporcentajeMovimientos (int valor){
+		int auxiliar;
+		auxiliar = (cantMovimientos*valor)/100;
+		this.restarMovimientos(auxiliar);		
+	}
 	
 	public int getCantMovimientos(){
 		return cantMovimientos;
@@ -70,7 +81,7 @@ public class Vehiculo {
 		this.ubicacionAnterior = this.ubicacionActual;
 		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
 		if (this.mapa.hayObjetosEnPosicion(ubicacionActual)){
-			this.mapa.aplicarIncidenciasEnPosicion(ubicacionActual,this);
+			
 		}/*Falta completar el if */
 		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
 		
