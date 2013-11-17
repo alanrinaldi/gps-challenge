@@ -62,7 +62,7 @@ public class EsquinaTest {
 		
 		Pozo unPozo = new Pozo();
 		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-		unaCalle.setAfectable(unPozo);
+		unaCalle.addAfectable(unPozo);
 		Direccion arriba = new Arriba();
 		Direccion abajo = new Abajo();
 		unaEsquina.agregarCalle(arriba , unaCalle);
