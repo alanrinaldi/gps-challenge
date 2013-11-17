@@ -46,6 +46,17 @@ public class Vehiculo {
 		cantMovimientos -= valor;
 	} 
 	
+	 
+	public void sumarPorcentajeMovimientos(int valor){
+		int auxiliar = (cantMovimientos*valor)/100;
+		this.sumarMovimientos(auxiliar);
+	}
+	
+	public void restarPorcentajeMovimientos(int valor){
+		int auxiliar = (cantMovimientos*valor)/100;
+		this.restarMovimientos(auxiliar);
+	}
+	 
 	public int getCantMovimientos(){
 		return cantMovimientos;
 	}
@@ -64,9 +75,11 @@ public class Vehiculo {
 		/* Retorna la posición anterior del Vehículo */
 			return this.ubicacionAnterior;
 	}
+	
 	public void afectar(Afectable unAfectable){
 		estado.afectar(unAfectable, this);
 	}
+	
 	public void afectar(ArrayList<Afectable> afectables){
 		
 		Iterator<Afectable> it = afectables.iterator();
@@ -74,6 +87,7 @@ public class Vehiculo {
 			estado.afectar(it.next(), this);
 		}
 	}
+	
 	public void moverA(Direccion unaDireccion) {
 		
 		this.ubicacionAnterior = this.ubicacionActual;
