@@ -1,6 +1,8 @@
 package gpschallengeTest.sorpresas;
 
-import static org.junit.Assert.assertEquals;
+
+
+import static org.junit.Assert.*;
 import gpschallenge.componentes.sorpresas.*;
 import gpschallenge.componentes.vehiculos.*;
 
@@ -8,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SorpresaTest {
-
+	
 	Vehiculo vehiculo = new Vehiculo(Auto.getInstancia());
 	CuatroXCuatro cuatroXCuatro = CuatroXCuatro.getInstancia();
 	@Before
@@ -20,9 +22,9 @@ public class SorpresaTest {
 	@Test
 	public void sorpresaFavorableActuaCorrectamente() {
 		
-		Sorpresa sorpresa = new SorpresaFavorable();
+		SorpresaFavorable sorpresa = new SorpresaFavorable();
 		
-		sorpresa.aplicarIncidencia(vehiculo);
+		vehiculo.afectar(sorpresa);
 		
 		assertEquals (vehiculo.getCantMovimientos(),8);
 	}
@@ -30,9 +32,9 @@ public class SorpresaTest {
 	@Test
 	public void sorpresaDesfavorableActuaCorrectamente() {
 		
-		Sorpresa sorpresa = new SorpresaDesfavorable();
+		SorpresaDesfavorable sorpresa = new SorpresaDesfavorable();
 		
-		sorpresa.aplicarIncidencia(vehiculo);
+		vehiculo.afectar(sorpresa);
 		
 		assertEquals (vehiculo.getCantMovimientos(),12); 
 		
@@ -42,12 +44,10 @@ public class SorpresaTest {
 	@Test
 	public void cambiadeEstadoCorrectamente(){
 		
-		Regla regla = new Regla();
 		CambioDeVehiculo sorpresa = new CambioDeVehiculo();
 		
-		sorpresa.setRegla(regla);
 		
-		sorpresa.aplicarIncidencia(vehiculo);
+		vehiculo.afectar(sorpresa);
 		
 		assertEquals (vehiculo.getEstado(),cuatroXCuatro);
 		assertEquals (vehiculo.getCantMovimientos(),10);
