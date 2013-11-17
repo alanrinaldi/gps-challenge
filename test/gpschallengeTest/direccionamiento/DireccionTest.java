@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.direccionamiento.*;
 
-
 import org.junit.Test;
 
 public class DireccionTest {
@@ -19,7 +18,7 @@ public class DireccionTest {
 		
 		
 		assertEquals(posicionDireccion.getX(),0);
-		assertEquals(posicionDireccion.getY(),1);
+		assertEquals(posicionDireccion.getY(),-1);
 		
 	}
 
