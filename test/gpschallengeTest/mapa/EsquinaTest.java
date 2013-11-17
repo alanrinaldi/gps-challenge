@@ -23,7 +23,7 @@ public class EsquinaTest {
 		assertEquals(esquina.getPosicion(),unaPosicion);
 		
 	}
-	@Test
+	@Test //[ExpectedException (typeof (EsquinasInvalidasException))]
 	public void pruebaExcepcion(){	
 		
 		Posicion unaPosicion = new Posicion(1,1);
@@ -31,7 +31,7 @@ public class EsquinaTest {
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
 		try {
-			Calle unaCalle = new Calle(unaEsquina,otraEsquina);
+			new Calle(unaEsquina,otraEsquina);
 		}
 		catch (EsquinasInvalidasException e1){
 			System.out.println("La calle es incorrecta");
