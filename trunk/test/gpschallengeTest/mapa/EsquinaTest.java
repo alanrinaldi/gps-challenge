@@ -7,6 +7,7 @@ import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.direccionamiento.*;
+import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.mapa.Calle;
 import gpschallenge.mapa.Esquina;
 
@@ -22,6 +23,20 @@ public class EsquinaTest {
 		assertEquals(esquina.getPosicion(),unaPosicion);
 		
 	}
+	@Test
+	public void pruebaExcepcion(){	
+		
+		Posicion unaPosicion = new Posicion(1,1);
+		Posicion otraPosicion = new Posicion(1,2);
+		Esquina unaEsquina = new Esquina(unaPosicion);
+		Esquina otraEsquina = new Esquina(otraPosicion);
+		try {
+			Calle unaCalle = new Calle(unaEsquina,otraEsquina);
+		}
+		catch (EsquinasInvalidasException e1){
+			System.out.println("La calle es incorrecta");
+		}
+	}
 	
 	@Test
 	public void deberiaMoverseALaSiguienteEsquina(){
@@ -30,26 +45,27 @@ public class EsquinaTest {
 		Posicion otraPosicion = new Posicion(1,3);
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
-		
-		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
 		Direccion arriba = new Arriba();
 		Direccion abajo = new Abajo();
-		unaEsquina.agregarCalle(arriba , unaCalle);
-		otraEsquina.agregarCalle(abajo, unaCalle);
+		try {
+			Calle unaCalle = new Calle(unaEsquina,otraEsquina);
 		
-		EstadoVehiculo auto = Auto.getInstancia();
-		Vehiculo vehiculo = new Vehiculo(auto);
+			unaEsquina.agregarCalle(arriba , unaCalle);
+			otraEsquina.agregarCalle(abajo, unaCalle);
 		
-		vehiculo.setPosicion(unaEsquina);
+			EstadoVehiculo auto = Auto.getInstancia();
+			Vehiculo vehiculo = new Vehiculo(auto);
 		
-		assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			vehiculo.setPosicion(unaEsquina);
 		
-		vehiculo.moverA(arriba);
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
 		
-		assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
-		assertEquals(1,vehiculo.getCantMovimientos());
+			vehiculo.moverA(arriba);
 		
-		
+			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(1,vehiculo.getCantMovimientos());
+		}
+		catch (EsquinasInvalidasException e1){}
 	}
 	
 	@Test
@@ -59,26 +75,30 @@ public class EsquinaTest {
 		Posicion otraPosicion = new Posicion(1,3);
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
-		
-		Pozo unPozo = new Pozo();
-		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-		unaCalle.addAfectable(unPozo);
 		Direccion arriba = new Arriba();
 		Direccion abajo = new Abajo();
-		unaEsquina.agregarCalle(arriba , unaCalle);
-		otraEsquina.agregarCalle(abajo, unaCalle);
+		Pozo unPozo = new Pozo();
+		try{
+			Calle unaCalle = new Calle(unaEsquina,otraEsquina);
+			unaCalle.addAfectable(unPozo);
+			unaEsquina.agregarCalle(arriba , unaCalle);
+			otraEsquina.agregarCalle(abajo, unaCalle);
+			EstadoVehiculo auto = Auto.getInstancia();
+			Vehiculo vehiculo = new Vehiculo(auto);
+			
+			vehiculo.setPosicion(unaEsquina);
+			
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			
+			vehiculo.moverA(arriba);
+			
+			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(4,vehiculo.getCantMovimientos());
+			
+		}
+		catch (EsquinasInvalidasException e2){}
 		
-		EstadoVehiculo auto = Auto.getInstancia();
-		Vehiculo vehiculo = new Vehiculo(auto);
 		
-		vehiculo.setPosicion(unaEsquina);
-		
-		assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
-		
-		vehiculo.moverA(arriba);
-		
-		assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
-		assertEquals(4,vehiculo.getCantMovimientos());
 		
 		
 	}
