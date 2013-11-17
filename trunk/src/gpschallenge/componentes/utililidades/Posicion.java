@@ -29,6 +29,10 @@ public class Posicion {
 		this.y += unaPosicion.getY();
 		
 	}
-
+	
+	public Posicion restarPosicion(Posicion unaPosicion) {
+		Posicion nuevaposicion= new Posicion (x -= unaPosicion.getX(),y -= unaPosicion.getY());
+		return nuevaposicion;
+	}
 
 }
