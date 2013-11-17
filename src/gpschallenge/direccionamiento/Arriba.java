@@ -10,7 +10,7 @@ public class Arriba implements Direccion {
 	
 	public Arriba() {
 		x=0;
-		y=1;
+		y=-1;
 		
 		posicion= new Posicion (x,y);
 	}
