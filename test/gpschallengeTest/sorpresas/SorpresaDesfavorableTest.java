@@ -30,7 +30,6 @@ public class SorpresaDesfavorableTest {
 		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
 		unVehiculo.sumarMovimientos(10);
 		unVehiculo.afectar(unaSorpresa);
-		System.out.print(unVehiculo.getCantMovimientos());
 		assertEquals(unVehiculo.getCantMovimientos(),12);
 	}
 }
