@@ -1,5 +1,8 @@
 package gpschallenge.componentes.vehiculos;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.direccionamiento.Direccion;
@@ -43,18 +46,6 @@ public class Vehiculo {
 		cantMovimientos -= valor;
 	} 
 	
-	 public void sumarporcentajeMovimientos (int valor){
-			int auxiliar;
-			auxiliar = (cantMovimientos*valor)/100;
-			this.sumarMovimientos(auxiliar);		
-		} 
-	 
-	public void restarporcentajeMovimientos (int valor){
-		int auxiliar;
-		auxiliar = (cantMovimientos*valor)/100;
-		this.restarMovimientos(auxiliar);		
-	}
-	
 	public int getCantMovimientos(){
 		return cantMovimientos;
 	}
@@ -76,14 +67,19 @@ public class Vehiculo {
 	public void afectar(Afectable unAfectable){
 		estado.afectar(unAfectable, this);
 	}
-	
+	public void afectar(ArrayList<Afectable> afectables){
+		
+		Iterator<Afectable> it = afectables.iterator();
+		while(it.hasNext()){
+			estado.afectar(it.next(), this);
+		}
+	}
 	public void moverA(Direccion unaDireccion) {
 		
 		this.ubicacionAnterior = this.ubicacionActual;
 		if (this.ubicacionActual.puedeMoverseADireccion(unaDireccion)){
 			
-			ubicacionActual.devolverCalleEnDireccion(unaDireccion).afectarA(this);
-			
+			this.afectar(ubicacionActual.devolverCalleEnDireccion(unaDireccion).getAfectables());
 		
 			if (ubicacionActual.devolverCalleEnDireccion(unaDireccion).verificarQueEsquinaEs(ubicacionActual)){
 				

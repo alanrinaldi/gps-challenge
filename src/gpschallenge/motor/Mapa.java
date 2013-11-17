@@ -56,8 +56,7 @@ public class Mapa {
 	
 	public void aplicarSorpresasEnPosicion(Posicion unaPosicion, Vehiculo unVehiculo){
 		
-		mapaSorpresas.get(unaPosicion).aplicarIncidencia(unVehiculo);
-		
+		//Se
 	}
 	
 	public void aplicarObstaculosEnPosicion(Posicion unaPosicion, Vehiculo unVehiculo){

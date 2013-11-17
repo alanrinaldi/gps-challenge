@@ -1,15 +1,14 @@
 package gpschallenge.mapa;
 
+import java.util.ArrayList;
+
 import gpschallenge.componentes.obstaculos.Afectable;
-import gpschallenge.componentes.sorpresas.Sorpresa;
-import gpschallenge.componentes.vehiculos.Vehiculo;
 
 public class Calle {
 
 	private Esquina unaEsquina;
 	private Esquina otraEsquina;
-	private Afectable unAfectable;
-	private Sorpresa unaSorpresa;
+	private ArrayList<Afectable> afectables = new ArrayList<Afectable>();
 	
 	public Calle(Esquina esquina, Esquina esquina2){
 		
@@ -17,20 +16,12 @@ public class Calle {
 		otraEsquina = esquina2;
 	}
 	
-	public void setAfectable(Afectable afectable){
+	public void addAfectable(Afectable unAfectable){
 		
-		unAfectable = afectable;
+		afectables.add(unAfectable);
 	}
-	
-	public void setSorpresa(Sorpresa sorpresa){
-		
-		unaSorpresa = sorpresa;
-	}
-	
-	public void afectarA(Vehiculo unVehiculo){
-		
-		if (unaSorpresa != null) unaSorpresa.aplicarIncidencia(unVehiculo);
-		if (unAfectable != null)unVehiculo.afectar(unAfectable);
+	public ArrayList<Afectable> getAfectables(){
+		return this.afectables;
 		
 	}
 
