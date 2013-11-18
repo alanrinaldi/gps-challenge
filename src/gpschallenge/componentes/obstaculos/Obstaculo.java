@@ -8,11 +8,5 @@ import gpschallenge.motor.ObjetoDelMapa;
  *
  */
 public abstract class Obstaculo extends ObjetoDelMapa {
-	protected int valorPenalizacion = 0;
-	public void setPenalizacion(int valor){
-		this.valorPenalizacion = valor;
-	}
-	public int getPenalizacion(){
-		return this.valorPenalizacion;
-	}
+
 }
