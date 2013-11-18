@@ -27,7 +27,7 @@ public class EsquinaTest {
 	public void pruebaExcepcion(){	
 		
 		Posicion unaPosicion = new Posicion(1,1);
-		Posicion otraPosicion = new Posicion(1,2);
+		Posicion otraPosicion = new Posicion(1,3);
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
 		try {
@@ -42,7 +42,7 @@ public class EsquinaTest {
 	public void deberiaMoverseALaSiguienteEsquina(){
 		
 		Posicion unaPosicion = new Posicion(1,1);
-		Posicion otraPosicion = new Posicion(1,3);
+		Posicion otraPosicion = new Posicion(1,2);
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
 		Direccion arriba = new Arriba();
@@ -72,7 +72,7 @@ public class EsquinaTest {
 	public void deberiaMoverseALaSiguienteEsquinaYAplicarObstaculo(){
 		
 		Posicion unaPosicion = new Posicion(1,1);
-		Posicion otraPosicion = new Posicion(1,3);
+		Posicion otraPosicion = new Posicion(1,2);
 		Esquina unaEsquina = new Esquina(unaPosicion);
 		Esquina otraEsquina = new Esquina(otraPosicion);
 		Direccion arriba = new Arriba();
