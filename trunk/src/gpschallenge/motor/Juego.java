@@ -11,7 +11,7 @@ public class Juego {
 	
 	public Juego(Jugador unJugador){
 		
-		mapa.inicializarJuego();
+		//mapa.inicializarJuego();
 		records = cargarRecords();
 		jugador = unJugador;
 		finalizado = false;
