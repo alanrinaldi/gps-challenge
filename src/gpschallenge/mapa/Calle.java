@@ -10,6 +10,8 @@ public class Calle {
 
 	private Esquina unaEsquina;
 	private Esquina otraEsquina;
+	private Esquina auxEsquina;
+	private Posicion auxPosicion;
 	private ArrayList<Afectable> afectables = new ArrayList<Afectable>();
 	private ArrayList<Posicion> esquinasposibles = new ArrayList<Posicion>() ;
 
@@ -24,11 +26,12 @@ public class Calle {
 		
 		unaEsquina = esquina;
 		otraEsquina = esquina2;
-		
-		Posicion unaPosicion = unaEsquina.getPosicion().restarPosicion(otraEsquina.getPosicion());
+		auxPosicion = new Posicion (unaEsquina.getPosicion().getX(),unaEsquina.getPosicion().getY());
+		auxEsquina= new Esquina (auxPosicion);
+		Posicion unaPosicion = auxEsquina.getPosicion().restarPosicion(otraEsquina.getPosicion());
 		
 		//Si la diferencia de posicion de una esquina y la otra es distinta lanza la excepcion.
-		if (esquinasposibles.contains(unaPosicion)!= true){
+		if ((esquinasposibles.get(0).esIgual(unaPosicion)||esquinasposibles.get(1).esIgual(unaPosicion)||esquinasposibles.get(2).esIgual(unaPosicion)||esquinasposibles.get(3).esIgual(unaPosicion))==false){
 			throw new EsquinasInvalidasException();
 			
 		}
