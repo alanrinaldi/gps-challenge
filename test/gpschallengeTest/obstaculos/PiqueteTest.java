@@ -1,6 +1,6 @@
 package gpschallengeTest.obstaculos;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import gpschallenge.componentes.obstaculos.Piquete;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Auto;
@@ -79,13 +79,15 @@ public class PiqueteTest {
 			vehiculo.setPosicion(unaEsquina);
 		
 			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
-		
+			
 			vehiculo.moverA(arriba);
 		
 			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
 			assertEquals(1,vehiculo.getCantMovimientos());
 		}
-		catch (EsquinasInvalidasException e1){}
+		catch (EsquinasInvalidasException e1){ 
+			System.out.println("Auto Cambia de Posicion");
+		}
 	}
 	
 	@Test
@@ -94,7 +96,7 @@ public class PiqueteTest {
 		try {
 			Calle unaCalle = new Calle(unaEsquina,otraEsquina);
 			unaCalle.addAfectable(unPiquete);
-		
+			
 			unaEsquina.agregarCalle(arriba , unaCalle);
 			otraEsquina.agregarCalle(abajo, unaCalle);
 		
@@ -106,11 +108,14 @@ public class PiqueteTest {
 			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
 		
 			vehiculo.moverA(arriba);
-		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			
+			assertTrue(unaEsquina.getPosicion().esIgual(vehiculo.getPosicionActual().getPosicion()));
 			assertEquals(1,vehiculo.getCantMovimientos());
+			
 		}
-		catch (EsquinasInvalidasException e1){}
+		catch (EsquinasInvalidasException e1){
+			System.out.println("CuatroXCuatro Cambia de Posicion");
+		}
 	}
 	
 	@Test
@@ -122,7 +127,7 @@ public class PiqueteTest {
 		
 			unaEsquina.agregarCalle(arriba , unaCalle);
 			otraEsquina.agregarCalle(abajo, unaCalle);
-		
+			
 			EstadoVehiculo moto = Moto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(moto);
 		
@@ -135,7 +140,9 @@ public class PiqueteTest {
 			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
 			assertEquals(3,vehiculo.getCantMovimientos());
 		}
-		catch (EsquinasInvalidasException e1){}
+		catch (EsquinasInvalidasException e1){
+			System.out.println("Moto No Cambia de Posicion");
+		}
 	}
 		
 		
