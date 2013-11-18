@@ -10,7 +10,6 @@ public class Juego {
 	
 	public Juego(Jugador unJugador){
 		
-		mapa = new Mapa(2,2);
 		mapa.inicializarJuego();
 		records = cargarRecords();
 		jugador = unJugador;
