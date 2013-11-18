@@ -93,12 +93,12 @@ public class Vehiculo {
 		this.ubicacionAnterior = this.ubicacionActual;
 		if (this.ubicacionActual.puedeMoverseADireccion(unaDireccion)){
 			
-			this.afectar(ubicacionActual.devolverCalleEnDireccion(unaDireccion).getAfectables());
+			
 		
 			if (ubicacionActual.devolverCalleEnDireccion(unaDireccion).verificarQueEsquinaEs(ubicacionActual)){
 				
 				ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getOtraEsquina();
-			
+				this.afectar(ubicacionAnterior.devolverCalleEnDireccion(unaDireccion).getAfectables());
 			}
 			
 			else ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getUnaEsquina();
