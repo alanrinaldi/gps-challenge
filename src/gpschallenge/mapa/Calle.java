@@ -16,17 +16,18 @@ public class Calle {
 	
 	public Calle(Esquina esquina, Esquina esquina2) throws EsquinasInvalidasException{
 		
-		esquinasposibles.add(new Posicion (2,0));
-		esquinasposibles.add(new Posicion (-2,0));
-		esquinasposibles.add(new Posicion (0,-2));
-		esquinasposibles.add(new Posicion (0,2));
+		//Diferencias de posicion posibles entre una esquina y otra.
+		esquinasposibles.add(new Posicion (1,0));
+		esquinasposibles.add(new Posicion (-1,0));
+		esquinasposibles.add(new Posicion (0,-1));
+		esquinasposibles.add(new Posicion (0,1));
 		
 		unaEsquina = esquina;
 		otraEsquina = esquina2;
 		
 		Posicion unaPosicion = unaEsquina.getPosicion().restarPosicion(otraEsquina.getPosicion());
 		
-		
+		//Si la diferencia de posicion de una esquina y la otra es distinta lanza la excepcion.
 		if (esquinasposibles.contains(unaPosicion)!= true){
 			throw new EsquinasInvalidasException();
 			
