@@ -9,13 +9,14 @@ public class Mapa {
 	
 	private HashMap<Posicion,Esquina> mapaEsquinas;
 	private Esquina esquinaInicial;
+	private Meta meta;
 	
 	private static Mapa unicoMapa = null;
 	private Mapa(){
 		
 		mapaEsquinas = new HashMap<Posicion,Esquina>();
-		
 	}
+	
 	public static Mapa getInstancia(){
 		if(unicoMapa == null){
 			unicoMapa = new Mapa();
@@ -26,14 +27,12 @@ public class Mapa {
 	
 	public void agregarEsquina(Esquina esquina){
 		
-		mapaEsquinas.put(esquina.getPosicion(), esquina);
-		
+		mapaEsquinas.put(esquina.getPosicion(), esquina);	
 	}
 	
 	public Esquina getEsquinaEnPosicion(Posicion posicion){
 		
-		return mapaEsquinas.get(posicion);
-		
+		return mapaEsquinas.get(posicion);	
 	}
 	
 	public void setEsquinaInicial(Esquina esquina){
@@ -43,8 +42,17 @@ public class Mapa {
 	
 	public Esquina getEsquinaInicial(){
 		
-		return esquinaInicial;
+		return esquinaInicial;	
+	}
+	
+	public void setMeta(Meta laMeta){
 		
+		meta = laMeta;
+	}
+	
+	public Meta getMeta(){
+		
+		return meta;
 	}
 	
 	public void inicializarJuego() {
