@@ -1,6 +1,8 @@
 package gpschallengeTest.motor;
 
 import static org.junit.Assert.*;
+import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
 
 import org.junit.Before;
@@ -12,7 +14,7 @@ public class MapaTest {
 		unMapa = Mapa.getInstancia();
 	}
 	@Test
-	public void iniciaNoNUll(){
+	public void iniciaNoNull(){
 		assertNotNull(unMapa);
 	}
 	@Test
@@ -20,4 +22,17 @@ public class MapaTest {
 		Mapa otroMapa = Mapa.getInstancia();
 		assertEquals(unMapa.hashCode(), otroMapa.hashCode());
 	}
+	
+	@Test
+	public void agregaUnaEsquinaEnPosicion(){
+		
+		Posicion posicion = new Posicion(1,1);
+		Esquina unaEsquina = new Esquina(posicion);
+		unMapa.agregarEsquina(unaEsquina);
+		
+		assertEquals(unMapa.getEsquinaEnPosicion(posicion).getPosicion(),posicion);
+		
+	}
+	
+	
 }
