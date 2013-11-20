@@ -15,6 +15,7 @@ public class Juego {
 		records = cargarRecords();
 		jugador = unJugador;
 		finalizado = false;
+		mapa = Mapa.getInstancia();
 		
 	}
 	
@@ -48,7 +49,7 @@ public class Juego {
 	
 	public boolean juegoFinalizado(){
 		
-		if (finalizado == true) return true;
+		if (finalizado) return true;
 		return false;
 		
 	}

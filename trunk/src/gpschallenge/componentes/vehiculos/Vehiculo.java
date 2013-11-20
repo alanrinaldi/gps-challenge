@@ -16,7 +16,7 @@ public class Vehiculo {
 	private int cantMovimientos = 0;
 //	private Mapa mapa;
 	
-	public Vehiculo(){}
+	public Vehiculo(){};
 	
 	public Vehiculo(EstadoVehiculo unEstado){
 		this.estado = unEstado;
