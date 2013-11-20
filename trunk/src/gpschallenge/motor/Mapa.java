@@ -1,27 +1,52 @@
 package gpschallenge.motor;
 
-
-import gpschallenge.componentes.obstaculos.Obstaculo;
-import gpschallenge.componentes.sorpresas.Sorpresa;
 import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.mapa.Esquina;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Mapa {
 	
+	private HashMap<Posicion,Esquina> mapaEsquinas;
+	private Esquina esquinaInicial;
 	
-	HashMap<Posicion,Obstaculo> mapaObstaculos;
-	HashMap<Posicion,Sorpresa> mapaSorpresas;
-	ArrayList<Posicion> posicionesMapa;
 	private static Mapa unicoMapa = null;
-	private Mapa(){}
+	private Mapa(){
+		
+		mapaEsquinas = new HashMap<Posicion,Esquina>();
+		
+	}
 	public static Mapa getInstancia(){
 		if(unicoMapa == null){
 			unicoMapa = new Mapa();
 		}
 		return unicoMapa;
 	}
+
+	
+	public void agregarEsquina(Esquina esquina){
+		
+		mapaEsquinas.put(esquina.getPosicion(), esquina);
+		
+	}
+	
+	public Esquina getEsquinaEnPosicion(Posicion posicion){
+		
+		return mapaEsquinas.get(posicion);
+		
+	}
+	
+	public void setEsquinaInicial(Esquina esquina){
+		
+		esquinaInicial = esquina;
+	}
+	
+	public Esquina getEsquinaInicial(){
+		
+		return esquinaInicial;
+		
+	}
+	
 	public void inicializarJuego() {
 		
 	}
