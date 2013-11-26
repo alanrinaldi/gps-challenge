@@ -1,0 +1,10 @@
+
+Leyendo los dos enunciados, vi que dice que el mapa y la cantidad de obstaculos solo varia por nivel.
+Me parece que se podrian hacer 3 mapas, con su tamanio y los obstaculos y sorpresas ya definido.
+Estuve probando serializar las distintas clases a .xml y aca tambien necesitan tener constructores sin argumentos. 
+Lo digo mas que nada porque los mapas tienen que estar en .xml por lo tanto es porque fue serializado y en el caso de 
+que se decida pasarle el tamanio habria que hacerlo con metodos y no desde el constructor.
+
+Despues modifico todo lo que usa posiciones para usar los get en lugar de mandarlo por constructor.
+En realidad si tiene argumentos el constructor, se puede serializar pero no deserializar.
+
