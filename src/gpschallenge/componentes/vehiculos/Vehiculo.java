@@ -1,115 +1,101 @@
 package gpschallenge.componentes.vehiculos;
 
+import gpschallenge.componentes.obstaculos.Afectable;
+import gpschallenge.componentes.utililidades.Posicion;
+
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import gpschallenge.componentes.obstaculos.Afectable;
-import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.direccionamiento.Direccion;
-import gpschallenge.mapa.Esquina;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 //import gpschallenge.motor.Mapa;
 
-public class Vehiculo {
-	private Esquina ubicacionActual = new Esquina(new Posicion(0,0));
-	private Esquina ubicacionAnterior = new Esquina(new Posicion(0,0));
+public class Vehiculo extends JLabel {
+	private static final long serialVersionUID = -2393117504290151547L;
 	private EstadoVehiculo estado = null;
 	private int cantMovimientos = 0;
-//	private Mapa mapa;
-	
-	public Vehiculo(){};
-	
-	public Vehiculo(EstadoVehiculo unEstado){
+	private Posicion ubicacionActual;
+	private Posicion ubicacionAnterior;
+
+	public Vehiculo() {
+		this.ubicacionActual = new Posicion(0, 0);
+		this.ubicacionAnterior = new Posicion(0, 0);
+		
+		/* Esta imagne debería venir con la instancia de auto, moto o 4x4*/
+		this.setIcon(new ImageIcon(getClass().getResource(
+				"/gpschallenge/imagenes/auto.png")));
+		this.setBackground(Color.white);
+	}
+
+	public Vehiculo(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
 	}
-	
-	public void setEstado(EstadoVehiculo unEstado){
+
+	public void setEstado(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
 	}
-	
-	public EstadoVehiculo getEstado(){
+
+	public EstadoVehiculo getEstado() {
 		return this.estado;
 	}
-	
-	public void reiniciarValoresACero(){
-	/* Setea a valores iniciales(cero) */
+
+	public void reiniciarValoresACero() {
+		/* Setea a valores iniciales(cero) */
 		this.cantMovimientos = 0;
-		this.ubicacionActual = new Esquina(new Posicion(0,0));
-		this.ubicacionAnterior = new Esquina(new Posicion(0,0));
+		this.ubicacionActual = new Posicion(0, 0);
+		this.ubicacionAnterior = new Posicion(0, 0);
 	}
-	
-	public void sumarMovimientos(int valor){
+
+	public void sumarMovimientos(int valor) {
 		cantMovimientos += valor;
 	}
-	
-	
-	 public void restarMovimientos(int valor){
+
+	public void restarMovimientos(int valor) {
 		cantMovimientos -= valor;
-	} 
-	
-	 
-	public void sumarPorcentajeMovimientos(int valor){
-		int auxiliar = (cantMovimientos*valor)/100;
+	}
+
+	public void sumarPorcentajeMovimientos(int valor) {
+		int auxiliar = (cantMovimientos * valor) / 100;
 		this.sumarMovimientos(auxiliar);
 	}
-	
-	public void restarPorcentajeMovimientos(int valor){
-		int auxiliar = (cantMovimientos*valor)/100;
+
+	public void restarPorcentajeMovimientos(int valor) {
+		int auxiliar = (cantMovimientos * valor) / 100;
 		this.restarMovimientos(auxiliar);
 	}
-	 
-	public int getCantMovimientos(){
+
+	public int getCantMovimientos() {
 		return cantMovimientos;
 	}
-	
-	public void setPosicion(Esquina unaEsquina){
+
+	public void setPosicion(Posicion unaPos) {
 		this.ubicacionAnterior = this.ubicacionActual;
-		this.ubicacionActual = unaEsquina;
+		this.ubicacionActual = unaPos;
 	}
-	
-	public Esquina getPosicionActual(){
-	/* Retorna la posición actual del Vehículo */
+
+	public Posicion getPosicionActual() {
+		/* Retorna la posición actual del Vehículo */
 		return this.ubicacionActual;
 	}
-	
-	public Esquina getPosicionAnterior(){
+
+	public Posicion getPosicionAnterior() {
 		/* Retorna la posición anterior del Vehículo */
-			return this.ubicacionAnterior;
+		return this.ubicacionAnterior;
 	}
-	
-	public void afectar(Afectable unAfectable){
+
+	public void afectar(Afectable unAfectable) {
 		estado.afectar(unAfectable, this);
 	}
-	
-	public void afectar(ArrayList<Afectable> afectables){
-		
+
+	public void afectar(ArrayList<Afectable> afectables) {
+
 		Iterator<Afectable> it = afectables.iterator();
-		while(it.hasNext()){
+		while (it.hasNext()) {
 			estado.afectar(it.next(), this);
 		}
 	}
-	
-	public void moverA(Direccion unaDireccion) {
-		
-		this.ubicacionAnterior = this.ubicacionActual;
-		if (this.ubicacionActual.puedeMoverseADireccion(unaDireccion)){
-			
-			
-		
-			if (ubicacionActual.devolverCalleEnDireccion(unaDireccion).verificarQueEsquinaEs(ubicacionActual)){
-				
-				ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getOtraEsquina();
-				this.afectar(ubicacionAnterior.devolverCalleEnDireccion(unaDireccion).getAfectables());
-			}
-			
-			else ubicacionActual = ubicacionActual.devolverCalleEnDireccion(unaDireccion).getUnaEsquina();
-		}
-		
-		this.sumarMovimientos(1);
-		/*this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());
-		if (this.mapa.hayObjetosEnPosicion(ubicacionActual)){
-			
-		}Falta completar el if
-		this.ubicacionActual.sumarPosicion(unaDireccion.obtenerPosicion());*/
-			
-	}
+
+
 }

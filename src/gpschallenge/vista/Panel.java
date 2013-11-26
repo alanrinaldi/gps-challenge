@@ -1,8 +1,14 @@
 package gpschallenge.vista;
 
-import javax.swing.*;
+import gpschallenge.componentes.obstaculos.Pozo;
+import gpschallenge.componentes.vehiculos.Vehiculo;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class Panel extends JPanel {
 	
@@ -10,16 +16,11 @@ public class Panel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel vehiculo;
-	private int posX = 0;
-	private int posY = 0;
+	private Vehiculo vehiculo;
 
 	public Panel(int dimensionFila, int dimensionColumna){
 		setLayout(new GridLayout(0, 1));
-
-		vehiculo = new JLabel("");
-		vehiculo.setIcon(new ImageIcon(getClass().getResource("/gpschallenge/imagenes/auto.png")));
-		vehiculo.setBackground(Color.white);
+		vehiculo = new Vehiculo();
 		add(vehiculo);
 		
 		this.dibujarMapa(dimensionFila, dimensionColumna);
@@ -30,27 +31,26 @@ public class Panel extends JPanel {
 
 		super.paintComponent(g);
 		super.setBackground(Color.white);
-		vehiculo.setBounds(posX, posY, 32, 38);
+		vehiculo.setBounds(vehiculo.getPosicionActual().getX(), vehiculo.getPosicionActual().getY(), 32, 38);
 		
 	}
 
 	public void moverArriba() {
-		posY -= 80;
+		vehiculo.getPosicionActual().restarPosicion(0, 1);
 		repaint();
 	}
-
 	public void moverAbajo() {
-		posY += 80;
+		vehiculo.getPosicionActual().sumarPosicion(0, 80);
 		repaint();
 	}
 
 	public void moverDerecha() {
-		posX += 75;
+		vehiculo.getPosicionActual().sumarPosicion(75, 0);
 		repaint();
 	}
 
 	public void moverIzquierda() {
-		posX -= 75;
+		vehiculo.getPosicionActual().restarPosicion(75, 0);
 		repaint();
 	}
 
@@ -64,6 +64,7 @@ public class Panel extends JPanel {
 				JButton botonManzana = new JButton("");
 				botonManzana.setBackground(Color.blue);
 				botonManzana.setRolloverEnabled(false);
+				botonManzana.setEnabled(false);
 				botonManzana.setBounds((tamanioManzana*fila) + (anchoVehiculo*(fila+1)),
 						(tamanioManzana*columna) + (altoVehiculo*(columna+1)), tamanioManzana,
 						tamanioManzana);
@@ -71,8 +72,7 @@ public class Panel extends JPanel {
 			}
 		}
 		
-		JButton botonObstaculo = new JButton("");
-		botonObstaculo.setBackground(Color.green);
+		JButton botonObstaculo = new Pozo();
 		botonObstaculo.setRolloverEnabled(false);
 		botonObstaculo.setBounds(35,80,20,40);
 		add(botonObstaculo);
@@ -102,11 +102,11 @@ public class Panel extends JPanel {
 	
 	public int getPosX(){
 		
-		return posX;
+		return vehiculo.getPosicionActual().getY();
 	}
 
 	public int getPosY(){
 		
-		return posY;
+		return vehiculo.getPosicionActual().getX();
 	}
 }

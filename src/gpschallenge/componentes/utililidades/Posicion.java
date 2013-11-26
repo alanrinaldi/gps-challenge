@@ -29,6 +29,16 @@ public class Posicion {
 		this.y += unaPosicion.getY();
 		
 	}
+	public void sumarPosicion(int x, int y) {
+		this.x += x;
+		this.y += y;
+		
+	}
+	public void restarPosicion(int x, int y) {
+		this.x -= x;
+		this.y -= y;
+		
+	}
 	
 	public Posicion restarPosicion(Posicion unaPosicion) {
 		Posicion nuevaposicion= new Posicion (x -= unaPosicion.getX(),y -= unaPosicion.getY());
