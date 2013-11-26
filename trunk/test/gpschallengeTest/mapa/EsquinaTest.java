@@ -56,13 +56,11 @@ public class EsquinaTest {
 			EstadoVehiculo auto = Auto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(auto);
 		
-			vehiculo.setPosicion(unaEsquina);
 		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 		
-			vehiculo.moverA(arriba);
 		
-			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual());
 			assertEquals(1,vehiculo.getCantMovimientos());
 		}
 		catch (EsquinasInvalidasException e1){}
@@ -86,13 +84,11 @@ public class EsquinaTest {
 			EstadoVehiculo auto = Auto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(auto);
 			
-			vehiculo.setPosicion(unaEsquina);
 			
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 			
-			vehiculo.moverA(arriba);
 			
-			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual());
 			assertEquals(4,vehiculo.getCantMovimientos());
 			
 		}

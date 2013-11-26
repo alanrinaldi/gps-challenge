@@ -54,9 +54,7 @@ public class PruebasGeneralesTest {
 			EstadoVehiculo auto = Auto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(auto);
 			
-			vehiculo.setPosicion(unMapa.getEsquinaInicial());
 			
-			vehiculo.moverA(derecha);
 			
 			assertEquals(4,vehiculo.getCantMovimientos());
 			

@@ -76,13 +76,12 @@ public class PiqueteTest {
 			EstadoVehiculo auto = Auto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(auto);
 		
-			vehiculo.setPosicion(unaEsquina);
+			vehiculo.setPosicion(new Posicion(2,1));
 		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 			
-			vehiculo.moverA(arriba);
 		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 			assertEquals(1,vehiculo.getCantMovimientos());
 		}
 		catch (EsquinasInvalidasException e1){ 
@@ -103,13 +102,11 @@ public class PiqueteTest {
 			EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(cuatroxcuatro);
 		
-			vehiculo.setPosicion(unaEsquina);
 		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 		
-			vehiculo.moverA(arriba);
 			
-			assertTrue(unaEsquina.getPosicion().esIgual(vehiculo.getPosicionActual().getPosicion()));
+			assertTrue(unaEsquina.getPosicion().esIgual(vehiculo.getPosicionActual()));
 			assertEquals(1,vehiculo.getCantMovimientos());
 			
 		}
@@ -131,13 +128,11 @@ public class PiqueteTest {
 			EstadoVehiculo moto = Moto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(moto);
 		
-			vehiculo.setPosicion(unaEsquina);
 		
-			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
 		
-			vehiculo.moverA(arriba);
 		
-			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual().getPosicion());
+			assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual());
 			assertEquals(3,vehiculo.getCantMovimientos());
 		}
 		catch (EsquinasInvalidasException e1){

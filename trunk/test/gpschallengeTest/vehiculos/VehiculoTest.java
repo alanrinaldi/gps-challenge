@@ -1,18 +1,20 @@
 package gpschallengeTest.vehiculos;
 
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
-import gpschallenge.componentes.obstaculos.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import gpschallenge.componentes.obstaculos.Afectable;
+import gpschallenge.componentes.obstaculos.Piquete;
+import gpschallenge.componentes.obstaculos.Pozo;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.CuatroXCuatro;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
-import gpschallenge.mapa.Esquina;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -62,10 +64,8 @@ public class VehiculoTest {
 		unVehiculo.sumarMovimientos(10);
 		afectables.add(new Pozo()); // suma 3 movimientos
 		afectables.add(new Piquete()); // vuelve a posicion anterior
-		Esquina unaEsquina = new Esquina(new Posicion(10, 10));
-		unVehiculo.setPosicion(unaEsquina);
 		unVehiculo.afectar(afectables);
-		assertTrue(unVehiculo.getPosicionActual().getPosicion().esIgual(new Posicion(0, 0)));
+		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 		assertEquals(unVehiculo.getCantMovimientos(), 13);
 		
 	}
@@ -85,10 +85,8 @@ public class VehiculoTest {
 		unVehiculo.sumarMovimientos(10);
 		afectables.add(new Pozo()); // suma 0 movimientos
 		afectables.add(new Piquete()); // vuelve a posicion anterior
-		Esquina unaEsquina = new Esquina(new Posicion(10, 10));
-		unVehiculo.setPosicion(unaEsquina);
 		unVehiculo.afectar(afectables);
-		assertTrue(unVehiculo.getPosicionActual().getPosicion().esIgual(new Posicion(0, 0)));
+		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 		assertEquals(unVehiculo.getCantMovimientos(), 10);
 	}
 
