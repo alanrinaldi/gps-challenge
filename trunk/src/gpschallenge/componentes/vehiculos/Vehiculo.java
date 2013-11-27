@@ -2,6 +2,7 @@ package gpschallenge.componentes.vehiculos;
 
 import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.mapa.EsquinaT;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -18,9 +19,10 @@ public class Vehiculo extends JLabel {
 	private int cantMovimientos = 0;
 	private Posicion ubicacionActual;
 	private Posicion ubicacionAnterior;
+	private EsquinaT esquinaActual;
 
 	public Vehiculo() {
-		this.ubicacionActual = new Posicion(0, 0);
+		this.ubicacionActual = new Posicion(0,0);
 		this.ubicacionAnterior = new Posicion(0, 0);
 		
 		/* Esta imagne debería venir con la instancia de auto, moto o 4x4*/
@@ -95,6 +97,14 @@ public class Vehiculo extends JLabel {
 		while (it.hasNext()) {
 			estado.afectar(it.next(), this);
 		}
+	}
+
+	public EsquinaT getEsquinaActual() {
+		return esquinaActual;
+	}
+
+	public void setEsquinaActual(EsquinaT esquina) {
+		this.esquinaActual = esquina;
 	}
 
 
