@@ -41,6 +41,7 @@ public class Panel extends JPanel {
 		/* Esquina inicial de vehiculo */
 		vehiculo.setEsquinaActual(esquinas[0][0]);
 		add(vehiculo);
+		
 	}
 
 	public void paintComponent(Graphics g) {
@@ -207,12 +208,12 @@ public class Panel extends JPanel {
 	}
 	public int getPosX(){
 		
-		return vehiculo.getPosicionActual().getY();
+		return vehiculo.getPosicionActual().getX();
 	}
 
 	public int getPosY(){
 		
-		return vehiculo.getPosicionActual().getX();
+		return vehiculo.getPosicionActual().getY();
 	}
 	private EsquinaT getEsquina(Posicion posicion){
 		EsquinaT esquina = null;
