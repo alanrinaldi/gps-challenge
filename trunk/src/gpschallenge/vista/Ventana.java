@@ -26,7 +26,7 @@ public class Ventana extends JFrame implements KeyListener {
 	public Ventana() throws EsquinasInvalidasException {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 700, 768);
+		setBounds(0, 0, 1000, 768);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -39,9 +39,10 @@ public class Ventana extends JFrame implements KeyListener {
 		int ancho = 8;
 		
 		panelMapa = new Panel(alto, ancho);
-		panelMapa.setBounds(5, 5, 660, 730);
+		panelMapa.setBounds(5, 5, 700, 730);
 		contentPane.add(panelMapa);
 		panelMapa.setLayout(null);
+		
 	}
 		
 	public void keyPressed(KeyEvent e) {
@@ -57,12 +58,12 @@ public class Ventana extends JFrame implements KeyListener {
 				}
 					break;
 			case KeyEvent.VK_DOWN:
-				if (panelMapa.getPosY()<(7*alto_movimiento)){
+				if (panelMapa.getPosY()<(8*alto_movimiento)){
 					panelMapa.moverAbajo();
 				}
 					break;
 			case KeyEvent.VK_RIGHT:
-				if (panelMapa.getPosX()<(7*ancho_movimiento)){
+				if (panelMapa.getPosX()<(8*ancho_movimiento)){
 					panelMapa.moverDerecha();
 				}
 					break;
