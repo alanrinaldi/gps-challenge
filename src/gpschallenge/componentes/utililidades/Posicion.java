@@ -1,8 +1,8 @@
 package gpschallenge.componentes.utililidades;
 
 public class Posicion {
-	private int x = 0;
-	private int y = 0;
+	private Integer x = 0;
+	private Integer y = 0;
 	public Posicion(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -43,6 +43,9 @@ public class Posicion {
 	public Posicion restarPosicion(Posicion unaPosicion) {
 		Posicion nuevaposicion= new Posicion (x -= unaPosicion.getX(),y -= unaPosicion.getY());
 		return nuevaposicion;
+	}
+	public String toString(){
+		return (x.toString() + ", " + y.toString());
 	}
 
 }
