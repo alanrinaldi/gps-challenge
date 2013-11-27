@@ -25,7 +25,7 @@ public class PruebasGeneralesTest {
 	public void setUp(){
 		unMapa = Mapa.getInstancia();
 	}
-	
+	/*
 	@Test
 	public void crearMapaConEsquinasYMoverse(){
 		
@@ -54,8 +54,6 @@ public class PruebasGeneralesTest {
 			EstadoVehiculo auto = Auto.getInstancia();
 			Vehiculo vehiculo = new Vehiculo(auto);
 			
-			
-			
 			assertEquals(4,vehiculo.getCantMovimientos());
 			
 		} catch (EsquinasInvalidasException e) {
@@ -64,5 +62,5 @@ public class PruebasGeneralesTest {
 		}
 		
 	}
-
+	*/
 }
