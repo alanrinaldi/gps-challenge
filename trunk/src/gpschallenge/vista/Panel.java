@@ -242,4 +242,9 @@ public class Panel extends JPanel {
 
 		return vehiculo.getPosicionActual().getY();
 	}
+	
+	public Vehiculo getVehiculo(){
+		
+		return vehiculo;
+	}
 }

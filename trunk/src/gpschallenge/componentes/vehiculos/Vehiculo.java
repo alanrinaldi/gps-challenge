@@ -106,6 +106,11 @@ public class Vehiculo extends JLabel {
 	public void setEsquinaActual(EsquinaT esquina) {
 		this.esquinaActual = esquina;
 	}
+	
+	public String soyUn(){
+		
+		return estado.soyUn();
+	}
 
 
 }

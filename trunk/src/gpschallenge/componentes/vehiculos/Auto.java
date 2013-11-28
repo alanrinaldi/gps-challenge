@@ -14,5 +14,9 @@ public class Auto implements EstadoVehiculo {
 	public void afectar(Afectable unAfectable, Vehiculo unVehiculo) {
 		unAfectable.afectarAuto(unVehiculo);
 	}
+	@Override
+	public String soyUn() {
+		return "Auto";
+	}
 }
 

@@ -14,5 +14,9 @@ public class CuatroXCuatro implements EstadoVehiculo {
 	public void afectar(Afectable unAfectable, Vehiculo unVehiculo) {
 		unAfectable.afectarCuatroXCuatro(unVehiculo);
 	}
+	@Override
+	public String soyUn() {
+		return "Cuatro X Cuatro";
+	}
 }
 
