@@ -18,5 +18,10 @@ public class CuatroXCuatro implements EstadoVehiculo {
 	public String soyUn() {
 		return "Cuatro X Cuatro";
 	}
+	@Override
+	public String getImagen() {
+
+		return "/gpschallenge/imagenes/4x4.png";
+	}
 }
 

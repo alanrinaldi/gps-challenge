@@ -18,5 +18,10 @@ public class Auto implements EstadoVehiculo {
 	public String soyUn() {
 		return "Auto";
 	}
+	@Override
+	public String getImagen() {
+
+		return "/gpschallenge/imagenes/auto.png";
+	}
 }
 
