@@ -2,7 +2,6 @@ package gpschallenge.vista;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -23,6 +22,8 @@ public class Ventana extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Panel panelMapa;
+	private PanelInformacion panelInformacion;
+	private PanelOpciones panelOpciones;
 	final int ancho_movimiento = 80;
 	final int alto_movimiento = 80;
 
@@ -33,7 +34,7 @@ public class Ventana extends JFrame implements KeyListener {
 	public Ventana() throws EsquinasInvalidasException {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 768);
+		setBounds(0, 0, 920, 768);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,7 +61,18 @@ public class Ventana extends JFrame implements KeyListener {
 		contentPane.add(panelMapa);
 		panelMapa.setLayout(null);
 		
+		panelInformacion = new PanelInformacion();
+		panelInformacion.setBounds(705, 5, 180, 300);
+		contentPane.add(panelInformacion);
+		panelInformacion.setLayout(null);
+		
+		panelOpciones = new PanelOpciones();
+		panelOpciones.setBounds(705, 600, 200, 80);
+		contentPane.add(panelOpciones);
+		panelOpciones.setLayout(null);
+		
 	}
+	
 		
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -72,21 +84,29 @@ public class Ventana extends JFrame implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (panelMapa.getPosY()>0){
 					panelMapa.moverArriba();
+					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
+					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
 				}
 					break;
 			case KeyEvent.VK_DOWN:
 				if (panelMapa.getPosY()<(8*alto_movimiento)){
 					panelMapa.moverAbajo();
+					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
+					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
 				}
 					break;
 			case KeyEvent.VK_RIGHT:
 				if (panelMapa.getPosX()<(8*ancho_movimiento)){
 					panelMapa.moverDerecha();
+					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
+					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
 				}
 					break;
 			case KeyEvent.VK_LEFT:
 				if (panelMapa.getPosX()>0){
 					panelMapa.moverIzquierda();
+					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
+					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
 				}
 					break;
 		}	
@@ -94,7 +114,7 @@ public class Ventana extends JFrame implements KeyListener {
 	}
 
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

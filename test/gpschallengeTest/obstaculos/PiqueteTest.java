@@ -5,14 +5,11 @@ import gpschallenge.componentes.obstaculos.Piquete;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.direccionamiento.Abajo;
 import gpschallenge.direccionamiento.Arriba;
 import gpschallenge.direccionamiento.Direccion;
-import gpschallenge.excepciones.EsquinasInvalidasException;
-import gpschallenge.mapa.Calle;
 import gpschallenge.mapa.Esquina;
 
 import org.junit.Before;

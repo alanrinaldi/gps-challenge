@@ -14,5 +14,10 @@ public class Moto implements EstadoVehiculo {
 	public void afectar(Afectable unAfectable, Vehiculo unVehiculo) {
 		unAfectable.afectarMoto(unVehiculo);
 	}
+	@Override
+	public String soyUn() {
+		
+		return "Moto";
+	}
 }
 
