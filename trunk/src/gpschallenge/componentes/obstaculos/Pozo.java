@@ -1,10 +1,9 @@
 package gpschallenge.componentes.obstaculos;
 
+import gpschallenge.componentes.utililidades.ObjetoAfectador;
+import gpschallenge.componentes.vehiculos.Vehiculo;
+
 import java.awt.Color;
-
-import javax.swing.JButton;
-
-import gpschallenge.componentes.vehiculos.*;
 
 
 
@@ -13,7 +12,7 @@ import gpschallenge.componentes.vehiculos.*;
  * @author delpinor
  *
  */
-public class Pozo extends JButton implements Afectable{
+public class Pozo extends ObjetoAfectador{
 
 	private static final long serialVersionUID = -8611256347492902590L;
 	private static int VALOR_PENALIZACION = 3;
