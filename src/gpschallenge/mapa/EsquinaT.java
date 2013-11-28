@@ -1,6 +1,7 @@
 package gpschallenge.mapa;
 
 import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.componentes.utililidades.Sentido;
 
 public class EsquinaT {
 	
@@ -15,6 +16,19 @@ public class EsquinaT {
 		calleArriba = null;
 		calleAbajo = null;
 		this.posicion = unaPosicion;
+	}
+	public CalleT getCalleEnSentido(Sentido sentido){
+		switch (sentido){
+		case IZQUIERDA:
+			return calleIzquierda;
+		case ARRIBA:
+			return calleArriba;
+		case DERECHA:
+			return calleDerecha;
+		case ABAJO:
+			return calleAbajo;
+		}
+		return null;
 	}
 	public CalleT getCalleDerecha(){
 		return this.calleDerecha;

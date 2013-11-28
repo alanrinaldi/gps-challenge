@@ -6,6 +6,13 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import gpschallenge.componentes.obstaculos.ControlPolicial;
+import gpschallenge.componentes.obstaculos.Piquete;
+import gpschallenge.componentes.obstaculos.Pozo;
+import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
+import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
+import gpschallenge.componentes.sorpresas.SorpresaFavorable;
+import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 
 public class Ventana extends JFrame implements KeyListener {
@@ -16,7 +23,7 @@ public class Ventana extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Panel panelMapa;
-	final int ancho_movimiento = 75;
+	final int ancho_movimiento = 80;
 	final int alto_movimiento = 80;
 
 	/**
@@ -39,6 +46,16 @@ public class Ventana extends JFrame implements KeyListener {
 		int ancho = 8;
 		
 		panelMapa = new Panel(alto, ancho);
+		// Agrego un pozo en la esquina 5, 5 lado derecho
+		panelMapa.addAfectable(5, 5, Sentido.DERECHA, new Piquete());
+		// Agrego un pozo en la esquina 4, 4 lado izquierdo
+		panelMapa.addAfectable(4, 4, Sentido.IZQUIERDA, new Pozo());
+		// Agrego una Sopresa en la esquina 2, 3 lado derecho
+		panelMapa.addAfectable(4, 1, Sentido.ARRIBA, new ControlPolicial());
+		panelMapa.addAfectable(2, 3, Sentido.ABAJO, new SorpresaDesfavorable());
+		panelMapa.addAfectable(3, 3, Sentido.ARRIBA, new SorpresaFavorable());
+		panelMapa.addAfectable(4, 3, Sentido.ARRIBA, new CambioDeVehiculo());
+		
 		panelMapa.setBounds(5, 5, 700, 730);
 		contentPane.add(panelMapa);
 		panelMapa.setLayout(null);
