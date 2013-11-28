@@ -20,15 +20,14 @@ public class Vehiculo extends JLabel {
 	private Posicion ubicacionActual;
 	private Posicion ubicacionAnterior;
 	private EsquinaT esquinaActual;
+	private EsquinaT esquinaAnterior;
 
 	public Vehiculo() {
 		this.ubicacionActual = new Posicion(0,0);
-		this.ubicacionAnterior = new Posicion(0, 0);
+		this.ubicacionAnterior = new Posicion(0,0);
 		
 		/* Esta imagne debería venir con la instancia de auto, moto o 4x4*/
-		this.setIcon(new ImageIcon(getClass().getResource(
-				"/gpschallenge/imagenes/auto.png")));
-		this.setBackground(Color.white);
+		
 	}
 
 	public Vehiculo(EstadoVehiculo unEstado) {
@@ -37,6 +36,9 @@ public class Vehiculo extends JLabel {
 
 	public void setEstado(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
+		this.setIcon(new ImageIcon(getClass().getResource(estado.getImagen())));
+		//getClass().getResource("/gpschallenge/imagenes/auto.png")));
+		this.setBackground(Color.white);
 	}
 
 	public EstadoVehiculo getEstado() {
@@ -104,7 +106,13 @@ public class Vehiculo extends JLabel {
 	}
 
 	public void setEsquinaActual(EsquinaT esquina) {
+		this.esquinaAnterior = esquinaActual;
 		this.esquinaActual = esquina;
+	}
+	
+	public EsquinaT getEsquinaAnterior(){
+		
+		return esquinaAnterior;
 	}
 	
 	public String soyUn(){

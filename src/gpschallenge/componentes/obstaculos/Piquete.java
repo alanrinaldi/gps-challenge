@@ -5,7 +5,9 @@ package gpschallenge.componentes.obstaculos;
 import java.awt.Color;
 
 import gpschallenge.componentes.utililidades.ObjetoAfectador;
+import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.mapa.EsquinaT;
 
 /**
  * @author delpinor
@@ -24,7 +26,7 @@ public class Piquete extends ObjetoAfectador{
 	}
 	
 	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
-		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
+		unVehiculo.setEsquinaActual(unVehiculo.getEsquinaAnterior());
 		
 	}
 
@@ -34,7 +36,7 @@ public class Piquete extends ObjetoAfectador{
 	}
 
 	public void afectarAuto(Vehiculo unVehiculo) {
-		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
+		unVehiculo.setEsquinaActual(new EsquinaT(new Posicion(0,0)));
 		
 	}
 	
