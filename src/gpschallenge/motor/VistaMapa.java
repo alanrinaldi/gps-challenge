@@ -37,8 +37,8 @@ public class VistaMapa extends JPanel {
 		this.altoObjeto = (ANCHO_PANEL) / ((mapa.getAltoEsquinas() * 2) + 1);
 		this.anchoObjeto = (ALTO_PANEL) / ((mapa.getAnchoEsquinas() * 2) + 1);
 		this.separacionEntreEsquinas = altoObjeto * 2;
-		this.distancia_esquina_afectable = separacionEntreEsquinas/4;
-		this.mapa.setPosicionPrimerEsquina(anchoObjeto, altoObjeto, separacionEntreEsquinas);
+		this.distancia_esquina_afectable = separacionEntreEsquinas/2;
+		this.mapa.setPosicionPrimerEsquina(anchoObjeto+anchoObjeto/mapa.getAnchoEsquinas(), altoObjeto, separacionEntreEsquinas);
 		this.mapa.getVehiculo().setValorPorMovimiento(separacionEntreEsquinas);
 		// tamaño del panel
 		// Tamaño de los objetos de acuerdo a la cantidad
@@ -54,7 +54,6 @@ public class VistaMapa extends JPanel {
 		this.setBackground(Color.BLACK);
 		this.vistaVehiculo = new VistaVehiculo(this.mapa.getVehiculo());
 		this.add(vistaVehiculo);
-		this.dibujarAfectables();
 
 	}
 
@@ -62,20 +61,7 @@ public class VistaMapa extends JPanel {
 		super.paintComponent(g);
 		super.setBackground(Color.white);
 		this.dibujarVehiculo();
-
-		// Panel Informacion pruebas
-		System.out
-				.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println("Posicion Actual vehiculo: "
-				+ this.mapa.getVehiculo().getPosicionActual());
-		System.out.println("Posicion Anterior vehiculo: "
-				+ this.mapa.getVehiculo().getPosicionAnterior());
-		System.out.println("Movimientos vehiculo: "
-				+ this.mapa.getVehiculo().getCantMovimientos());
-		System.out.println("Posicion actual Esquina : "
-				+ this.mapa.getVehiculo().getEsquinaActual().getPosicion());
-	//	System.out.println("Posicion anterior Esquina : "
-			//	+ this.mapa.getVehiculo().getEsquinaAnterior().getPosicion());
+		this.dibujarAfectables();
 	}
 
 	private void dibujarVehiculo() {
@@ -87,31 +73,46 @@ public class VistaMapa extends JPanel {
 	}
 
 	private void dibujarAfectables(){
+		ArrayList<Afectable> afectables;
 		for (int i = 1; i < mapa.getAnchoEsquinas(); i++) {
 			for (int j = 1; j < mapa.getAltoEsquinas(); j++) {
 				Esquina esquina = mapa.getEsquina(i, j);
-				ArrayList<Afectable> afectables = esquina.getCalleEnSentido(Sentido.DERECHA).getAfectables();
-				//this.dibujar(afectables, esquina, Sentido.ARRIBA);
-				this.dibujar(afectables, esquina, Sentido.ABAJO);
-				//this.dibujar(afectables, esquina, Sentido.DERECHA);
+				afectables = esquina.getCalleEnSentido(Sentido.DERECHA).getAfectables();
+				this.dibujar(afectables, esquina, Sentido.DERECHA);
+				afectables = esquina.getCalleEnSentido(Sentido.IZQUIERDA).getAfectables();
 				this.dibujar(afectables, esquina, Sentido.IZQUIERDA);
+				afectables = esquina.getCalleEnSentido(Sentido.ARRIBA).getAfectables();
+				this.dibujar(afectables, esquina, Sentido.ARRIBA);
+				afectables = esquina.getCalleEnSentido(Sentido.ABAJO).getAfectables();
+				this.dibujar(afectables, esquina, Sentido.ABAJO);
+
 			}
 		}
 	}
-	
 	private void dibujar(ArrayList<Afectable> lista, Esquina esquina, Sentido sentido){
 		Iterator<Afectable> it = lista.iterator();
 		Afectable afectable;
+		Posicion pos;
 		while (it.hasNext()) {
 			afectable = it.next();
 			VistaAfectable unaVista= new VistaAfectable(afectable);
-			if(sentido == Sentido.DERECHA || sentido == Sentido.IZQUIERDA){
-				Posicion pos = esquina.getPosicion();
-				unaVista.setBounds(pos.getX() + distancia_esquina_afectable, pos.getY(), anchoObjeto/2, altoObjeto);
-			}
-			if(sentido == Sentido.ABAJO || sentido == Sentido.ARRIBA){
-				Posicion pos = esquina.getPosicion();
-				unaVista.setBounds(pos.getX(), pos.getY() + distancia_esquina_afectable, anchoObjeto, altoObjeto/2);
+			pos = esquina.getPosicion();
+			switch (sentido) {
+			case DERECHA:
+				unaVista.setBounds(pos.getX() + distancia_esquina_afectable, pos.getY(), anchoObjeto, altoObjeto);
+				break;
+			case IZQUIERDA:
+				unaVista.setBounds(pos.getX() - distancia_esquina_afectable, pos.getY(), anchoObjeto, altoObjeto);
+				break;
+			case ABAJO:
+				unaVista.setBounds(pos.getX(), pos.getY() + distancia_esquina_afectable, anchoObjeto, altoObjeto);
+				break;
+			case ARRIBA:
+				unaVista.setBounds(pos.getX(), pos.getY() - distancia_esquina_afectable, anchoObjeto, altoObjeto);
+				break;
+
+			default:
+				break;
 			}
 			this.add(unaVista);
 		}

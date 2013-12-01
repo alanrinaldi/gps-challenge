@@ -2,6 +2,8 @@ package gpschallenge.componentes.sorpresas;
 
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
+import java.awt.Graphics;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -16,7 +18,7 @@ public class VistaVehiculo extends JLabel {
 
 	public VistaVehiculo(Vehiculo vehiculo) {
 		this.vehiculo = vehiculo;
-		this.setIcon(this.getImagenVehiculo());
+		//this.setIcon(this.getImagenVehiculo());
 	}
 
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
@@ -36,5 +38,9 @@ public class VistaVehiculo extends JLabel {
 		}
 		img = new ImageIcon(getClass().getResource(url));
 		return img;
+	}
+	public void paint(Graphics g){
+		super.paint(g);
+		this.setIcon(this.getImagenVehiculo());
 	}
 }

@@ -1,6 +1,11 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.obstaculos.ControlPolicial;
+import gpschallenge.componentes.obstaculos.Piquete;
 import gpschallenge.componentes.obstaculos.Pozo;
+import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
+import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
+import gpschallenge.componentes.sorpresas.SorpresaFavorable;
 import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
@@ -41,20 +46,19 @@ public class Ventana extends JFrame implements KeyListener {
 		addKeyListener(this);
 		setFocusable(true);
 
-		mapa = new Mapa(12, 12);
+		mapa = new Mapa(10, 10);
 		vehiculo = new Vehiculo(Moto.getInstancia());
 
 		// Agrego Vehiculo
-		mapa.setVehiculoEnEsquina(vehiculo, 5, 5);
+		mapa.setVehiculoEnEsquina(vehiculo, 4, 4);
 
 		// Afectable
-		mapa.addAfectable(new Pozo(), 4, 4, Sentido.DERECHA);
-		mapa.addAfectable(new Pozo(), 2, 2, Sentido.DERECHA);
-		mapa.addAfectable(new Pozo(), 1, 4, Sentido.DERECHA);
-		mapa.addAfectable(new Pozo(), 2, 1, Sentido.DERECHA);
-		mapa.addAfectable(new Pozo(), 5, 3, Sentido.DERECHA);
-		mapa.addAfectable(new Pozo(), 5, 2, Sentido.DERECHA);
-		
+		mapa.addAfectable(new Pozo(), 1, 1, Sentido.DERECHA);
+		mapa.addAfectable(new ControlPolicial(), 2, 2, Sentido.IZQUIERDA);
+		mapa.addAfectable(new Piquete(), 3, 3, Sentido.DERECHA);
+		mapa.addAfectable(new SorpresaFavorable(), 3, 4, Sentido.ABAJO);
+		mapa.addAfectable(new SorpresaDesfavorable(), 4, 2, Sentido.ARRIBA);
+		mapa.addAfectable(new CambioDeVehiculo(), 3, 1, Sentido.DERECHA);
 		// Creo vista Mapa y agrego la logica al modelo
 		vistaMapa = new VistaMapa(mapa);
 

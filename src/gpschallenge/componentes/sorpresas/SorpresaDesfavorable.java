@@ -30,6 +30,6 @@ public class SorpresaDesfavorable implements Afectable {
 	@Override
 	public AfectableTipo getTipo() {
 		// TODO Auto-generated method stub
-		return null;
+		return AfectableTipo.SORPRESADESFAVORABLE;
 	}
 }
