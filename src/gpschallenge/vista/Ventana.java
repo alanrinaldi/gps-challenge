@@ -46,7 +46,8 @@ public class Ventana extends JFrame implements KeyListener {
 		addKeyListener(this);
 		setFocusable(true);
 
-		mapa = new Mapa(10, 10);
+		mapa = new Mapa(8, 8);
+		System.out.println(mapa.getAltoEsquinas());
 		vehiculo = new Vehiculo(Moto.getInstancia());
 
 		// Agrego Vehiculo
@@ -56,13 +57,16 @@ public class Ventana extends JFrame implements KeyListener {
 		mapa.addAfectable(new Pozo(), 1, 1, Sentido.DERECHA);
 		mapa.addAfectable(new ControlPolicial(), 2, 2, Sentido.IZQUIERDA);
 		mapa.addAfectable(new Piquete(), 3, 3, Sentido.DERECHA);
-		mapa.addAfectable(new SorpresaFavorable(), 3, 4, Sentido.ABAJO);
+		mapa.addAfectable(new CambioDeVehiculo(), 3, 3, Sentido.DERECHA);
+		mapa.addAfectable(new SorpresaFavorable(), 2, 2, Sentido.IZQUIERDA);
 		mapa.addAfectable(new SorpresaDesfavorable(), 4, 2, Sentido.ARRIBA);
 		mapa.addAfectable(new CambioDeVehiculo(), 3, 1, Sentido.DERECHA);
-		// Creo vista Mapa y agrego la logica al modelo
+		mapa.addAfectable(new CambioDeVehiculo(), 3, 1, Sentido.DERECHA);
+
+		// Creo vista Mapa y agrego a la vista
 		vistaMapa = new VistaMapa(mapa);
 
-		// Agrego a la vista
+		// Agrego a la vista principal
 		contentPane.add(vistaMapa);
 		vistaMapa.setLayout(null);
 
@@ -109,7 +113,6 @@ public class Ventana extends JFrame implements KeyListener {
 		vehiculo.setEsquina(mapa.getEsquina(vehiculo.getPosicionActual()));
 		panelInformacion.actualizarMovimientos(vehiculo.getCantMovimientos());
 		panelInformacion.actualizarEstado(vehiculo.getTipoVehiculo().toString());
-		vistaMapa.repaint();
 	}
 
 	public void keyTyped(KeyEvent e) {

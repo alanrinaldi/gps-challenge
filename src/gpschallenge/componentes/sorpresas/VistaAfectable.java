@@ -19,12 +19,12 @@ public class VistaAfectable extends JLabel {
 
 	public VistaAfectable(Afectable unAfectable) {
 		this.afectable = unAfectable;
-		this.setIcon(this.getImagenVehiculo());
+		this.setIcon(this.getImagen());
+
 	}
 
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
-	private ImageIcon getImagenVehiculo() {
-		ImageIcon img = null;
+	public ImageIcon getImagen() {
 		String url = null;
 		switch (this.afectable.getTipo()) {
 		case POZO:
@@ -48,7 +48,6 @@ public class VistaAfectable extends JLabel {
 		default:
 			break;
 		}
-		img = new ImageIcon(getClass().getResource(url));
-		return img;
-	}
-}
+        ImageIcon img = new ImageIcon(getClass().getResource(url));
+		return img; 
+}}

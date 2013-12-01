@@ -8,11 +8,10 @@ import gpschallenge.mapa.Esquina;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Observable;
 
 //import gpschallenge.motor.Mapa;
 
-public class Vehiculo extends Observable {
+public class Vehiculo {
 	private EstadoVehiculo estado = null;
 	private Integer cantMovimientos = 0;
 	private Posicion posicionActual;
@@ -89,13 +88,13 @@ public class Vehiculo extends Observable {
 		if(this.posicionActual.esIgual(this.posicionAnterior)){
 			this.posicionActual = new Posicion(this.posicionAnterior.getX(), this.posicionAnterior.getY());
 		}else{
-			this.posicionAnterior = new Posicion(posicionActual.getX(), posicionActual.getY());
+			this.posicionAnterior = new Posicion(this.posicionActual.getX(), this.posicionActual.getY());
 		}
 		this.sumarMovimientos(1);
 	}
 
 	public void setPosicion(Posicion unaPos) {
-		this.posicionAnterior = this.posicionActual;
+		this.posicionAnterior = new Posicion(unaPos.getX(), unaPos.getY());
 		this.posicionActual = unaPos;
 	}
 
@@ -110,10 +109,11 @@ public class Vehiculo extends Observable {
 	}
 
 	public void afectar(ArrayList<Afectable> afectables) {
-
+		if(afectables != null){
 		Iterator<Afectable> it = afectables.iterator();
 		while (it.hasNext()) {
 			estado.afectar(it.next(), this);
+		}
 		}
 	}
 
@@ -135,10 +135,5 @@ public class Vehiculo extends Observable {
 	
 	public void setEsquina(Esquina esquina) {
 		this.esquinaActual = esquina;
-	}
-	public void actualizarObservadores(){
-		setChanged();
-		this.notifyObservers(this);
-	}
-
+}
 }

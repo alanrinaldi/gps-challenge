@@ -1,6 +1,7 @@
 package gpschallenge.componentes.obstaculos;
 
 import gpschallenge.componentes.utililidades.AfectableTipo;
+import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 /**
@@ -19,7 +20,8 @@ public class Piquete implements Afectable {
 	 * anterior
 	 */
 	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
-		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
+		Posicion pos = unVehiculo.getPosicionAnterior();
+		unVehiculo.setPosicion(new Posicion(pos.getX(), pos.getY()));
 
 	}
 
@@ -31,7 +33,8 @@ public class Piquete implements Afectable {
 
 	/* Afecta a los vehiculo de tipo Auto. Los devuelve a la posicion anterior */
 	public void afectarAuto(Vehiculo unVehiculo) {
-		unVehiculo.setPosicion(unVehiculo.getPosicionAnterior());
+		Posicion pos = unVehiculo.getPosicionAnterior();
+		unVehiculo.setPosicion(new Posicion(pos.getX(), pos.getY()));
 
 	}
 

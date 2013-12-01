@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class Calle {
 
-	private ArrayList<Afectable> afectables = new ArrayList<Afectable>();
+	private ArrayList<Afectable> afectables;
 
 	public Calle() {
+		this.afectables = new ArrayList<Afectable>();
 
 	}
 
