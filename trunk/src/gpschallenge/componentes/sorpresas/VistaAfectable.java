@@ -1,7 +1,5 @@
 package gpschallenge.componentes.sorpresas;
 
-import java.awt.Color;
-
 import gpschallenge.componentes.obstaculos.Afectable;
 
 import javax.swing.ImageIcon;
@@ -14,9 +12,9 @@ public class VistaAfectable extends JLabel {
 	private static String URL_POZO = "/gpschallenge/imagenes/pozo.png";
 	private static String URL_PIQUETE = "/gpschallenge/imagenes/piquete.png";
 	private static String URL_CONTROL = "/gpschallenge/imagenes/control.png";
-	private static String URL_FAVORABLE = "/gpschallenge/imagenes/favorable.png";
-	private static String URL_DESFAVORABLE = "/gpschallenge/imagenes/desfavorable.png";
-	private static String URL_CAMBIO = "/gpschallenge/imagenes/cambio.png";
+	private static String URL_FAVORABLE = "/gpschallenge/imagenes/sorpresa.png";
+	private static String URL_DESFAVORABLE = "/gpschallenge/imagenes/sorpresa.png";
+	private static String URL_CAMBIO = "/gpschallenge/imagenes/sorpresa.png";
 	private Afectable afectable = null;
 
 	public VistaAfectable(Afectable unAfectable) {
@@ -31,7 +29,6 @@ public class VistaAfectable extends JLabel {
 		switch (this.afectable.getTipo()) {
 		case POZO:
 			url = URL_POZO;
-			this.setBackground(Color.RED);
 			break;
 		case PIQUETE:
 			url = URL_PIQUETE;

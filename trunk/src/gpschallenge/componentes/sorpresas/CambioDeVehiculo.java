@@ -30,6 +30,6 @@ public class CambioDeVehiculo implements Afectable {
 	@Override
 	public AfectableTipo getTipo() {
 		// TODO Auto-generated method stub
-		return null;
+		return AfectableTipo.CAMBIODEVEHICULO;
 	}
 }
