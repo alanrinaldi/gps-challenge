@@ -21,7 +21,7 @@ public class Mapa {
 		this.coordYprimerEsquina = 1;
 		this.anchoEsquinas = ancho;
 		this.altoEsquinas = alto;		
-		this.esquinas = new Esquina[anchoEsquinas][altoEsquinas];
+		this.esquinas = new Esquina[anchoEsquinas+1][altoEsquinas+1];
 		this.crearEsquinas();
 	}
 	public void setPosicionPrimerEsquina(int x, int y, int distanciaEntreEsquinas){
@@ -33,8 +33,8 @@ public class Mapa {
 	}
 	
 	private void actualizarPosiciones() {
-		for (int i = 0; i < anchoEsquinas - 1; i++) {
-			for (int j = 0; j < altoEsquinas - 1; j++) {
+		for (int i = 0; i < anchoEsquinas; i++) {
+			for (int j = 0; j < altoEsquinas; j++) {
 				Posicion pos = esquinas[i+1][j+1].getPosicion();
 				pos.setX(this.coordXprimerEsquina + i*separacion);
 				pos.setY(this.coordYprimerEsquina + j*separacion);
@@ -52,7 +52,8 @@ public class Mapa {
 	public void setVehiculoEnEsquina(Vehiculo vehiculo, int x, int y) {
 		this.vehiculo = vehiculo;
 		Esquina unaEsquina = esquinas[x][y];
-		this.vehiculo.setPosicion(unaEsquina.getPosicion());
+		Posicion pos = unaEsquina.getPosicion();
+		this.vehiculo.setPosicion(pos);
 		this.vehiculo.setEsquina(unaEsquina);
 	}
 
@@ -65,8 +66,8 @@ public class Mapa {
 	 * la esquina es 1,1.
 	 */
 	private void crearEsquinas() {
-		for (int i = 1; i < anchoEsquinas; i++) {
-			for (int j = 1; j < altoEsquinas; j++) {
+		for (int i = 1; i <= anchoEsquinas; i++) {
+			for (int j = 1; j <= altoEsquinas; j++) {
 				Esquina esquina = new Esquina(new Posicion(i*separacion, j*separacion));
 				esquina.setCalleEnSentido(new Calle(), Sentido.IZQUIERDA);
 				esquina.setCalleEnSentido(new Calle(), Sentido.ARRIBA);
@@ -83,8 +84,8 @@ public class Mapa {
 	private void enlazarCallesHorizontal() {
 		Esquina anterior;
 		Esquina siguiente;
-		for (int i = 1; i < altoEsquinas - 1; i++) {
-			for (int j = 1; j < anchoEsquinas; j++) {
+		for (int i = 1; i <= altoEsquinas - 1; i++) {
+			for (int j = 1; j <= anchoEsquinas; j++) {
 				anterior = esquinas[i][j];
 				siguiente = esquinas[i + 1][j];
 				anterior.setCalleEnSentido(
@@ -101,8 +102,8 @@ public class Mapa {
 	private void enlazarCallesVertical() {
 		Esquina anterior;
 		Esquina siguiente;
-		for (int i = 1; i < anchoEsquinas; i++) {
-			for (int j = 1; j < altoEsquinas - 1; j++) {
+		for (int i = 1; i <= anchoEsquinas; i++) {
+			for (int j = 1; j <= altoEsquinas - 1; j++) {
 				anterior = esquinas[i][j];
 				siguiente = esquinas[i][j + 1];
 				anterior.setCalleEnSentido(
@@ -141,19 +142,6 @@ public class Mapa {
 		return esquinas[x][y];
 	}
 
-	/* Devuevel la Esquina de la posicion (1, 1) en la matriz de esquinas. */
-	public Esquina getPrimerEsquina() {
-		return esquinas[1][1];
-	}
-
-	/*
-	 * Devuevel la Esquina de la posicion (anchoEsquinas, AltoEsquinass) en la
-	 * matriz de esquinas.
-	 */
-	public Esquina getUltimaEsquina() {
-		return esquinas[anchoEsquinas][altoEsquinas];
-	}
-
 	public void setMeta(Meta laMeta) {
 
 		meta = laMeta;
@@ -165,11 +153,11 @@ public class Mapa {
 	}
 
 	public int getAnchoEsquinas() {
-		return this.anchoEsquinas;
+		return this.anchoEsquinas-1;
 	}
 
 	public int getAltoEsquinas() {
-		return this.altoEsquinas;
+		return this.altoEsquinas-1;
 	}
 
 }

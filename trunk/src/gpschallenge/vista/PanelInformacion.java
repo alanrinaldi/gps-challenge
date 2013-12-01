@@ -21,7 +21,7 @@ public class PanelInformacion extends JPanel {
 
 		cantMovimientos = new JTextField();
 		cantMovimientos.setEditable(false);
-		cantMovimientos.setBounds(40, 65, 106, 20);
+		cantMovimientos.setBounds(40, 65, 120, 26);
 		add(cantMovimientos);
 
 		JLabel estado = new JLabel("Estado del Auto: ");
@@ -30,7 +30,7 @@ public class PanelInformacion extends JPanel {
 
 		estadoVehiculo = new JTextField();
 		estadoVehiculo.setEditable(false);
-		estadoVehiculo.setBounds(40, 115, 106, 20);
+		estadoVehiculo.setBounds(40, 115, 120, 26);
 		add(estadoVehiculo);
 
 	}
