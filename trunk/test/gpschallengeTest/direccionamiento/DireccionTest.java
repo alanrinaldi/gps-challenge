@@ -11,15 +11,14 @@ public class DireccionTest {
 	private Direccion arriba = new Arriba();
 
 	private Posicion posicionDireccion;
-	
+
 	@Test
 	public void test() {
 		posicionDireccion = arriba.obtenerPosicion();
-		
-		
-		assertEquals(posicionDireccion.getX(),0);
-		assertEquals(posicionDireccion.getY(),-1);
-		
+
+		assertEquals(posicionDireccion.getX(), 0);
+		assertEquals(posicionDireccion.getY(), -1);
+
 	}
 
 }

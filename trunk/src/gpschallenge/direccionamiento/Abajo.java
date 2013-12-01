@@ -7,19 +7,18 @@ public class Abajo implements Direccion {
 	int x;
 	int y;
 	Posicion posicion;
-	
+
 	public Abajo() {
-		x=0;
-		y=1;
-		
-		posicion= new Posicion (x,y);
-	}
-	
-	@Override
-	public Posicion obtenerPosicion() {
-		
-		return this.posicion;
+		x = 0;
+		y = 1;
+
+		posicion = new Posicion(x, y);
 	}
 
+	@Override
+	public Posicion obtenerPosicion() {
+
+		return this.posicion;
+	}
 
 }

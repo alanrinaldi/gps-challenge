@@ -8,19 +8,19 @@ import org.junit.Test;
 public class JugadorTest {
 
 	@Test
-	public void deberiaCrearJugadorConNombre(){
-		
+	public void deberiaCrearJugadorConNombre() {
+
 		Jugador jugador = new Jugador("Pedro");
-		assertEquals("Pedro",jugador.getNombre());
-		
+		assertEquals("Pedro", jugador.getNombre());
+
 	}
-	
+
 	@Test
-	public void deberiaInicializarMarcadorEnCero(){
-		
+	public void deberiaInicializarMarcadorEnCero() {
+
 		Jugador jugador = new Jugador("Juan");
-		assertEquals(0,jugador.getPuntaje());
-		
+		assertEquals(0, jugador.getPuntaje());
+
 	}
-	
+
 }

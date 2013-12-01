@@ -8,50 +8,50 @@ public class Juego {
 	private ArrayList<String> records;
 	private Jugador jugador;
 	private boolean finalizado;
-	
-	public Juego(Jugador unJugador){
-		
-		//mapa.inicializarJuego();
+
+	public Juego(Jugador unJugador) {
+
+		// mapa.inicializarJuego();
 		records = cargarRecords();
 		jugador = unJugador;
 		finalizado = false;
-		mapa = Mapa.getInstancia();
-		
+
 	}
-	
+
 	private ArrayList<String> cargarRecords() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public Mapa getMapa() {
 
 		return mapa;
-		
-	}	
-	
+
+	}
+
 	public Object getPosiciones() {
 
 		return records;
-		
+
 	}
-	
-	public Jugador getJugador(){
-		
+
+	public Jugador getJugador() {
+
 		return jugador;
-		
+
 	}
-	
-	public void finalizarJuego(){
-		
+
+	public void finalizarJuego() {
+
 		finalizado = true;
 	}
-	
-	public boolean juegoFinalizado(){
-		
-		if (finalizado) return true;
+
+	public boolean juegoFinalizado() {
+
+		if (finalizado)
+			return true;
 		return false;
-		
+
 	}
-	
+
 }

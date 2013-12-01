@@ -8,20 +8,23 @@ import org.junit.Test;
 
 /**
  * @author delpinor
- *
+ * 
  */
 public class CuatroXCuatroTest {
 	private CuatroXCuatro unaCuatroXCuatro = null;
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		unaCuatroXCuatro = CuatroXCuatro.getInstancia();
 	}
+
 	@Test
-	public void instanciaNoNula(){
+	public void instanciaNoNula() {
 		assertNotNull(unaCuatroXCuatro);
 	}
+
 	@Test
-	public void debeSerUnicaInstancia(){
+	public void debeSerUnicaInstancia() {
 		CuatroXCuatro otraCuatroXCuatro = CuatroXCuatro.getInstancia();
 		assertEquals(otraCuatroXCuatro.hashCode(), unaCuatroXCuatro.hashCode());
 	}

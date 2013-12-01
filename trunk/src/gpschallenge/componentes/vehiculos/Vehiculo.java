@@ -2,43 +2,34 @@ package gpschallenge.componentes.vehiculos;
 
 import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.mapa.EsquinaT;
+import gpschallenge.componentes.utililidades.Sentido;
+import gpschallenge.componentes.utililidades.TipoVehiculo;
+import gpschallenge.mapa.Esquina;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import java.util.Observable;
 
 //import gpschallenge.motor.Mapa;
 
-public class Vehiculo extends JLabel {
-	private static final long serialVersionUID = -2393117504290151547L;
+public class Vehiculo extends Observable {
 	private EstadoVehiculo estado = null;
-	private int cantMovimientos = 0;
-	private Posicion ubicacionActual;
-	private Posicion ubicacionAnterior;
-	private EsquinaT esquinaActual;
-	private EsquinaT esquinaAnterior;
-
-	public Vehiculo() {
-		this.ubicacionActual = new Posicion(0,0);
-		this.ubicacionAnterior = new Posicion(0,0);
-		
-		/* Esta imagne debería venir con la instancia de auto, moto o 4x4*/
-		
-	}
+	private Integer cantMovimientos = 0;
+	private Posicion posicionActual;
+	private Posicion posicionAnterior;
+	private Esquina esquinaActual;
+	private Esquina esquinaAnterior;
+	private int cantidad;
 
 	public Vehiculo(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
+		this.posicionActual = new Posicion(0, 0);
+		this.posicionAnterior = new Posicion(0, 0);
+		this.esquinaActual = null;
 	}
 
 	public void setEstado(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
-		this.setIcon(new ImageIcon(getClass().getResource(estado.getImagen())));
-		//getClass().getResource("/gpschallenge/imagenes/auto.png")));
-		this.setBackground(Color.white);
 	}
 
 	public EstadoVehiculo getEstado() {
@@ -48,8 +39,11 @@ public class Vehiculo extends JLabel {
 	public void reiniciarValoresACero() {
 		/* Setea a valores iniciales(cero) */
 		this.cantMovimientos = 0;
-		this.ubicacionActual = new Posicion(0, 0);
-		this.ubicacionAnterior = new Posicion(0, 0);
+		this.posicionActual = new Posicion(0, 0);
+		this.posicionAnterior = new Posicion(0, 0);
+	}
+	public void setValorPorMovimiento(int valor){
+		this.cantidad = valor;
 	}
 
 	public void sumarMovimientos(int valor) {
@@ -70,27 +64,49 @@ public class Vehiculo extends JLabel {
 		this.restarMovimientos(auxiliar);
 	}
 
-	public int getCantMovimientos() {
+	public Integer getCantMovimientos() {
 		return cantMovimientos;
 	}
 
+	public void mover(Sentido sentido) {
+		switch (sentido) {
+		case ARRIBA:
+			this.posicionActual.restarPosicion(0, cantidad);
+			break;
+
+		case ABAJO:
+			this.posicionActual.sumarPosicion(0, cantidad);
+			break;
+		case IZQUIERDA:
+			this.posicionActual.restarPosicion(cantidad, 0);
+			break;
+		case DERECHA:
+			this.posicionActual.sumarPosicion(cantidad, 0);
+			break;
+		}
+		this.afectar(this.esquinaActual.getCalleEnSentido(sentido).getAfectables());
+		// detecta si un afectable lo devuelve a la posicion anterior
+		if(this.posicionActual.esIgual(this.posicionAnterior)){
+			this.posicionActual = new Posicion(this.posicionAnterior.getX(), this.posicionAnterior.getY());
+		}else{
+			this.posicionAnterior = new Posicion(posicionActual.getX(), posicionActual.getY());
+		}
+		this.sumarMovimientos(1);
+	}
+
 	public void setPosicion(Posicion unaPos) {
-		this.ubicacionAnterior = this.ubicacionActual;
-		this.ubicacionActual = unaPos;
+		this.posicionAnterior = this.posicionActual;
+		this.posicionActual = unaPos;
 	}
 
 	public Posicion getPosicionActual() {
 		/* Retorna la posición actual del Vehículo */
-		return this.ubicacionActual;
+		return this.posicionActual;
 	}
 
 	public Posicion getPosicionAnterior() {
 		/* Retorna la posición anterior del Vehículo */
-		return this.ubicacionAnterior;
-	}
-
-	public void afectar(Afectable unAfectable) {
-		estado.afectar(unAfectable, this);
+		return this.posicionAnterior;
 	}
 
 	public void afectar(ArrayList<Afectable> afectables) {
@@ -101,24 +117,28 @@ public class Vehiculo extends JLabel {
 		}
 	}
 
-	public EsquinaT getEsquinaActual() {
-		return esquinaActual;
-	}
+	public String soyUn() {
 
-	public void setEsquinaActual(EsquinaT esquina) {
-		this.esquinaAnterior = esquinaActual;
-		this.esquinaActual = esquina;
-	}
-	
-	public EsquinaT getEsquinaAnterior(){
-		
-		return esquinaAnterior;
-	}
-	
-	public String soyUn(){
-		
 		return estado.soyUn();
 	}
 
+	public TipoVehiculo getTipoVehiculo() {
+		return estado.getTipoVehiculo();
+	}
+
+	public Esquina getEsquinaActual() {
+		return esquinaActual;
+	}
+	public Esquina getEsquinaAnterior() {
+		return esquinaAnterior;
+	}
+	
+	public void setEsquina(Esquina esquina) {
+		this.esquinaActual = esquina;
+	}
+	public void actualizarObservadores(){
+		setChanged();
+		this.notifyObservers(this);
+	}
 
 }
