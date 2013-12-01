@@ -8,20 +8,23 @@ import org.junit.Test;
 
 /**
  * @author delpinor
- *
+ * 
  */
 public class AutoTest {
 	private Auto unAuto = null;
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		unAuto = Auto.getInstancia();
 	}
+
 	@Test
-	public void instanciaNoNula(){
+	public void instanciaNoNula() {
 		assertNotNull(unAuto);
 	}
+
 	@Test
-	public void debeSerUnicaInstancia(){
+	public void debeSerUnicaInstancia() {
 		Auto otroAuto = Auto.getInstancia();
 		assertEquals(otroAuto.hashCode(), unAuto.hashCode());
 	}

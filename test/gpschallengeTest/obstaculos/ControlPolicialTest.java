@@ -13,7 +13,7 @@ import org.junit.Test;
 
 /**
  * @author delpinor
- *
+ * 
  */
 
 public class ControlPolicialTest {
@@ -22,40 +22,45 @@ public class ControlPolicialTest {
 	private Auto unAuto = null;
 	private CuatroXCuatro una4x4 = null;
 	private Vehiculo unVehiculo = new Vehiculo();
-	public double porcentajeDeAparicion(EstadoVehiculo unEstado){
+
+	public double porcentajeDeAparicion(EstadoVehiculo unEstado) {
 		unVehiculo.setEstado(unEstado);
 		double cantidad = 0;
 		/* Pruebo 1000 casos y calculo la probabilidad de ser penalizado */
-		for(int i = 0; i < 1000; i++){
+		for (int i = 0; i < 1000; i++) {
 			unVehiculo.sumarMovimientos(5);
 			unVehiculo.afectar(unControlPolicial);
-			if(unVehiculo.getCantMovimientos() == 8){
+			if (unVehiculo.getCantMovimientos() == 8) {
 				cantidad += 1;
 			}
 			unVehiculo.reiniciarValoresACero();
 		}
 		/* Redondeo a un valor double de tipo 0.0 */
-		double valor = cantidad/1000;
-		valor = Math.rint(valor*10)/10;
+		double valor = cantidad / 1000;
+		valor = Math.rint(valor * 10) / 10;
 		return valor;
 	}
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		unControlPolicial = new ControlPolicial();
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
 	}
+
 	@Test
-	public void probabilidadDeSerPenalizadoAuto(){
+	public void probabilidadDeSerPenalizadoAuto() {
 		assertTrue(this.porcentajeDeAparicion(unAuto) == 0.5);
 	}
+
 	@Test
-	public void probabilidadDeSerPenalizadoMoto(){
+	public void probabilidadDeSerPenalizadoMoto() {
 		assertTrue(this.porcentajeDeAparicion(unaMoto) == 0.8);
 	}
+
 	@Test
-	public void probabilidadDeSerPenalizadoCuatroXCuatro(){
+	public void probabilidadDeSerPenalizadoCuatroXCuatro() {
 		assertTrue(this.porcentajeDeAparicion(una4x4) == 0.3);
 	}
 }

@@ -8,28 +8,28 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class MetaTest {
-	
+
 	Meta unaMeta;
-	Posicion unaPosicion = new Posicion (5,5);
+	Posicion unaPosicion = new Posicion(5, 5);
 	Posicion otraPosicion;
-	
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		unaMeta = new Meta();
 		unaMeta.setPosicion(unaPosicion);
 	}
-	
+
 	@Test
-	public void iniciaNoNUll(){
+	public void iniciaNoNUll() {
 		assertNotNull(unaMeta);
 	}
 
 	@Test
-	public void metaestaenunaposicion(){
-		
+	public void metaestaenunaposicion() {
+
 		otraPosicion = unaMeta.getPosicion();
-		
-		assertTrue (unaPosicion.esIgual(otraPosicion));	
+
+		assertTrue(unaPosicion.esIgual(otraPosicion));
 	}
-	
+
 }

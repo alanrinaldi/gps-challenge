@@ -1,4 +1,5 @@
 package gpschallenge.componentes.sorpresas;
 
-public abstract class Sorpresa {
+public class VistaSopresa {
+
 }

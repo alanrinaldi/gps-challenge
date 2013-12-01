@@ -1,122 +1,115 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.obstaculos.Pozo;
+import gpschallenge.componentes.utililidades.Sentido;
+import gpschallenge.componentes.vehiculos.Moto;
+import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.excepciones.EsquinasInvalidasException;
+import gpschallenge.motor.Mapa;
+import gpschallenge.motor.VistaMapa;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
-import gpschallenge.componentes.obstaculos.ControlPolicial;
-import gpschallenge.componentes.obstaculos.Piquete;
-import gpschallenge.componentes.obstaculos.Pozo;
-import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
-import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
-import gpschallenge.componentes.sorpresas.SorpresaFavorable;
-import gpschallenge.componentes.utililidades.Sentido;
-import gpschallenge.excepciones.EsquinasInvalidasException;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Ventana extends JFrame implements KeyListener {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Panel panelMapa;
+	private VistaMapa vistaMapa;
+	private Mapa mapa;
+	private Vehiculo vehiculo;
 	private PanelInformacion panelInformacion;
 	private PanelOpciones panelOpciones;
-	final int ancho_movimiento = 80;
-	final int alto_movimiento = 80;
-
 	/**
 	 * 
 	 *  
 	 */
 	public Ventana() throws EsquinasInvalidasException {
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 920, 768);
+		setBounds(0, 0, 1050, 850);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		addKeyListener(this);
 		setFocusable(true);
+
+		mapa = new Mapa(12, 12);
+		vehiculo = new Vehiculo(Moto.getInstancia());
+
+		// Agrego Vehiculo
+		mapa.setVehiculoEnEsquina(vehiculo, 5, 5);
+
+		// Afectable
+		mapa.addAfectable(new Pozo(), 4, 4, Sentido.DERECHA);
+		mapa.addAfectable(new Pozo(), 2, 2, Sentido.DERECHA);
+		mapa.addAfectable(new Pozo(), 1, 4, Sentido.DERECHA);
+		mapa.addAfectable(new Pozo(), 2, 1, Sentido.DERECHA);
+		mapa.addAfectable(new Pozo(), 5, 3, Sentido.DERECHA);
+		mapa.addAfectable(new Pozo(), 5, 2, Sentido.DERECHA);
 		
-		int alto = 8;
-		int ancho = 8;
-		
-		panelMapa = new Panel(alto, ancho);
-		// Agrego un pozo en la esquina 5, 5 lado derecho
-		panelMapa.addAfectable(5, 5, Sentido.DERECHA, new Piquete());
-		// Agrego un pozo en la esquina 4, 4 lado izquierdo
-		panelMapa.addAfectable(4, 4, Sentido.IZQUIERDA, new Pozo());
-		// Agrego una Sopresa en la esquina 2, 3 lado derecho
-		panelMapa.addAfectable(4, 1, Sentido.ARRIBA, new ControlPolicial());
-		panelMapa.addAfectable(2, 3, Sentido.ABAJO, new SorpresaDesfavorable());
-		panelMapa.addAfectable(3, 3, Sentido.ARRIBA, new SorpresaFavorable());
-		panelMapa.addAfectable(4, 3, Sentido.ARRIBA, new CambioDeVehiculo());
-		
-		panelMapa.setBounds(5, 5, 700, 730);
-		contentPane.add(panelMapa);
-		panelMapa.setLayout(null);
-		
+		// Creo vista Mapa y agrego la logica al modelo
+		vistaMapa = new VistaMapa(mapa);
+
+		// Agrego a la vista
+		contentPane.add(vistaMapa);
+		vistaMapa.setLayout(null);
+
 		panelInformacion = new PanelInformacion();
-		panelInformacion.setBounds(705, 5, 180, 300);
+		panelInformacion.setBounds(830, 0, 250, 600);
 		contentPane.add(panelInformacion);
 		panelInformacion.setLayout(null);
-		
+
 		panelOpciones = new PanelOpciones();
-		panelOpciones.setBounds(705, 600, 200, 80);
+		panelOpciones.setBounds(830, 600, 250, 200);
 		contentPane.add(panelOpciones);
 		panelOpciones.setLayout(null);
-		
+
 	}
-	
-		
+
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void keyReleased(KeyEvent e) {
-		switch (e.getKeyCode()){
-			case KeyEvent.VK_UP:
-				if (panelMapa.getPosY()>0){
-					panelMapa.moverArriba();
-					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
-					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
-				}
-					break;
-			case KeyEvent.VK_DOWN:
-				if (panelMapa.getPosY()<(8*alto_movimiento)){
-					panelMapa.moverAbajo();
-					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
-					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
-				}
-					break;
-			case KeyEvent.VK_RIGHT:
-				if (panelMapa.getPosX()<(8*ancho_movimiento)){
-					panelMapa.moverDerecha();
-					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
-					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
-				}
-					break;
-			case KeyEvent.VK_LEFT:
-				if (panelMapa.getPosX()>0){
-					panelMapa.moverIzquierda();
-					panelInformacion.actualizarMovimientos(panelMapa.getVehiculo().getCantMovimientos());
-					panelInformacion.actualizarEstado(panelMapa.getVehiculo().soyUn());
-				}
-					break;
-		}	
-		
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			if (vistaMapa.puedeMoverse(Sentido.ARRIBA)) {
+				vehiculo.mover(Sentido.ARRIBA);
+			}
+			break;
+		case KeyEvent.VK_DOWN:
+			if (vistaMapa.puedeMoverse(Sentido.ABAJO)) {
+				vehiculo.mover(Sentido.ABAJO);
+			}
+			break;
+		case KeyEvent.VK_RIGHT:
+			if (vistaMapa.puedeMoverse(Sentido.DERECHA)) {
+				vehiculo.mover(Sentido.DERECHA);
+			}
+			break;
+		case KeyEvent.VK_LEFT:
+			if (vistaMapa.puedeMoverse(Sentido.IZQUIERDA)) {
+				vehiculo.mover(Sentido.IZQUIERDA);
+			}
+			break;
+		}
+		vehiculo.setEsquina(mapa.getEsquina(vehiculo.getPosicionActual()));
+		panelInformacion.actualizarMovimientos(vehiculo.getCantMovimientos());
+		panelInformacion.actualizarEstado(vehiculo.getTipoVehiculo().toString());
+		vistaMapa.repaint();
 	}
 
 	public void keyTyped(KeyEvent e) {
-		
-		
+
 	}
 
 }
-

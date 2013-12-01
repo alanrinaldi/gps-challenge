@@ -12,23 +12,29 @@ import org.junit.Test;
 public class CambioDeVehiculoTest {
 	private Vehiculo unVehiculo = new Vehiculo();
 	private CambioDeVehiculo unaSopresa = new CambioDeVehiculo();
+
 	@Test
-	public void afectaAAutoDebeConvertirEnCuatroPoCuatro(){
+	public void afectaAAutoDebeConvertirEnCuatroPoCuatro() {
 		unVehiculo.setEstado(Auto.getInstancia());
 		unVehiculo.afectar(unaSopresa);
-		assertEquals(unVehiculo.getEstado().hashCode(), CuatroXCuatro.getInstancia().hashCode());	
-		
+		assertEquals(unVehiculo.getEstado().hashCode(), CuatroXCuatro
+				.getInstancia().hashCode());
+
 	}
+
 	@Test
-	public void afectaAMotoDebeConvertirEnAuto(){
+	public void afectaAMotoDebeConvertirEnAuto() {
 		unVehiculo.setEstado(Moto.getInstancia());
 		unVehiculo.afectar(unaSopresa);
-		assertEquals(unVehiculo.getEstado().hashCode(), Auto.getInstancia().hashCode());
+		assertEquals(unVehiculo.getEstado().hashCode(), Auto.getInstancia()
+				.hashCode());
 	}
+
 	@Test
-	public void afectaACuatroPorCuatroDebeConvertirEnMoto(){
+	public void afectaACuatroPorCuatroDebeConvertirEnMoto() {
 		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
 		unVehiculo.afectar(unaSopresa);
-		assertEquals(unVehiculo.getEstado().hashCode(), Moto.getInstancia().hashCode());
+		assertEquals(unVehiculo.getEstado().hashCode(), Moto.getInstancia()
+				.hashCode());
 	}
 }

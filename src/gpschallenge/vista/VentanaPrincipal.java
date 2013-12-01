@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class VentanaPrincipal extends JFrame{
-	
+public class VentanaPrincipal extends JFrame {
+
 	/**
 	 * 
 	 */
@@ -50,11 +50,11 @@ public class VentanaPrincipal extends JFrame{
 		JButton botonJugar = new JButton("Jugar");
 		botonJugar.setBorder(BorderFactory.createEmptyBorder());
 		botonJugar.setContentAreaFilled(false);
-		//Posicion donde se colocar este boton
+		// Posicion donde se colocar este boton
 		botonJugar.setBounds(141, 38, 153, 55);
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Inicia un juego nuevo
+				// Inicia un juego nuevo
 				Ventana unaVentana = null;
 				try {
 					unaVentana = new Ventana();
@@ -73,11 +73,11 @@ public class VentanaPrincipal extends JFrame{
 		JButton botonContinuar = new JButton("Continuar");
 		botonContinuar.setBorder(BorderFactory.createEmptyBorder());
 		botonContinuar.setContentAreaFilled(false);
-		//Posicion donde se colocar este boton
+		// Posicion donde se colocar este boton
 		botonContinuar.setBounds(141, 104, 153, 55);
 		botonContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			//Carga un juego de partida guardada
+				// Carga un juego de partida guardada
 			}
 		});
 		contentPane.add(botonContinuar);
@@ -85,11 +85,11 @@ public class VentanaPrincipal extends JFrame{
 		JButton botonSalir = new JButton("Salir");
 		botonSalir.setBorder(BorderFactory.createEmptyBorder());
 		botonSalir.setContentAreaFilled(false);
-		//Posicion donde se colocar este boton
+		// Posicion donde se colocar este boton
 		botonSalir.setBounds(141, 170, 153, 55);
 		botonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Sale del programa
+				// Sale del programa
 				System.exit(0);
 			}
 		});
