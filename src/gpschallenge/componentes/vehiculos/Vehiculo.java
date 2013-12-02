@@ -75,25 +75,24 @@ public class Vehiculo {
 	public void mover(Sentido sentido) {
 		switch (sentido) {
 		case ARRIBA:
+			this.setPosicion(this.getPosicionActual());
 			this.posicionActual.restarPosicion(0, cantidad);
 			break;
 
 		case ABAJO:
+			this.setPosicion(this.getPosicionActual());
 			this.posicionActual.sumarPosicion(0, cantidad);
 			break;
 		case IZQUIERDA:
+			this.setPosicion(this.getPosicionActual());
 			this.posicionActual.restarPosicion(cantidad, 0);
 			break;
 		case DERECHA:
+			this.setPosicion(this.getPosicionActual());
 			this.posicionActual.sumarPosicion(cantidad, 0);
 			break;
 		}
 		this.afectar(this.esquinaActual.getCalleEnSentido(sentido).getAfectables());
-		// detecta si un afectable lo devuelve a la posicion anterior
-		if(this.posicionActual.esIgual(this.posicionAnterior)){
-			this.posicionActual = new Posicion(this.posicionAnterior.getX(), this.posicionAnterior.getY());
-		}
-		this.posicionAnterior = new Posicion(posicionActual.getX(), posicionActual.getY());
 		this.sumarMovimientos(1);
 
 	}
