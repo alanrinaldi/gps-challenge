@@ -1,50 +1,54 @@
 package gpschallengeTest.obstaculos;
 
 import static org.junit.Assert.assertEquals;
-import gpschallenge.componentes.obstaculos.Pozo;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.Moto;
-import gpschallenge.componentes.vehiculos.Vehiculo;
+
+import java.util.ArrayList;
+
+import gpschallenge.componentes.obstaculos.*;
+import gpschallenge.componentes.vehiculos.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author delpinor
- * 
- */
 public class PozoTest {
-	private Pozo unPozo = null;
-	private Vehiculo unVehiculo = new Vehiculo();
-
+	private Pozo unPozo;
+	private Vehiculo unVehiculo;
+	private ArrayList<Afectable> afectables;
+	private Auto auto;
+	
 	@Before
 	public void setUp() {
 		unPozo = new Pozo();
-		unVehiculo.reiniciarValoresACero();
+		afectables = new ArrayList<Afectable>();
+		unVehiculo= Vehiculo.getInstancia();
+		auto = Auto.getInstancia();
+		afectables.add(unPozo);
 	}
 
 	@Test
 	public void debePenalizarConTresMovimientosAMotos() {
 		unVehiculo.setEstado(Moto.getInstancia());
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(12);
-		unVehiculo.afectar(unPozo);
-		assertEquals(unVehiculo.getCantMovimientos(), 15);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 15);
 	}
 
 	@Test
 	public void debePenalizarConTresMovimientosAAutos() {
-		unVehiculo.setEstado(Auto.getInstancia());
+		unVehiculo.setEstado(auto);
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(6);
-		unVehiculo.afectar(unPozo);
-		assertEquals(unVehiculo.getCantMovimientos(), 9);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 9);
 	}
 
 	@Test
 	public void NoDebePenalizarAVehiculoCuatroXCuatro() {
 		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(11);
-		unVehiculo.afectar(unPozo);
-		assertEquals(unVehiculo.getCantMovimientos(), 11);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 11);
 	}
 }

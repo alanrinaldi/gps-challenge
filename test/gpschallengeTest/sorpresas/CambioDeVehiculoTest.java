@@ -1,22 +1,39 @@
 package gpschallengeTest.sorpresas;
 
+import java.util.ArrayList;
+
+import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.Moto;
-import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.componentes.vehiculos.*;
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CambioDeVehiculoTest {
-	private Vehiculo unVehiculo = new Vehiculo();
-	private CambioDeVehiculo unaSopresa = new CambioDeVehiculo();
-
+	private Vehiculo unVehiculo;
+	private CambioDeVehiculo unaSorpresa;
+	private ArrayList<Afectable> afectables;
+	private Auto auto;
+	private CuatroXCuatro cuatroporcuatro;
+	private Moto moto;
+	
+	@Before
+	public void setUp() {
+		unaSorpresa = new CambioDeVehiculo();
+		afectables = new ArrayList<Afectable>();
+		unVehiculo= Vehiculo.getInstancia();
+		auto = Auto.getInstancia();
+		cuatroporcuatro = CuatroXCuatro.getInstancia();
+		moto = Moto.getInstancia();
+		afectables.add(unaSorpresa);
+	}
+	
+	
 	@Test
-	public void afectaAAutoDebeConvertirEnCuatroPoCuatro() {
-		unVehiculo.setEstado(Auto.getInstancia());
-		unVehiculo.afectar(unaSopresa);
+	public void afectaAAutoDebeConvertirEnCuatroPorCuatro() {
+		unVehiculo.setEstado(auto);
+		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getEstado().hashCode(), CuatroXCuatro
 				.getInstancia().hashCode());
 
@@ -24,16 +41,16 @@ public class CambioDeVehiculoTest {
 
 	@Test
 	public void afectaAMotoDebeConvertirEnAuto() {
-		unVehiculo.setEstado(Moto.getInstancia());
-		unVehiculo.afectar(unaSopresa);
+		unVehiculo.setEstado(moto);
+		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getEstado().hashCode(), Auto.getInstancia()
 				.hashCode());
 	}
 
 	@Test
 	public void afectaACuatroPorCuatroDebeConvertirEnMoto() {
-		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
-		unVehiculo.afectar(unaSopresa);
+		unVehiculo.setEstado(cuatroporcuatro);
+		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getEstado().hashCode(), Moto.getInstancia()
 				.hashCode());
 	}
