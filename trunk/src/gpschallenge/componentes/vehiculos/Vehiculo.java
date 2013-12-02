@@ -19,12 +19,17 @@ public class Vehiculo {
 	private Esquina esquinaActual;
 	private Esquina esquinaAnterior;
 	private int cantidad;
-
-	public Vehiculo(EstadoVehiculo unEstado) {
-		this.estado = unEstado;
+	private static Vehiculo unicaInstancia = null;
+	private Vehiculo() {
 		this.posicionActual = new Posicion(0, 0);
 		this.posicionAnterior = new Posicion(0, 0);
 		this.esquinaActual = null;
+	}
+	public static Vehiculo getInstancia() {
+		if (unicaInstancia == null) {
+			unicaInstancia = new Vehiculo();
+		}
+		return unicaInstancia;
 	}
 
 	public void setEstado(EstadoVehiculo unEstado) {
@@ -87,15 +92,15 @@ public class Vehiculo {
 		// detecta si un afectable lo devuelve a la posicion anterior
 		if(this.posicionActual.esIgual(this.posicionAnterior)){
 			this.posicionActual = new Posicion(this.posicionAnterior.getX(), this.posicionAnterior.getY());
-		}else{
-			this.posicionAnterior = new Posicion(this.posicionActual.getX(), this.posicionActual.getY());
 		}
+		this.posicionAnterior = new Posicion(posicionActual.getX(), posicionActual.getY());
 		this.sumarMovimientos(1);
+
 	}
 
 	public void setPosicion(Posicion unaPos) {
 		this.posicionAnterior = new Posicion(unaPos.getX(), unaPos.getY());
-		this.posicionActual = unaPos;
+		this.posicionActual = new Posicion(unaPos.getX(), unaPos.getY());
 	}
 
 	public Posicion getPosicionActual() {
@@ -134,6 +139,9 @@ public class Vehiculo {
 	}
 	
 	public void setEsquina(Esquina esquina) {
+		Posicion unaPos = esquina.getPosicion();
+		this.posicionActual = new Posicion(unaPos.getX(), unaPos.getY());
+		this.posicionAnterior = new Posicion(unaPos.getX(), unaPos.getY());
 		this.esquinaActual = esquina;
 }
 }

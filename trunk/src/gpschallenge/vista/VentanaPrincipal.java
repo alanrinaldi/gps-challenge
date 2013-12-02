@@ -55,9 +55,9 @@ public class VentanaPrincipal extends JFrame {
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Inicia un juego nuevo
-				Ventana unaVentana = null;
+				VentanaJuego unaVentana = null;
 				try {
-					unaVentana = new Ventana();
+					unaVentana = new VentanaJuego();
 				} catch (EsquinasInvalidasException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -99,9 +99,9 @@ public class VentanaPrincipal extends JFrame {
 			public void keyReleased(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_RIGHT:
-					Ventana unaVentana = null;
+					VentanaJuego unaVentana = null;
 					try {
-						unaVentana = new Ventana();
+						unaVentana = new VentanaJuego();
 					} catch (EsquinasInvalidasException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

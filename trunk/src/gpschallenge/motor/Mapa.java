@@ -4,6 +4,7 @@ import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.excepciones.ExcedeMaximoAfectablesException;
 import gpschallenge.mapa.Calle;
 import gpschallenge.mapa.Esquina;
 
@@ -46,15 +47,16 @@ public class Mapa {
 	public void addAfectable(Afectable afectable, int x, int y, Sentido sentido) {
 		Esquina esquina = esquinas[x][y];
 		Calle calle = esquina.getCalleEnSentido(sentido);
-		calle.addAfectable(afectable);
+		try {
+			calle.addAfectable(afectable);
+		} catch (ExcedeMaximoAfectablesException e) {
+			//Controlar
+		}
 	}
 
-	public void setVehiculoEnEsquina(Vehiculo vehiculo, int x, int y) {
-		this.vehiculo = vehiculo;
+	public void setVehiculoEnEsquina(int x, int y) {
 		Esquina unaEsquina = esquinas[x][y];
-		Posicion pos = unaEsquina.getPosicion();
-		this.vehiculo.setPosicion(pos);
-		this.vehiculo.setEsquina(unaEsquina);
+		Vehiculo.getInstancia().setEsquina(unaEsquina);
 	}
 
 	public Vehiculo getVehiculo() {
@@ -66,9 +68,10 @@ public class Mapa {
 	 * la esquina es 1,1.
 	 */
 	private void crearEsquinas() {
+		Esquina esquina;
 		for (int i = 1; i <= anchoEsquinas; i++) {
 			for (int j = 1; j <= altoEsquinas; j++) {
-				Esquina esquina = new Esquina(new Posicion(i*separacion, j*separacion));
+				esquina = new Esquina(new Posicion(i*separacion, j*separacion));
 				esquina.setCalleEnSentido(new Calle(), Sentido.IZQUIERDA);
 				esquina.setCalleEnSentido(new Calle(), Sentido.ARRIBA);
 				esquina.setCalleEnSentido(new Calle(), Sentido.DERECHA);
@@ -122,9 +125,9 @@ public class Mapa {
 		int i = 1;
 		int j = 1;
 		boolean encontrado = false;
-		while (i < altoEsquinas && !encontrado) {
+		while (i <= altoEsquinas && !encontrado) {
 			j = 1;
-			while (j < anchoEsquinas && !encontrado) {
+			while (j <= anchoEsquinas && !encontrado) {
 				// posicion de la esquina es igual a la buscada
 				if (esquinas[i][j].getPosicion().esIgual(posicion)) {
 					encontrado = true;
@@ -145,6 +148,7 @@ public class Mapa {
 	public void setMeta(Meta laMeta) {
 
 		meta = laMeta;
+		meta.setPosicion(esquinas[this.anchoEsquinas][this.altoEsquinas].getPosicion());
 	}
 
 	public Meta getMeta() {
@@ -153,11 +157,11 @@ public class Mapa {
 	}
 
 	public int getAnchoEsquinas() {
-		return this.anchoEsquinas-1;
+		return this.anchoEsquinas;
 	}
 
 	public int getAltoEsquinas() {
-		return this.altoEsquinas-1;
+		return this.altoEsquinas;
 	}
 
 }
