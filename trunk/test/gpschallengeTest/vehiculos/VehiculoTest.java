@@ -1,35 +1,32 @@
 package gpschallengeTest.vehiculos;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import gpschallenge.componentes.obstaculos.Afectable;
-import gpschallenge.componentes.obstaculos.Piquete;
-import gpschallenge.componentes.obstaculos.Pozo;
+import static org.junit.Assert.*;
+import gpschallenge.componentes.obstaculos.*;
 import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.EstadoVehiculo;
-import gpschallenge.componentes.vehiculos.Moto;
-import gpschallenge.componentes.vehiculos.Vehiculo;
-import gpschallenge.mapa.Esquina;
+import gpschallenge.componentes.vehiculos.*;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class VehiculoTest {
-	private ArrayList<Afectable> afectables = new ArrayList<Afectable>();
-	private Vehiculo unVehiculo = new Vehiculo(Auto.getInstancia());
+	private ArrayList<Afectable> afectables;
+	private Vehiculo unVehiculo;
 
+
+	@Before
+	public void setUp() {
+		unVehiculo = Vehiculo.getInstancia();
+		afectables = new ArrayList<Afectable>();
+		afectables.add(new Pozo()); // suma 3 movimientos
+		afectables.add(new Piquete()); // vuelve a posicion anterior
+	}
+	
 	@Test
 	public void deberiaInicializarVehiculo() {
 
-		EstadoVehiculo auto = Auto.getInstancia();
-
-		Vehiculo vehiculo = new Vehiculo(auto);
-
-		assertNotNull(vehiculo);
+		assertNotNull(unVehiculo);
 
 	}
 
@@ -38,9 +35,9 @@ public class VehiculoTest {
 
 		EstadoVehiculo auto = Auto.getInstancia();
 
-		Vehiculo vehiculo = new Vehiculo(auto);
+		unVehiculo.setEstado(auto);
 
-		assertEquals(auto, vehiculo.getEstado());
+		assertEquals(auto, unVehiculo.getEstado());
 	}
 
 	@Test
@@ -49,22 +46,21 @@ public class VehiculoTest {
 		EstadoVehiculo auto = Auto.getInstancia();
 		EstadoVehiculo moto = Moto.getInstancia();
 
-		Vehiculo vehiculo = new Vehiculo(auto);
+		unVehiculo.setEstado(auto);
 
-		assertEquals(auto, vehiculo.getEstado());
+		assertEquals(auto, unVehiculo.getEstado());
 
-		vehiculo = new Vehiculo(moto);
+		unVehiculo.setEstado(moto);
 
-		assertEquals(moto, vehiculo.getEstado());
+		assertEquals(moto, unVehiculo.getEstado());
 
 	}
 
 	@Test
-	public void vehiculoConEstadoAutofectadoPorDosObstaculos() {
+	public void vehiculoConEstadoAutoAfectadoPorDosObstaculos() {
 		unVehiculo.setEstado(Auto.getInstancia());
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
-		afectables.add(new Pozo()); // suma 3 movimientos
-		afectables.add(new Piquete()); // vuelve a posicion anterior
 		unVehiculo.afectar(afectables);
 		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 13);
@@ -74,9 +70,8 @@ public class VehiculoTest {
 	@Test
 	public void vehiculoConEstadoMotofectadoPorDosObstaculos() {
 		unVehiculo.setEstado(Moto.getInstancia());
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
-		afectables.add(new Pozo()); // suma 3 movimientos
-		afectables.add(new Piquete()); // Suma 2 movimientos
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 15);
 
@@ -85,25 +80,11 @@ public class VehiculoTest {
 	@Test
 	public void vehiculoConEstadoCuatroXCuatrofectadoPorDosObstaculos() {
 		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
-		afectables.add(new Pozo()); // suma 0 movimientos
-		afectables.add(new Piquete()); // vuelve a posicion anterior
 		unVehiculo.afectar(afectables);
 		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 10);
-	}
-	@Test
-	public void setPosicionActualCoincideConLaAnterior(){
-		unVehiculo.reiniciarValoresACero();
-		unVehiculo.setPosicion(new Posicion(1, 1));
-		assertTrue(unVehiculo.getPosicionActual().esIgual(unVehiculo.getPosicionAnterior()));
-	}
-	@Test
-	public void posicionDeVehiculoCoincideConPosicionEsquina(){
-		Esquina esquina = new Esquina(new Posicion(1,1));
-		unVehiculo.setEsquina(esquina);
-		assertTrue(unVehiculo.getPosicionActual().esIgual(esquina.getPosicion()));
-		assertTrue(unVehiculo.getPosicionAnterior().esIgual(esquina.getPosicion()));
 	}
 
 }
