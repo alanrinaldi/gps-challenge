@@ -1,5 +1,4 @@
 package gpschallenge.motor;
-
 import gpschallenge.componentes.utililidades.Posicion;
 
 public class Meta {

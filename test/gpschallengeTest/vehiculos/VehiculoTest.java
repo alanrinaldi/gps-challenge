@@ -12,6 +12,7 @@ import gpschallenge.componentes.vehiculos.CuatroXCuatro;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.mapa.Esquina;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import org.junit.Test;
 
 public class VehiculoTest {
 	private ArrayList<Afectable> afectables = new ArrayList<Afectable>();
-	private Vehiculo unVehiculo = new Vehiculo();
+	private Vehiculo unVehiculo = new Vehiculo(Auto.getInstancia());
 
 	@Test
 	public void deberiaInicializarVehiculo() {
@@ -66,7 +67,7 @@ public class VehiculoTest {
 		afectables.add(new Piquete()); // vuelve a posicion anterior
 		unVehiculo.afectar(afectables);
 		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
-		assertEquals(unVehiculo.getCantMovimientos(), 13);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 13);
 
 	}
 
@@ -77,7 +78,7 @@ public class VehiculoTest {
 		afectables.add(new Pozo()); // suma 3 movimientos
 		afectables.add(new Piquete()); // Suma 2 movimientos
 		unVehiculo.afectar(afectables);
-		assertEquals(unVehiculo.getCantMovimientos(), 15);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 15);
 
 	}
 
@@ -89,7 +90,20 @@ public class VehiculoTest {
 		afectables.add(new Piquete()); // vuelve a posicion anterior
 		unVehiculo.afectar(afectables);
 		assertTrue(unVehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
-		assertEquals(unVehiculo.getCantMovimientos(), 10);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 10);
+	}
+	@Test
+	public void setPosicionActualCoincideConLaAnterior(){
+		unVehiculo.reiniciarValoresACero();
+		unVehiculo.setPosicion(new Posicion(1, 1));
+		assertTrue(unVehiculo.getPosicionActual().esIgual(unVehiculo.getPosicionAnterior()));
+	}
+	@Test
+	public void posicionDeVehiculoCoincideConPosicionEsquina(){
+		Esquina esquina = new Esquina(new Posicion(1,1));
+		unVehiculo.setEsquina(esquina);
+		assertTrue(unVehiculo.getPosicionActual().esIgual(esquina.getPosicion()));
+		assertTrue(unVehiculo.getPosicionAnterior().esIgual(esquina.getPosicion()));
 	}
 
 }
