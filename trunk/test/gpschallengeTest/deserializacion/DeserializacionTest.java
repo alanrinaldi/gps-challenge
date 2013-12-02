@@ -3,6 +3,7 @@ package gpschallengeTest.deserializacion;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import gpschallenge.componentes.obstaculos.*;
 import gpschallenge.componentes.sorpresas.*;
@@ -39,10 +40,14 @@ public class DeserializacionTest {
 		SorpresaFavorable sorpfav = (SorpresaFavorable) xstream
 				.fromXML(new File(
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/sorpresafavorable.xml"));
+		
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(sorpfav);
+		
+		vehiculo.afectar(afectables);
 
-		vehiculo.afectar(sorpfav);
-
-		assertEquals(vehiculo.getCantMovimientos(), 8);
+		assertEquals(vehiculo.getCantMovimientos().intValue(), 8);
 
 	}
 
@@ -57,9 +62,13 @@ public class DeserializacionTest {
 				.fromXML(new File(
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/sorpresadesfavorable.xml"));
 
-		vehiculo.afectar(sorpdesf);
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(sorpdesf);
+		
+		vehiculo.afectar(afectables);
 
-		assertEquals(vehiculo.getCantMovimientos(), 12);
+		assertEquals(vehiculo.getCantMovimientos().intValue(), 12);
 	}
 
 	@Test
@@ -74,7 +83,11 @@ public class DeserializacionTest {
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/cambiodevehiculo.xml"));
 		CuatroXCuatro camioneta = CuatroXCuatro.getInstancia();
 
-		vehiculo.afectar(cambio);
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(cambio);
+		
+		vehiculo.afectar(afectables);
 
 		assertEquals(camioneta, vehiculo.getEstado());
 	}
@@ -90,9 +103,13 @@ public class DeserializacionTest {
 				.fromXML(new File(
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/pozo.xml"));
 
-		vehiculo.afectar(pozo);
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(pozo);
+		
+		vehiculo.afectar(afectables);
 
-		assertEquals(vehiculo.getCantMovimientos(), 13);
+		assertEquals(vehiculo.getCantMovimientos().intValue(), 13);
 
 	}
 
@@ -107,9 +124,13 @@ public class DeserializacionTest {
 				.fromXML(new File(
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/piquete.xml"));
 
-		vehiculo.afectar(piquete);
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(piquete);
+		
+		vehiculo.afectar(afectables);
 
-		assertEquals(vehiculo.getCantMovimientos(), 10);
+		assertEquals(vehiculo.getCantMovimientos().intValue(), 10);
 		assertTrue(vehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 	}
 
@@ -124,7 +145,11 @@ public class DeserializacionTest {
 				.fromXML(new File(
 						"C:/Users/Alan/Documents/SVN/serializacionesejemplos/controlpolicial.xml"));
 
-		vehiculo.afectar(control);
+		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
+		
+		afectables.add(control);
+		
+		vehiculo.afectar(afectables);
 
 		assertTrue((vehiculo.getCantMovimientos() == 10)
 				|| (vehiculo.getCantMovimientos() == 13));

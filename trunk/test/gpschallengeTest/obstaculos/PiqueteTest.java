@@ -1,16 +1,13 @@
 package gpschallengeTest.obstaculos;
 
 import static org.junit.Assert.*;
-import gpschallenge.componentes.obstaculos.Piquete;
-import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.Moto;
-import gpschallenge.componentes.vehiculos.Vehiculo;
-import gpschallenge.direccionamiento.Abajo;
-import gpschallenge.direccionamiento.Arriba;
-import gpschallenge.direccionamiento.Direccion;
-import gpschallenge.mapa.EsquinaVieja;
+
+import java.util.ArrayList;
+import gpschallenge.componentes.obstaculos.*;
+import gpschallenge.componentes.utililidades.*;
+import gpschallenge.componentes.vehiculos.*;
+import gpschallenge.excepciones.ExcedeMaximoAfectablesException;
+import gpschallenge.mapa.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,13 +18,12 @@ public class PiqueteTest {
 	private Moto unaMoto = null;
 	private Auto unAuto = null;
 	private CuatroXCuatro una4x4 = null;
-	private Vehiculo unVehiculo = new Vehiculo();
-	Posicion unaPosicion = new Posicion(1, 1);
-	Posicion otraPosicion = new Posicion(1, 2);
-	EsquinaVieja unaEsquina = new EsquinaVieja(unaPosicion);
-	EsquinaVieja otraEsquina = new EsquinaVieja(otraPosicion);
-	Direccion arriba = new Arriba();
-	Direccion abajo = new Abajo();
+	private Vehiculo unVehiculo;
+	private Posicion unaPosicion = new Posicion(1, 1);
+	private Posicion otraPosicion = new Posicion(1, 2);
+	private Esquina unaEsquina = new Esquina(unaPosicion);
+	private Esquina otraEsquina = new Esquina(otraPosicion);
+	private ArrayList<Afectable> afectables;
 
 	@Before
 	public void setUp() {
@@ -35,95 +31,121 @@ public class PiqueteTest {
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
+		unVehiculo = Vehiculo.getInstancia();
+		afectables = new ArrayList<Afectable>();
+		afectables.add(unPiquete);
+		
+		
+	}
+	
+	@Test
+	public void NoDebePenalizarAVehiculoAutos() {
+		
+		unVehiculo.setEstado(unAuto);
 		unVehiculo.reiniciarValoresACero();
-
+		unVehiculo.sumarMovimientos(6);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 6);
+	}
+	
+	@Test
+	public void NoDebePenalizarAVehiculoCuatroXCuatro() {
+		unVehiculo.setEstado(una4x4);
+		unVehiculo.reiniciarValoresACero();
+		unVehiculo.sumarMovimientos(6);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 6);
 	}
 
 	@Test
 	public void debePenalizarConDosMovimientosAMotos() {
 		unVehiculo.setEstado(unaMoto);
+		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(12);
-		unVehiculo.afectar(unPiquete);
-		assertEquals(unVehiculo.getCantMovimientos(), 14);
+		unVehiculo.afectar(afectables);
+		assertEquals(unVehiculo.getCantMovimientos().intValue(), 14);
 	}
 
-	@Test
-	public void NoDebePenalizarAVehiculoAutos() {
-		unVehiculo.setEstado(unAuto);
-		unVehiculo.sumarMovimientos(6);
-		unVehiculo.afectar(unPiquete);
-		assertEquals(unVehiculo.getCantMovimientos(), 6);
-	}
 
-	@Test
-	public void NoDebePenalizarAVehiculoCuatroXCuatro() {
-		unVehiculo.setEstado(una4x4);
-		unVehiculo.sumarMovimientos(6);
-		unVehiculo.afectar(unPiquete);
-		assertEquals(unVehiculo.getCantMovimientos(), 6);
-	}
-
-	/*
-	 * @Test public void autoNoDeberiaCambiarPosicion(){
-	 * 
-	 * try { Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-	 * unaCalle.addAfectable(unPiquete);
-	 * 
-	 * unaEsquina.agregarCalle(arriba , unaCalle);
-	 * otraEsquina.agregarCalle(abajo, unaCalle);
-	 * 
-	 * EstadoVehiculo auto = Auto.getInstancia(); Vehiculo vehiculo = new
-	 * Vehiculo(auto);
-	 * 
-	 * vehiculo.setPosicion(new Posicion(2,1));
-	 * 
-	 * assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
-	 * 
-	 * 
-	 * assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
-	 * assertEquals(1,vehiculo.getCantMovimientos()); } catch
-	 * (EsquinasInvalidasException e1){
-	 * System.out.println("Auto Cambia de Posicion"); } }
-	 * 
-	 * @Test public void cuatroXCuatroNoDeberiaCambiarPosicion(){
-	 * 
-	 * try { Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-	 * unaCalle.addAfectable(unPiquete);
-	 * 
-	 * unaEsquina.agregarCalle(arriba , unaCalle);
-	 * otraEsquina.agregarCalle(abajo, unaCalle);
-	 * 
-	 * EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia(); Vehiculo
-	 * vehiculo = new Vehiculo(cuatroxcuatro);
-	 * 
-	 * 
-	 * assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
-	 * 
-	 * 
-	 * assertTrue(unaEsquina.getPosicion().esIgual(vehiculo.getPosicionActual()))
-	 * ; assertEquals(1,vehiculo.getCantMovimientos());
-	 * 
-	 * } catch (EsquinasInvalidasException e1){
-	 * System.out.println("CuatroXCuatro Cambia de Posicion"); } }
-	 * 
-	 * @Test public void motoDeberiaCambiarPosicion(){
-	 * 
-	 * try { Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-	 * unaCalle.addAfectable(unPiquete);
-	 * 
-	 * unaEsquina.agregarCalle(arriba , unaCalle);
-	 * otraEsquina.agregarCalle(abajo, unaCalle);
-	 * 
-	 * EstadoVehiculo moto = Moto.getInstancia(); Vehiculo vehiculo = new
-	 * Vehiculo(moto);
-	 * 
-	 * 
-	 * assertEquals(unaEsquina.getPosicion(),vehiculo.getPosicionActual());
-	 * 
-	 * 
-	 * assertEquals(otraEsquina.getPosicion(),vehiculo.getPosicionActual());
-	 * assertEquals(3,vehiculo.getCantMovimientos()); } catch
-	 * (EsquinasInvalidasException e1){
-	 * System.out.println("Moto No Cambia de Posicion"); } }
-	 */
+	  @Test 
+	  public void autoNoDeberiaCambiarPosicion() throws ExcedeMaximoAfectablesException{
+		  try{
+			  Calle unaCalle = new Calle();
+			
+			  
+			  unaEsquina.setCalleEnSentido(unaCalle, Sentido.ABAJO);
+			  otraEsquina.setCalleEnSentido(unaCalle, Sentido.ARRIBA);
+			  
+			  unaCalle.addAfectable(unPiquete);
+			  
+			  EstadoVehiculo auto = Auto.getInstancia(); 
+			  unVehiculo.setEstado(auto);
+			  unVehiculo.reiniciarValoresACero();
+			  unVehiculo.setEsquina(unaEsquina);
+			  unVehiculo.setPosicion(unaPosicion);
+			  unVehiculo.setValorPorMovimiento(1);
+			  
+			  unVehiculo.mover(Sentido.ABAJO);
+			  
+			  assertTrue(unVehiculo.getPosicionActual().esIgual(unaPosicion));
+			  
+			  assertEquals(1,unVehiculo.getCantMovimientos().intValue());  
+		  }
+		  catch(ExcedeMaximoAfectablesException e){}
+	  }
+	  
+	  @Test 
+	  public void cuatroporcuatroNoDeberiaCambiarPosicion() throws ExcedeMaximoAfectablesException{
+		  try{
+			  Calle unaCalle = new Calle();
+			
+			  
+			  unaEsquina.setCalleEnSentido(unaCalle, Sentido.ABAJO);
+			  otraEsquina.setCalleEnSentido(unaCalle, Sentido.ARRIBA);
+			  
+			  unaCalle.addAfectable(unPiquete);
+			  
+			  EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia(); 
+			  unVehiculo.setEstado(cuatroxcuatro);
+			  unVehiculo.reiniciarValoresACero();
+			  unVehiculo.setEsquina(unaEsquina);
+			  unVehiculo.setPosicion(unaPosicion);
+			  unVehiculo.setValorPorMovimiento(1);
+			  
+			  unVehiculo.mover(Sentido.ABAJO);
+			  
+			  assertTrue(unVehiculo.getPosicionActual().esIgual(unaPosicion));
+			  
+			  assertEquals(1,unVehiculo.getCantMovimientos().intValue());  
+		  }
+		  catch(ExcedeMaximoAfectablesException e){}
+	  }
+	  
+	  @Test 
+	  public void motoDeberiaCambiarPosicion() throws ExcedeMaximoAfectablesException{
+		  try{
+			  Calle unaCalle = new Calle();
+			
+			  
+			  unaEsquina.setCalleEnSentido(unaCalle, Sentido.ABAJO);
+			  otraEsquina.setCalleEnSentido(unaCalle, Sentido.ARRIBA);
+			  
+			  unaCalle.addAfectable(unPiquete);
+			  
+			  EstadoVehiculo moto = Moto.getInstancia(); 
+			  unVehiculo.setEstado(moto);
+			  unVehiculo.reiniciarValoresACero();
+			  unVehiculo.setEsquina(unaEsquina);
+			  unVehiculo.setPosicion(unaPosicion);
+			  unVehiculo.setValorPorMovimiento(1);
+			  
+			  unVehiculo.mover(Sentido.ABAJO);
+			  
+			  assertTrue(unVehiculo.getPosicionActual().esIgual(otraPosicion));
+			  
+			  assertEquals(3,unVehiculo.getCantMovimientos().intValue());  
+		  }
+		  catch(ExcedeMaximoAfectablesException e){}
+	  }
+	 
 }

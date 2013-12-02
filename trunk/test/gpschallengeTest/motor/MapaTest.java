@@ -2,7 +2,7 @@ package gpschallengeTest.motor;
 
 import static org.junit.Assert.*;
 import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.mapa.EsquinaVieja;
+import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
 
 import org.junit.Before;
@@ -13,7 +13,7 @@ public class MapaTest {
 
 	@Before
 	public void setUp() {
-		unMapa = Mapa.getInstancia();
+		unMapa = new Mapa(10,10);
 	}
 
 	@Test
@@ -22,20 +22,19 @@ public class MapaTest {
 	}
 
 	@Test
-	public void esUnicaInstancia() {
-		Mapa otroMapa = Mapa.getInstancia();
-		assertEquals(unMapa.hashCode(), otroMapa.hashCode());
-	}
+	public void agregaEsquinas() {
 
-	@Test
-	public void agregaUnaEsquinaEnPosicion() {
-
-		Posicion posicion = new Posicion(1, 1);
-		EsquinaVieja unaEsquina = new EsquinaVieja(posicion);
-		unMapa.agregarEsquina(unaEsquina);
-
-		assertEquals(unMapa.getEsquinaEnPosicion(posicion).getPosicion(),
-				posicion);
+		unMapa.setPosicionPrimerEsquina(1, 1, 1);
+		
+		Esquina esquina = unMapa.getEsquina(1, 1);
+		Esquina esquina2 = unMapa.getEsquina(5, 3);
+		Esquina esquina3 = unMapa.getEsquina(7, 9);
+		Esquina esquina4 = unMapa.getEsquina(10, 10);
+		
+		assertTrue(esquina.getPosicion().esIgual(new Posicion(1,1)));
+		assertTrue(esquina2.getPosicion().esIgual(new Posicion(5,3)));
+		assertTrue(esquina3.getPosicion().esIgual(new Posicion(7,9)));
+		assertTrue(esquina4.getPosicion().esIgual(new Posicion(10,10)));
 
 	}
 

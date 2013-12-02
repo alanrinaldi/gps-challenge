@@ -1,35 +1,31 @@
 package gpschallengeTest.obstaculos;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.obstaculos.ControlPolicial;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.EstadoVehiculo;
-import gpschallenge.componentes.vehiculos.Moto;
-import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.componentes.vehiculos.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
-/**
- * @author delpinor
- * 
- */
 
 public class ControlPolicialTest {
 	private ControlPolicial unControlPolicial = null;
 	private Moto unaMoto = null;
 	private Auto unAuto = null;
 	private CuatroXCuatro una4x4 = null;
-	private Vehiculo unVehiculo = new Vehiculo();
-
+	private Vehiculo unVehiculo;
+	private ArrayList<Afectable> afectables;
+	
 	public double porcentajeDeAparicion(EstadoVehiculo unEstado) {
 		unVehiculo.setEstado(unEstado);
 		double cantidad = 0;
 		/* Pruebo 1000 casos y calculo la probabilidad de ser penalizado */
 		for (int i = 0; i < 1000; i++) {
 			unVehiculo.sumarMovimientos(5);
-			unVehiculo.afectar(unControlPolicial);
+			unVehiculo.afectar(afectables);
 			if (unVehiculo.getCantMovimientos() == 8) {
 				cantidad += 1;
 			}
@@ -47,6 +43,9 @@ public class ControlPolicialTest {
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
+		afectables = new ArrayList<Afectable>();
+		afectables.add(unControlPolicial);
+		unVehiculo = Vehiculo.getInstancia();
 	}
 
 	@Test
