@@ -7,7 +7,6 @@ import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
 import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
 import gpschallenge.componentes.sorpresas.SorpresaFavorable;
 import gpschallenge.componentes.utililidades.Sentido;
-import gpschallenge.componentes.vehiculos.Moto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Mapa;
@@ -48,10 +47,9 @@ public class Ventana extends JFrame implements KeyListener {
 
 		mapa = new Mapa(8, 8);
 		System.out.println(mapa.getAltoEsquinas());
-		vehiculo = new Vehiculo(Moto.getInstancia());
 
 		// Agrego Vehiculo
-		mapa.setVehiculoEnEsquina(vehiculo, 4, 4);
+		mapa.setVehiculoEnEsquina(4, 4);
 
 		// Afectable
 		mapa.addAfectable(new Pozo(), 1, 1, Sentido.DERECHA);
