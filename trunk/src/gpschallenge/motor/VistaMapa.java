@@ -48,7 +48,7 @@ public class VistaMapa extends JPanel {
 		this.setLayout(new GridLayout(1, 1));
 		this.setBounds(5, 5, ANCHO_PANEL, ALTO_PANEL);
 		this.setBackground(Color.BLACK);
-		this.vistaVehiculo = new VistaVehiculo(this.mapa.getVehiculo());
+		this.vistaVehiculo = new VistaVehiculo();
 		this.add(vistaVehiculo);
 		this.dibujarManzanas();
 		this.dibujarAfectablesVertical();
