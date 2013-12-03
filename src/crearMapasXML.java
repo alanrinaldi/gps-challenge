@@ -27,17 +27,17 @@ public class crearMapasXML {
 		XStream xstream = new XStream();
 		
 		crearMapaModo(Dificultad.DIFICIL);
-		PrintWriter pw1 = new PrintWriter("Mapas/"+Dificultad.DIFICIL+".xml");
+		PrintWriter pw1 = new PrintWriter("Datos/Mapas/"+Dificultad.DIFICIL+".xml");
 		xstream.toXML(mapa,pw1);
 		pw1.close();
 		
 		crearMapaModo(Dificultad.MODERADO);
-		PrintWriter pw2 = new PrintWriter("Mapas/"+Dificultad.MODERADO+".xml");
+		PrintWriter pw2 = new PrintWriter("Datos/Mapas/"+Dificultad.MODERADO+".xml");
 		xstream.toXML(mapa,pw2);
 		pw2.close();
 	
 		crearMapaModo(Dificultad.FACIL);
-		PrintWriter pw3 = new PrintWriter("Mapas/"+Dificultad.FACIL+".xml");
+		PrintWriter pw3 = new PrintWriter("Datos/Mapas/"+Dificultad.FACIL+".xml");
 		xstream.toXML(mapa,pw3);
 		pw3.close();
 	}
