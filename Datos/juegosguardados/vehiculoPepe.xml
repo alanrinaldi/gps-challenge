@@ -1,0 +1,37 @@
+<gpschallenge.componentes.vehiculos.Vehiculo>
+  <estado class="gpschallenge.componentes.vehiculos.Auto"/>
+  <cantMovimientos>0</cantMovimientos>
+  <posicionActual>
+    <x>60</x>
+    <y>53</y>
+  </posicionActual>
+  <posicionAnterior>
+    <x>60</x>
+    <y>53</y>
+  </posicionAnterior>
+  <esquinaActual>
+    <posicion>
+      <x>60</x>
+      <y>53</y>
+    </posicion>
+    <calleDerecha>
+      <afectables/>
+    </calleDerecha>
+    <calleIzquierda>
+      <afectables/>
+    </calleIzquierda>
+    <calleArriba>
+      <afectables>
+        <gpschallenge.componentes.obstaculos.Piquete/>
+        <gpschallenge.componentes.sorpresas.CambioDeVehiculo/>
+      </afectables>
+    </calleArriba>
+    <calleAbajo>
+      <afectables>
+        <gpschallenge.componentes.sorpresas.SorpresaFavorable/>
+        <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+      </afectables>
+    </calleAbajo>
+  </esquinaActual>
+  <cantidad>106</cantidad>
+</gpschallenge.componentes.vehiculos.Vehiculo>
