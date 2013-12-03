@@ -26,7 +26,7 @@ public class Juego {
 	public void iniciarEnModo(Dificultad dif){
 		
 			XStream xstream = new XStream(new DomDriver());
-			mapa = (Mapa)xstream.fromXML(new File("Mapas/"+dif+".xml"));
+			mapa = (Mapa)xstream.fromXML(new File("Datos/Mapas/"+dif+".xml"));
 			
 		this.mapa.setMeta(new Meta());
 	}
