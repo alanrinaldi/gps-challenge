@@ -16,15 +16,15 @@ public class SerializacionEjemplo {
 		
 		//Voy a serializar la clase Vehiculo y auto
 		EstadoVehiculo auto = Auto.getInstancia();		
-		Vehiculo vehiculo = new Vehiculo();
+		Vehiculo vehiculo = Vehiculo.getInstancia();
 		vehiculo.setEstado(auto);
 		vehiculo.sumarMovimientos(10);
 		
-		PrintWriter pw = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/auto.xml");
+		PrintWriter pw = new PrintWriter("serializacionesejemplos/auto.xml");
 		xstream.toXML(auto,pw);
 		pw.close();
 		
-		PrintWriter pw2 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/vehiculo.xml");
+		PrintWriter pw2 = new PrintWriter("serializacionesejemplos/vehiculo.xml");
 		xstream.toXML(vehiculo,pw2);
 		pw2.close();
 	
@@ -39,27 +39,27 @@ public class SerializacionEjemplo {
 		Piquete piquete = new Piquete();
 		ControlPolicial control = new ControlPolicial();
 		
-		PrintWriter pw3 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/sorpresafavorable.xml");
+		PrintWriter pw3 = new PrintWriter("serializacionesejemplos/sorpresafavorable.xml");
 		xstream.toXML(sorpresafavorable,pw3);
 		pw3.close();
 		
-		PrintWriter pw4 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/sorpresadesfavorable.xml");
+		PrintWriter pw4 = new PrintWriter("serializacionesejemplos/sorpresadesfavorable.xml");
 		xstream.toXML(sorpresadesfavorable,pw4);
 		pw4.close();
 		
-		PrintWriter pw5 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/cambiodevehiculo.xml");
+		PrintWriter pw5 = new PrintWriter("serializacionesejemplos/cambiodevehiculo.xml");
 		xstream.toXML(cambio,pw5);
 		pw5.close();
 		
-		PrintWriter pw6 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/pozo.xml");
+		PrintWriter pw6 = new PrintWriter("serializacionesejemplos/pozo.xml");
 		xstream.toXML(pozo,pw6);
 		pw6.close();
 		
-		PrintWriter pw7 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/piquete.xml");
+		PrintWriter pw7 = new PrintWriter("serializacionesejemplos/piquete.xml");
 		xstream.toXML(piquete,pw7);
 		pw7.close();
 		
-		PrintWriter pw8 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/controlpolicial.xml");
+		PrintWriter pw8 = new PrintWriter("serializacionesejemplos/controlpolicial.xml");
 		xstream.toXML(control,pw8);
 		pw8.close();
 		
@@ -67,7 +67,7 @@ public class SerializacionEjemplo {
 		
 		Posicion posicion= new Posicion(5,5);
 		
-		PrintWriter pw9 = new PrintWriter("C:/Users/Alan/Documents/SVN/serializacionesejemplos/posicion.xml");
+		PrintWriter pw9 = new PrintWriter("serializacionesejemplos/posicion.xml");
 		xstream.toXML(posicion,pw9);
 		pw9.close();
 		
