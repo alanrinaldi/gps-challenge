@@ -23,8 +23,8 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
-
+						"Datos/serializacionesejemplos/vehiculo.xml"));
+		
 		assertNotNull(vehiculo);
 		assertTrue(vehiculo.getPosicionActual().esIgual(new Posicion(0, 0)));
 
@@ -36,10 +36,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		SorpresaFavorable sorpfav = (SorpresaFavorable) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/sorpresafavorable.xml"));
+						"Datos/serializacionesejemplos/sorpresafavorable.xml"));
 		
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
 		
@@ -57,10 +57,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		SorpresaDesfavorable sorpdesf = (SorpresaDesfavorable) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/sorpresadesfavorable.xml"));
+						"Datos/serializacionesejemplos/sorpresadesfavorable.xml"));
 
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
 		
@@ -77,10 +77,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		CambioDeVehiculo cambio = (CambioDeVehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/cambiodevehiculo.xml"));
+						"Datos/serializacionesejemplos/cambiodevehiculo.xml"));
 		CuatroXCuatro camioneta = CuatroXCuatro.getInstancia();
 
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
@@ -98,10 +98,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		Pozo pozo = (Pozo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/pozo.xml"));
+						"Datos/serializacionesejemplos/pozo.xml"));
 
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
 		
@@ -119,10 +119,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		Piquete piquete = (Piquete) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/piquete.xml"));
+						"Datos/serializacionesejemplos/piquete.xml"));
 
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
 		
@@ -140,10 +140,10 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Vehiculo vehiculo = (Vehiculo) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/vehiculo.xml"));
+						"Datos/serializacionesejemplos/vehiculo.xml"));
 		ControlPolicial control = (ControlPolicial) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/controlpolicial.xml"));
+						"Datos/serializacionesejemplos/controlpolicial.xml"));
 
 		ArrayList<Afectable> afectables=new ArrayList<Afectable>();
 		
@@ -161,7 +161,7 @@ public class DeserializacionTest {
 		XStream xstream = new XStream(new DomDriver());
 		Posicion posicion = (Posicion) xstream
 				.fromXML(new File(
-						"serializacionesejemplos/posicion.xml"));
+						"Datos/serializacionesejemplos/posicion.xml"));
 
 		assertTrue(posicion.esIgual(new Posicion(5, 5)));
 
