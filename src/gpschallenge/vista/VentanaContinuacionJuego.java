@@ -1,9 +1,7 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.Dificultad;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
-import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
@@ -11,11 +9,15 @@ import gpschallenge.motor.Jugador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class VentanaJuego extends JFrame implements KeyListener {
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 
 	/**
 	 * 
@@ -27,23 +29,20 @@ public class VentanaJuego extends JFrame implements KeyListener {
 	private PanelOpciones panelOpciones;
 	// Control
 	private Vehiculo vehiculo;
-	private Jugador jugador;
 	private Juego juego;
 
 	/**
 	 * 
 	 *  
 	 */
-	public VentanaJuego() throws EsquinasInvalidasException {
+	public VentanaContinuacionJuego(Jugador jugador) throws EsquinasInvalidasException {
 
 		// Jugador, Vehiculo, Juego
-		jugador = new Jugador("Pepe");
-		vehiculo = Vehiculo.getInstancia();
-		vehiculo.setEstado(Auto.getInstancia());
-		juego = new Juego(jugador);
-		juego.iniciarEnModo(Dificultad.DIFICIL);
+		XStream xstream = new XStream(new DomDriver());
+		
+		vehiculo = (Vehiculo)xstream.fromXML(new File("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml"));
+		juego = (Juego)xstream.fromXML(new File("Datos/juegosguardados/juego"+jugador.getNombre()+".xml"));
 		panelMapa = new PanelMapa(juego.getMapa());
-		juego.getMapa().setVehiculoEnEsquina(1, 1);
 
 		// Inicia Juego
 
@@ -66,7 +65,7 @@ public class VentanaJuego extends JFrame implements KeyListener {
 		contentPane.add(panelInformacion);
 		panelInformacion.setLayout(null);
 
-		panelOpciones = new PanelOpciones();
+		panelOpciones = new PanelOpciones(juego,vehiculo,jugador);
 		panelOpciones.setBounds(830, 600, 250, 200);
 		contentPane.add(panelOpciones);
 		panelOpciones.setLayout(null);
