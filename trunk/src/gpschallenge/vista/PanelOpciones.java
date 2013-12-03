@@ -1,12 +1,20 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.motor.Juego;
+import gpschallenge.motor.Jugador;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.thoughtworks.xstream.XStream;
 
 public class PanelOpciones extends JPanel {
 
@@ -15,9 +23,17 @@ public class PanelOpciones extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public PanelOpciones() {
+	private Juego juego;
+	private Vehiculo vehiculo;
+	private Jugador jugador;
+	
+	public PanelOpciones(Juego unjuego,Vehiculo unvehiculo, Jugador unjugador) {
 		setLayout(null);
 
+		juego = unjuego;
+		vehiculo = unvehiculo;
+		jugador = unjugador;
+		
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setContentAreaFilled(false);
 		botonGuardar.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -25,6 +41,27 @@ public class PanelOpciones extends JPanel {
 		botonGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Guarda el juego
+				XStream xstream = new XStream();
+				PrintWriter pw = null;
+				PrintWriter pw2 = null;
+				try {
+					pw = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				xstream.toXML(juego,pw);
+				pw.close();
+				
+				try {
+					pw2 = new PrintWriter("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				xstream.toXML(vehiculo,pw2);
+				pw2.close();
+				
 			}
 		});
 		add(botonGuardar);

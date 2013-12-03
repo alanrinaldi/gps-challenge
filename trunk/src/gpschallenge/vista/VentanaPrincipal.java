@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import gpschallenge.excepciones.EsquinasInvalidasException;
+import gpschallenge.motor.Jugador;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -55,13 +56,8 @@ public class VentanaPrincipal extends JFrame {
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Inicia un juego nuevo
-				VentanaJuego unaVentana = null;
-				try {
-					unaVentana = new VentanaJuego();
-				} catch (EsquinasInvalidasException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				VentanaConfiguraciones unaVentana = new VentanaConfiguraciones();
+				
 				unaVentana.setVisible(true);
 				dispose();
 
@@ -78,6 +74,17 @@ public class VentanaPrincipal extends JFrame {
 		botonContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Carga un juego de partida guardada
+				VentanaContinuacionJuego unaVentana = null;
+				
+				try {
+					unaVentana = new VentanaContinuacionJuego(new Jugador("Pepe"));
+				} catch (EsquinasInvalidasException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			unaVentana.setVisible(true);
+			dispose();
 			}
 		});
 		contentPane.add(botonContinuar);
@@ -99,9 +106,9 @@ public class VentanaPrincipal extends JFrame {
 			public void keyReleased(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_RIGHT:
-					VentanaJuego unaVentana = null;
+					VentanaNuevoJuego unaVentana = null;
 					try {
-						unaVentana = new VentanaJuego();
+						unaVentana = new VentanaNuevoJuego();
 					} catch (EsquinasInvalidasException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
