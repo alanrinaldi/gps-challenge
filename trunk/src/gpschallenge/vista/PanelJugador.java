@@ -1,8 +1,8 @@
 package gpschallenge.vista;
 
 import gpschallenge.componentes.utililidades.Dificultad;
+import gpschallenge.componentes.utililidades.TipoVehiculo;
 import gpschallenge.componentes.vehiculos.*;
-
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class PanelJugador extends JPanel {
     private JTextField textDificultad;
     private JTextField textEstado;
     private JComboBox<Dificultad> campoDificultad;
-    private JComboBox<String> campoEstado;
+    private JComboBox<TipoVehiculo> campoEstado;
     
     private EstadoVehiculo estado;
     private Dificultad dificultadnivel;
@@ -70,24 +70,24 @@ public class PanelJugador extends JPanel {
         
         textEstado = new JTextField(20);
 		add(textEstado);
-		campoEstado =new JComboBox<String>();
+		campoEstado =new JComboBox<TipoVehiculo>();
 		campoEstado.setBounds(0,130,120,20);
 		campoEstado.addItem(null);
-		campoEstado.addItem("Auto");
-		campoEstado.addItem("CuatroXCuatro");
-		campoEstado.addItem("Moto");
+		campoEstado.addItem(TipoVehiculo.AUTO);
+		campoEstado.addItem(TipoVehiculo.CUATROXCUATRO);
+		campoEstado.addItem(TipoVehiculo.MOTO);
         add(campoEstado);
         
         campoEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switch ((String)campoEstado.getSelectedItem()){
-				case "Auto":
+				switch ((TipoVehiculo)campoEstado.getSelectedItem()){
+				case AUTO:
 						estado=Auto.getInstancia();
 						break;
-				case "CuatroXCuatro":
+				case CUATROXCUATRO:
 					estado=CuatroXCuatro.getInstancia();
 					break;
-				case "Moto":
+				case MOTO:
 					estado=Moto.getInstancia();
 					break;	
 				default:	
