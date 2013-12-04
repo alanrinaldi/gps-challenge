@@ -3,7 +3,7 @@ package gpschallenge.vista;
 import gpschallenge.componentes.utililidades.Dificultad;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
-import gpschallenge.componentes.vehiculos.Auto;
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
@@ -34,14 +34,14 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 	 * 
 	 *  
 	 */
-	public VentanaNuevoJuego(Jugador unjugador) throws EsquinasInvalidasException {
+	public VentanaNuevoJuego(Jugador unjugador, EstadoVehiculo unestado, Dificultad unadificultad) throws EsquinasInvalidasException {
 
 		// Jugador, Vehiculo, Juego
 		jugador = unjugador;
 		vehiculo = Vehiculo.getInstancia();
-		vehiculo.setEstado(Auto.getInstancia());
+		vehiculo.setEstado(unestado);
 		juego = new Juego(jugador);
-		juego.iniciarEnModo(Dificultad.FACIL);
+		juego.iniciarEnModo(unadificultad);
 		panelMapa = new PanelMapa(juego.getMapa());
 		juego.getMapa().setVehiculoEnEsquina(1, 1);
 

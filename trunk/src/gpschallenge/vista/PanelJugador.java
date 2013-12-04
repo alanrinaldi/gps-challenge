@@ -1,15 +1,18 @@
 package gpschallenge.vista;
 
-import java.awt.AWTEvent;
+import gpschallenge.componentes.utililidades.Dificultad;
+import gpschallenge.componentes.vehiculos.Auto;
+import gpschallenge.componentes.vehiculos.CuatroXCuatro;
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
+import gpschallenge.componentes.vehiculos.Moto;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 public class PanelJugador extends JPanel {
@@ -19,9 +22,14 @@ public class PanelJugador extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	JPopupMenu popup = new JPopupMenu();
-    JTextField txt = new JTextField( 10 );
-    JTextField campoNombre;
+    private JTextField campoNombre;
+    private JTextField textDificultad;
+    private JTextField textEstado;
+    private JComboBox<Dificultad> campoDificultad;
+    private JComboBox<String> campoEstado;
+    
+    private EstadoVehiculo estado;
+    private Dificultad dificultadnivel;
     
 	public PanelJugador(){
 		
@@ -45,47 +53,66 @@ public class PanelJugador extends JPanel {
 		dificultad.setBackground(Color.LIGHT_GRAY);
 		dificultad.setBounds(0,160, 180, 40);	
 		add(dificultad);
-	
-		add(txt);
-	    
-		ActionListener al = new ActionListener() {
-            public void actionPerformed( ActionEvent evt ){
-                txt.setText( ((JMenuItem)evt.getSource()).getText() );
-            }
-        };
+		
+		textDificultad = new JTextField(20);
+		add(textDificultad);
+        campoDificultad =new JComboBox<Dificultad>();
+        campoDificultad.setBounds(0,210,100,20);
+        campoDificultad.addItem(null);
+        campoDificultad.addItem(Dificultad.FACIL);
+        campoDificultad.addItem(Dificultad.MODERADO);
+        campoDificultad.addItem(Dificultad.DIFICIL);
+        add(campoDificultad);
         
+        campoDificultad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dificultadnivel =(Dificultad) (campoDificultad.getSelectedItem());
+			}
+		});
         
+        textEstado = new JTextField(20);
+		add(textEstado);
+		campoEstado =new JComboBox<String>();
+		campoEstado.setBounds(0,130,120,20);
+		campoEstado.addItem(null);
+		campoEstado.addItem("Auto");
+		campoEstado.addItem("CuatroXCuatro");
+		campoEstado.addItem("Moto");
+        add(campoEstado);
         
-        JMenuItem elemento = new JMenuItem( "Facil" );
-        elemento.addActionListener( al );
-        elemento.setMnemonic( 'F' );
-        popup.add( elemento );
-        elemento = new JMenuItem( "Moderado" );
-        elemento.addActionListener( al );
-        elemento.setMnemonic( 'M' );
-        popup.add( elemento );
-        elemento = new JMenuItem( "Dificil" );
-        elemento.addActionListener( al );
-        elemento.setMnemonic( 'D' );
-        popup.add( elemento );
-        popup.addSeparator();
-        enableEvents( AWTEvent.MOUSE_EVENT_MASK );
-        
-       
-        
+        campoEstado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				switch ((String)campoEstado.getSelectedItem()){
+				case "Auto":
+						estado=Auto.getInstancia();
+						break;
+				case "CuatroXCuatro":
+					estado=CuatroXCuatro.getInstancia();
+					break;
+				case "Moto":
+					estado=Moto.getInstancia();
+					break;	
+				default:	
+					estado=Auto.getInstancia();
+					break;
+				}
+				
+			}
+		});
         
     }
 
+	public String getNombreJugador() {
+		
+		return campoNombre.getText();
+	}
 
-    protected void processMouseEvent( MouseEvent evt ){
-        if ( evt.isPopupTrigger() )
-            popup.show( evt.getComponent(),evt.getX(),evt.getY() );
-        else
-            super.processMouseEvent( evt );
-    }
+	public Dificultad getDificultad(){
+		return dificultadnivel;
+	}
 	
-    public String getNombreJugador(){
-    	return campoNombre.getText();
-    }
+	public EstadoVehiculo getEstado(){
+		return estado;
+	}
 		
 }

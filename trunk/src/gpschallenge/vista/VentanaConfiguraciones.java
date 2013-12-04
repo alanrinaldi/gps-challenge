@@ -1,5 +1,7 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.utililidades.Dificultad;
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Jugador;
 
@@ -21,6 +23,10 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 	private JPanel contentPane;
 	private PanelJugador paneljugador;
 	
+	private Jugador jugador;
+	private Dificultad dificultad;
+	private EstadoVehiculo estado;
+	
 	public VentanaConfiguraciones(){
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +40,7 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 		
 		paneljugador = new PanelJugador();
 		paneljugador.setBackground(Color.LIGHT_GRAY);
-		paneljugador.setBounds(150, 10, 200, 210);
+		paneljugador.setBounds(150, 10, 200, 230);
 		contentPane.add(paneljugador);
 		paneljugador.setLayout(null);
 		
@@ -48,7 +54,10 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 				// Inicia un juego nuevo
 				VentanaNuevoJuego unaVentana = null;
 				try {
-					unaVentana = new VentanaNuevoJuego(new Jugador(paneljugador.getNombreJugador()));
+					jugador = new Jugador(paneljugador.getNombreJugador());
+					dificultad = paneljugador.getDificultad();
+					estado = paneljugador.getEstado();
+					unaVentana = new VentanaNuevoJuego(jugador,estado,dificultad);
 				} catch (EsquinasInvalidasException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
