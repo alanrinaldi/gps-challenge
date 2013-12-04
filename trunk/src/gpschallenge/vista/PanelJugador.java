@@ -1,10 +1,8 @@
 package gpschallenge.vista;
 
 import gpschallenge.componentes.utililidades.Dificultad;
-import gpschallenge.componentes.vehiculos.Auto;
-import gpschallenge.componentes.vehiculos.CuatroXCuatro;
-import gpschallenge.componentes.vehiculos.EstadoVehiculo;
-import gpschallenge.componentes.vehiculos.Moto;
+import gpschallenge.componentes.vehiculos.*;
+
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
