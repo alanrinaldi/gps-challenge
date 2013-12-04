@@ -1,6 +1,7 @@
 package gpschallenge.vista;
 
 import gpschallenge.excepciones.EsquinasInvalidasException;
+import gpschallenge.motor.Jugador;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 	public VentanaConfiguraciones(){
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 450, 300);
+		setBounds(0, 0, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.lightGray);
 		setContentPane(contentPane);
@@ -33,7 +34,7 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 		
 		paneljugador = new PanelJugador();
 		paneljugador.setBackground(Color.LIGHT_GRAY);
-		paneljugador.setBounds(150, 10, 200, 170);
+		paneljugador.setBounds(150, 10, 200, 210);
 		contentPane.add(paneljugador);
 		paneljugador.setLayout(null);
 		
@@ -41,13 +42,13 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 		botonJugar.setBorder(BorderFactory.createLineBorder(Color.black));
 		botonJugar.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonJugar.setBounds(150, 200, 150, 55);
+		botonJugar.setBounds(150, 250, 150, 55);
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Inicia un juego nuevo
 				VentanaNuevoJuego unaVentana = null;
 				try {
-					unaVentana = new VentanaNuevoJuego();
+					unaVentana = new VentanaNuevoJuego(new Jugador(paneljugador.getNombreJugador()));
 				} catch (EsquinasInvalidasException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

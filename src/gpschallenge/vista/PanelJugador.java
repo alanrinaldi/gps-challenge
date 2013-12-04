@@ -21,7 +21,8 @@ public class PanelJugador extends JPanel {
 
 	JPopupMenu popup = new JPopupMenu();
     JTextField txt = new JTextField( 10 );
-	
+    JTextField campoNombre;
+    
 	public PanelJugador(){
 		
 		setLayout(null);
@@ -30,15 +31,19 @@ public class PanelJugador extends JPanel {
 		nombre.setBackground(Color.LIGHT_GRAY);
 		nombre.setBounds(0,0 , 150, 40);
 		add(nombre);
-
+		
+		campoNombre = new JTextField(20);
+		campoNombre.setBounds(0, 45, 150, 25);
+		add(campoNombre);
+		
 		JLabel vehiculo = new JLabel(" SELECCIONAR VEHICULO ");
 		vehiculo.setBackground(Color.LIGHT_GRAY);
-		vehiculo.setBounds(0,60 , 150, 40);
+		vehiculo.setBounds(0,80 , 150, 40);
 		add(vehiculo);
 		
 		JLabel dificultad = new JLabel(" SELECCIONAR DIFICULTAD ");
 		dificultad.setBackground(Color.LIGHT_GRAY);
-		dificultad.setBounds(0,120, 180, 40);	
+		dificultad.setBounds(0,160, 180, 40);	
 		add(dificultad);
 	
 		add(txt);
@@ -79,5 +84,8 @@ public class PanelJugador extends JPanel {
             super.processMouseEvent( evt );
     }
 	
+    public String getNombreJugador(){
+    	return campoNombre.getText();
+    }
 		
 }
