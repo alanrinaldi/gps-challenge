@@ -1,16 +1,18 @@
 package gpschallenge.vista;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Jugador;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -102,23 +104,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		contentPane.add(botonSalir);
 
-		addKeyListener(new KeyAdapter() {
-			public void keyReleased(KeyEvent e) {
-				switch (e.getKeyCode()) {
-				case KeyEvent.VK_RIGHT:
-					VentanaNuevoJuego unaVentana = null;
-					try {
-						unaVentana = new VentanaNuevoJuego();
-					} catch (EsquinasInvalidasException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					unaVentana.setVisible(true);
-					dispose();
-				}
-
-			}
-		});
+		
 	}
 
 }

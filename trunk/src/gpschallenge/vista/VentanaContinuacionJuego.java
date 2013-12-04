@@ -42,6 +42,7 @@ public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 		
 		vehiculo = (Vehiculo)xstream.fromXML(new File("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml"));
 		juego = (Juego)xstream.fromXML(new File("Datos/juegosguardados/juego"+jugador.getNombre()+".xml"));
+		
 		panelMapa = new PanelMapa(juego.getMapa());
 
 		// Inicia Juego

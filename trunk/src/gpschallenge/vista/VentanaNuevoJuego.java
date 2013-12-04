@@ -34,10 +34,10 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 	 * 
 	 *  
 	 */
-	public VentanaNuevoJuego() throws EsquinasInvalidasException {
+	public VentanaNuevoJuego(Jugador unjugador) throws EsquinasInvalidasException {
 
 		// Jugador, Vehiculo, Juego
-		jugador = new Jugador("Pepe");
+		jugador = unjugador;
 		vehiculo = Vehiculo.getInstancia();
 		vehiculo.setEstado(Auto.getInstancia());
 		juego = new Juego(jugador);

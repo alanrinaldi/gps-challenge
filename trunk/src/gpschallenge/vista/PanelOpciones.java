@@ -23,16 +23,10 @@ public class PanelOpciones extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Juego juego;
-	private Vehiculo vehiculo;
-	private Jugador jugador;
 	
-	public PanelOpciones(Juego unjuego,Vehiculo unvehiculo, Jugador unjugador) {
+	public PanelOpciones(final Juego juego,final Vehiculo vehiculo,final Jugador jugador) {
 		setLayout(null);
 
-		juego = unjuego;
-		vehiculo = unvehiculo;
-		jugador = unjugador;
 		
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setContentAreaFilled(false);
@@ -44,6 +38,7 @@ public class PanelOpciones extends JPanel {
 				XStream xstream = new XStream();
 				PrintWriter pw = null;
 				PrintWriter pw2 = null;
+				
 				try {
 					pw = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
 				} catch (FileNotFoundException e) {
@@ -79,5 +74,7 @@ public class PanelOpciones extends JPanel {
 		});
 		add(botonSalir);
 	}
+
+
 
 }
