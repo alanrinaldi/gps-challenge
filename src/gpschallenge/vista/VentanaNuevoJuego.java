@@ -1,8 +1,6 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.Dificultad;
-import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.componentes.utililidades.Sentido;
+import gpschallenge.componentes.utililidades.*;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
