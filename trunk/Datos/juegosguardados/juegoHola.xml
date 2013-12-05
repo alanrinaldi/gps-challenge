@@ -1,0 +1,1203 @@
+<gpschallenge.motor.Juego>
+  <mapa>
+    <meta>
+      <posicion>
+        <x>710</x>
+        <y>705</y>
+      </posicion>
+    </meta>
+    <esquinas>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables/>
+          </calleIzquierda>
+          <calleArriba>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo/>
+            </afectables>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables/>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables/>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial/>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete/>
+            </afectables>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables/>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>52</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleIzquierda>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables/>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>146</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>240</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[3]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>334</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[4]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables/>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>428</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[5]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>522</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[6]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables/>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables/>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>616</x>
+            <y>705</y>
+          </posicion>
+          <calleDerecha>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+            </afectables>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[7]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+      <gpschallenge.mapa.Esquina-array>
+        <null/>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>47</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina/calleDerecha"/>
+          <calleArriba>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+            </afectables>
+          </calleArriba>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>141</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[2]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaDesfavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[2]/calleAbajo/afectables/gpschallenge.componentes.sorpresas.SorpresaDesfavorable"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>235</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[3]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[2]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>329</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[4]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[3]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>423</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[5]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[4]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Pozo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[4]/calleDerecha/afectables/gpschallenge.componentes.obstaculos.Pozo"/>
+              <gpschallenge.componentes.obstaculos.ControlPolicial reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[3]/calleAbajo/afectables/gpschallenge.componentes.obstaculos.ControlPolicial"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>517</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[6]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[5]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.obstaculos.Piquete reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina[5]/calleIzquierda/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion>
+            <x>710</x>
+            <y>611</y>
+          </posicion>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[7]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[6]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+              <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+        <gpschallenge.mapa.Esquina>
+          <posicion reference="../../../../meta/posicion"/>
+          <calleDerecha>
+            <afectables/>
+          </calleDerecha>
+          <calleIzquierda reference="../../../gpschallenge.mapa.Esquina-array[8]/gpschallenge.mapa.Esquina[8]/calleDerecha"/>
+          <calleArriba reference="../../gpschallenge.mapa.Esquina[7]/calleAbajo"/>
+          <calleAbajo>
+            <afectables>
+              <gpschallenge.componentes.sorpresas.CambioDeVehiculo reference="../../../../../gpschallenge.mapa.Esquina-array[2]/gpschallenge.mapa.Esquina/calleArriba/afectables/gpschallenge.componentes.sorpresas.CambioDeVehiculo"/>
+            </afectables>
+          </calleAbajo>
+        </gpschallenge.mapa.Esquina>
+      </gpschallenge.mapa.Esquina-array>
+    </esquinas>
+    <altoEsquinas>8</altoEsquinas>
+    <anchoEsquinas>8</anchoEsquinas>
+    <separacion>94</separacion>
+    <coordXprimerEsquina>52</coordXprimerEsquina>
+    <coordYprimerEsquina>47</coordYprimerEsquina>
+  </mapa>
+  <jugador>
+    <nombre>Hola</nombre>
+    <puntaje>0</puntaje>
+  </jugador>
+  <finalizado>false</finalizado>
+</gpschallenge.motor.Juego>

@@ -1,0 +1,34 @@
+<gpschallenge.componentes.vehiculos.Vehiculo>
+  <estado class="gpschallenge.componentes.vehiculos.Moto"/>
+  <cantMovimientos>4</cantMovimientos>
+  <posicionActual>
+    <x>334</x>
+    <y>141</y>
+  </posicionActual>
+  <posicionAnterior>
+    <x>334</x>
+    <y>141</y>
+  </posicionAnterior>
+  <esquinaActual>
+    <posicion>
+      <x>334</x>
+      <y>141</y>
+    </posicion>
+    <calleDerecha>
+      <afectables/>
+    </calleDerecha>
+    <calleIzquierda>
+      <afectables/>
+    </calleIzquierda>
+    <calleArriba>
+      <afectables>
+        <gpschallenge.componentes.obstaculos.ControlPolicial/>
+        <gpschallenge.componentes.obstaculos.ControlPolicial reference="../gpschallenge.componentes.obstaculos.ControlPolicial"/>
+      </afectables>
+    </calleArriba>
+    <calleAbajo>
+      <afectables/>
+    </calleAbajo>
+  </esquinaActual>
+  <cantidad>94</cantidad>
+</gpschallenge.componentes.vehiculos.Vehiculo>
