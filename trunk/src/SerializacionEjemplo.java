@@ -1,9 +1,16 @@
-import java.io.PrintWriter;
-
-import gpschallenge.componentes.obstaculos.*;
-import gpschallenge.componentes.sorpresas.*;
+import gpschallenge.componentes.obstaculos.ControlPolicial;
+import gpschallenge.componentes.obstaculos.Piquete;
+import gpschallenge.componentes.obstaculos.Pozo;
+import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
+import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
+import gpschallenge.componentes.sorpresas.SorpresaFavorable;
+import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.componentes.utililidades.Posicion;
-import gpschallenge.componentes.vehiculos.*;
+import gpschallenge.componentes.vehiculos.Auto;
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
+import gpschallenge.componentes.vehiculos.Vehiculo;
+
+import java.io.PrintWriter;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -71,7 +78,11 @@ public class SerializacionEjemplo {
 		xstream.toXML(posicion,pw9);
 		pw9.close();
 		
+		ListaJugadores Lista = new ListaJugadores();
 		
+		PrintWriter pw10 = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
+		xstream.toXML(Lista,pw10);
+		pw10.close();
 		
 	}
 }

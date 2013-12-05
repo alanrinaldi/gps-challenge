@@ -22,7 +22,9 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener{
 	private Dificultad dificultad;
 	private EstadoVehiculo estado;
 	
-	public VentanaConfiguraciones(){
+	
+	
+	public VentanaConfiguraciones( ){
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 450, 400);
