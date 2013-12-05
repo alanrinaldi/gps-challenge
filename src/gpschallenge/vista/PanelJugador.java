@@ -21,8 +21,6 @@ public class PanelJugador extends JPanel {
 	private static final long serialVersionUID = 1L;
 
     private JTextField campoNombre;
-    private JTextField textDificultad;
-    private JTextField textEstado;
     private JComboBox<Dificultad> campoDificultad;
     private JComboBox<TipoVehiculo> campoEstado;
     
@@ -52,8 +50,8 @@ public class PanelJugador extends JPanel {
 		dificultad.setBounds(0,160, 180, 40);	
 		add(dificultad);
 		
-		textDificultad = new JTextField(20);
-		add(textDificultad);
+		
+		
         campoDificultad =new JComboBox<Dificultad>();
         campoDificultad.setBounds(0,210,100,20);
         campoDificultad.addItem(null);
@@ -68,8 +66,8 @@ public class PanelJugador extends JPanel {
 			}
 		});
         
-        textEstado = new JTextField(20);
-		add(textEstado);
+       
+		
 		campoEstado =new JComboBox<TipoVehiculo>();
 		campoEstado.setBounds(0,130,120,20);
 		campoEstado.addItem(null);

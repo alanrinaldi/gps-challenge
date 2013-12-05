@@ -1,6 +1,8 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.*;
+import gpschallenge.componentes.utililidades.Dificultad;
+import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
@@ -27,7 +29,7 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 	private Vehiculo vehiculo;
 	private Jugador jugador;
 	private Juego juego;
-
+	
 	/**
 	 * 
 	 *  

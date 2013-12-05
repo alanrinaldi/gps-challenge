@@ -1,5 +1,6 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.motor.Juego;
 import gpschallenge.motor.Jugador;
@@ -7,6 +8,7 @@ import gpschallenge.motor.Jugador;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
@@ -15,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class PanelOpciones extends JPanel {
 
@@ -22,12 +25,12 @@ public class PanelOpciones extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	private ListaJugadores Lista;
 	
 	public PanelOpciones(final Juego juego,final Vehiculo vehiculo,final Jugador jugador) {
-		setLayout(null);
-
 		
+		setLayout(null);
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setContentAreaFilled(false);
 		botonGuardar.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -36,8 +39,10 @@ public class PanelOpciones extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				// Guarda el juego
 				XStream xstream = new XStream();
+				XStream xstream2 = new XStream(new DomDriver());
 				PrintWriter pw = null;
 				PrintWriter pw2 = null;
+				PrintWriter pw3 = null;
 				
 				try {
 					pw = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
@@ -56,6 +61,25 @@ public class PanelOpciones extends JPanel {
 				}
 				xstream.toXML(vehiculo,pw2);
 				pw2.close();
+				
+				
+				
+				Lista = (ListaJugadores) xstream2
+						.fromXML(new File(
+								"Datos/juegosguardados/ListaJugadores.xml"));
+				
+				Lista.AgregarJugador(jugador.getNombre());
+				
+					try {
+						pw3 = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				xstream.toXML(Lista,pw3);
+				pw3.close();
+				
 				
 			}
 		});
