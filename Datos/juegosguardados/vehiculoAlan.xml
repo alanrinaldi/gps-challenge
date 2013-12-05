@@ -1,0 +1,41 @@
+<gpschallenge.componentes.vehiculos.Vehiculo>
+  <estado class="gpschallenge.componentes.vehiculos.CuatroXCuatro"/>
+  <cantMovimientos>5</cantMovimientos>
+  <posicionActual>
+    <x>166</x>
+    <y>159</y>
+  </posicionActual>
+  <posicionAnterior>
+    <x>166</x>
+    <y>159</y>
+  </posicionAnterior>
+  <esquinaActual>
+    <posicion>
+      <x>166</x>
+      <y>159</y>
+    </posicion>
+    <calleDerecha>
+      <afectables>
+        <gpschallenge.componentes.obstaculos.Piquete/>
+      </afectables>
+    </calleDerecha>
+    <calleIzquierda>
+      <afectables>
+        <gpschallenge.componentes.sorpresas.SorpresaFavorable/>
+      </afectables>
+    </calleIzquierda>
+    <calleArriba>
+      <afectables>
+        <gpschallenge.componentes.obstaculos.ControlPolicial/>
+        <gpschallenge.componentes.obstaculos.Piquete reference="../../../calleDerecha/afectables/gpschallenge.componentes.obstaculos.Piquete"/>
+      </afectables>
+    </calleArriba>
+    <calleAbajo>
+      <afectables>
+        <gpschallenge.componentes.sorpresas.SorpresaFavorable reference="../../../calleIzquierda/afectables/gpschallenge.componentes.sorpresas.SorpresaFavorable"/>
+        <gpschallenge.componentes.sorpresas.CambioDeVehiculo/>
+      </afectables>
+    </calleAbajo>
+  </esquinaActual>
+  <cantidad>106</cantidad>
+</gpschallenge.componentes.vehiculos.Vehiculo>

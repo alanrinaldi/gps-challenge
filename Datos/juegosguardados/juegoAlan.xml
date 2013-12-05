@@ -916,9 +916,8 @@
     <coordYprimerEsquina>53</coordYprimerEsquina>
   </mapa>
   <jugador>
-    <nombre>Pepe</nombre>
+    <nombre>Alan</nombre>
     <puntaje>0</puntaje>
   </jugador>
   <finalizado>false</finalizado>
-  <dificultad>FACIL</dificultad>
 </gpschallenge.motor.Juego>
