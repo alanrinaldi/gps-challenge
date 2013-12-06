@@ -13,10 +13,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 
 import com.thoughtworks.xstream.XStream;
@@ -40,9 +43,6 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		
 		setLayout(null);
 		
-		
-		
-		
 		campoNombres =new JComboBox<String>();
 		campoNombres.setBounds(100, 120, 100, 20);
 		campoNombres.addItem(null);
@@ -60,7 +60,7 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 300, 200);
+		setBounds(0, 0, 300, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		setContentPane(contentPane);
@@ -77,6 +77,18 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		
 		campoNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		JButton botonContinuar = new JButton("CONTINUAR");
+		botonContinuar.setBorder(BorderFactory.createLineBorder(Color.black));
+		botonContinuar.setContentAreaFilled(false);
+		// Posicion donde se colocar este boton
+		botonContinuar.setBounds(100, 160, 100, 50);
+		botonContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
 				VentanaContinuacionJuego frame = null;
 				try {
 					frame = new VentanaContinuacionJuego(new Jugador((String)(campoNombres.getSelectedItem())));
@@ -85,11 +97,10 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 					e1.printStackTrace();
 				}
 				frame.setVisible(true);
-				
+
 			}
 		});
-		
-		
+		add(botonContinuar);
 	}
 	
 	
