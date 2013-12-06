@@ -27,5 +27,8 @@ public class Jugador {
 		return puntaje;
 
 	}
+	public void setPuntaje(int puntos){
+		this.puntaje = puntos;
+	}
 
 }

@@ -108,10 +108,7 @@ public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 			// Que pasa cunado termina??
 		} else {
 			vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
-			panelInformacion.actualizarMovimientos(vehiculo
-					.getCantMovimientos());
-			panelInformacion.actualizarEstado(vehiculo.getTipoVehiculo()
-					.toString());
+			panelInformacion.actualizarInfo(juego.getInformacion());
 		}
 	}
 

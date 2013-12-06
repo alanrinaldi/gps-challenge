@@ -1,7 +1,6 @@
 package gpschallenge.componentes.sorpresas;
 
 import gpschallenge.componentes.obstaculos.Afectable;
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 public class SorpresaDesfavorable implements Afectable {
@@ -27,9 +26,4 @@ public class SorpresaDesfavorable implements Afectable {
 
 	}
 
-	@Override
-	public AfectableTipo getTipo() {
-		// TODO Auto-generated method stub
-		return AfectableTipo.SORPRESADESFAVORABLE;
-	}
 }

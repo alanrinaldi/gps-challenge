@@ -1,6 +1,5 @@
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 public interface Afectable {
@@ -9,5 +8,4 @@ public interface Afectable {
 	public void afectarCuatroXCuatro(Vehiculo unVehiculo);
 
 	public void afectarMoto(Vehiculo unVehiculo);
-	public AfectableTipo getTipo();
 }

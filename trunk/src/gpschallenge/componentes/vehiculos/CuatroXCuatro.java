@@ -20,11 +20,6 @@ public class CuatroXCuatro implements EstadoVehiculo {
 		unAfectable.afectarCuatroXCuatro(unVehiculo);
 	}
 
-	@Override
-	public String soyUn() {
-		return "Cuatro X Cuatro";
-	}
-
 	/* Devuelve el tipo de auto (enumerado) */
 	public TipoVehiculo getTipoVehiculo() {
 

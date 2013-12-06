@@ -20,12 +20,6 @@ public class Moto implements EstadoVehiculo {
 		unAfectable.afectarMoto(unVehiculo);
 	}
 
-	@Override
-	public String soyUn() {
-
-		return "Moto";
-	}
-
 	/* Devuelve el tipo de auto (enumerado) */
 	public TipoVehiculo getTipoVehiculo() {
 
