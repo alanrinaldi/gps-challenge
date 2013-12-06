@@ -105,7 +105,6 @@ public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 		}
 		Posicion pos = vehiculo.getPosicionActual();
 		if (pos.esIgual(this.juego.getMapa().getMeta().getPosicion())) {
-			juego.finalizarJuego();
 			// Que pasa cunado termina??
 		} else {
 			vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
