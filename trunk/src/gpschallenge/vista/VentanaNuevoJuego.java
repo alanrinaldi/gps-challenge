@@ -79,7 +79,6 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 	}
 
 	public void keyReleased(KeyEvent e) {
-		if (!juego.juegoFinalizado()) {
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				if (panelMapa.puedeMoverse(Sentido.ARRIBA)) {
@@ -102,18 +101,23 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 				}
 				break;
 			}
-		}
 		Posicion pos = vehiculo.getPosicionActual();
-		if (pos.esIgual(this.juego.getMapa().getMeta().getPosicion())) {
-			juego.finalizarJuego();
-			// Que pasa cunado termina??
+		if (juego.hayGanador()) {
+			// Manda a la principal
+				System.out.println("GANASTE!!");
 		} else {
+			if(juego.juegoFinalizado()){
+				// Mensaje perdedor
+				System.out.println("Perdiste :( ");
+			}else{
 			vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
 			panelInformacion.actualizarMovimientos(vehiculo
 					.getCantMovimientos());
 			panelInformacion.actualizarEstado(vehiculo.getTipoVehiculo()
 					.toString());
+			}
 		}
+		
 	}
 
 	public void keyTyped(KeyEvent e) {

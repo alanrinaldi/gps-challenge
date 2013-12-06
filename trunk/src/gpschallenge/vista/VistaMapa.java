@@ -3,7 +3,6 @@ package gpschallenge.vista;
 import gpschallenge.componentes.obstaculos.Afectable;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
-import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
 
@@ -16,7 +15,7 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
-public class PanelMapa extends JPanel {
+public class VistaMapa extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static final int CANT_AFECTABLES_POR_CALLE = 2;
 	private Mapa mapa = null;
@@ -32,7 +31,7 @@ public class PanelMapa extends JPanel {
 	/*
 	 * CONTRUCTOR
 	 */
-	public PanelMapa(Mapa mapa) {
+	public VistaMapa(Mapa mapa) {
 		this.mapa = mapa;
 		
 		//Tamaño de manzadas, distancia entre mandazanas, afectables, etc
@@ -43,7 +42,7 @@ public class PanelMapa extends JPanel {
 		// Se setea a mapa la primer posicion de la esquina. Tambien se setea la separacion entre esquinas en el mapa
 		this.mapa.setPosicionPrimerEsquina(anchoObjeto+anchoObjeto/mapa.getAnchoEsquinas(), altoObjeto, separacionEntreEsquinas);
 		// Valor de cada movimiento del vehiculo
-		Vehiculo.getInstancia().setValorPorMovimiento(separacionEntreEsquinas);
+		this.mapa.getVehiculo().setValorPorMovimiento(separacionEntreEsquinas);
 		//Configuracion visual del Panel		
 		this.setLayout(new GridLayout(1, 1));
 		this.setBounds(5, 5, ANCHO_PANEL, ALTO_PANEL);
@@ -53,16 +52,7 @@ public class PanelMapa extends JPanel {
 		this.dibujarManzanas();
 		this.dibujarAfectablesVertical();
 		this.dibujarAfectablesHorizontal();
-		this.dibujarMeta();
 
-	}
-
-	private void dibujarMeta() {
-		VistaMeta vista = new VistaMeta(this.mapa.getMeta());
-		Posicion pos = this.mapa.getMeta().getPosicion();
-		vista.setBackground(Color.WHITE);
-		vista.setBounds(pos.getX(), pos.getY(), this.anchoObjeto, this.altoObjeto);
-		this.add(vista);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -73,7 +63,7 @@ public class PanelMapa extends JPanel {
 
 	// Dibuja el Vehiculo en el mapa
 	private void dibujarVehiculo() {
-		Posicion pos = Vehiculo.getInstancia().getPosicionActual();
+		Posicion pos = mapa.getVehiculo().getPosicionActual();
 		vistaVehiculo.setBounds(pos.getX(), pos.getY(), anchoObjeto, altoObjeto);
 		this.setBackground(Color.WHITE);
 
@@ -108,7 +98,7 @@ public class PanelMapa extends JPanel {
 				unaVista.setBounds(pos.getX() + anchoObjeto/4, pos.getY() + distancia_esquina_afectable + cuandoHayDosAfectables, anchoObjeto, altoObjeto/2);
 				break;
 			case ARRIBA:
-				unaVista.setBounds(pos.getX() + anchoObjeto/4, pos.getY() - distancia_esquina_afectable/2 - cuandoHayDosAfectables, anchoObjeto, altoObjeto/2);
+				unaVista.setBounds(pos.getX() + anchoObjeto/4, pos.getY() - distancia_esquina_afectable - cuandoHayDosAfectables, anchoObjeto, altoObjeto/2);
 				break;
 		}
 			// Si hay mas de un afectable por calle(2) la posicion siguiente se mueve el valor indicado en -cuandoHayDosAfectables-
@@ -174,7 +164,7 @@ public class PanelMapa extends JPanel {
 	// Devuelve verdadero si el vehiculo puede moverse en el sentido indicado por el argumento. 
 	// Falso si excede los límites del mapa.
 	public Boolean puedeMoverse(Sentido sentido){
-		Posicion posVehiculo = Vehiculo.getInstancia().getPosicionActual();
+		Posicion posVehiculo = mapa.getVehiculo().getPosicionActual();
 		switch (sentido) {
 		case ARRIBA:
 			if((posVehiculo.getY() - separacionEntreEsquinas) > 0)
