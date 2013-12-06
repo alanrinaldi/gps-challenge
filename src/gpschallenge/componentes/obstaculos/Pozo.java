@@ -1,6 +1,5 @@
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 /**
@@ -25,11 +24,4 @@ public class Pozo implements Afectable {
 	public void afectarCuatroXCuatro(Vehiculo unVehiculo) {
 		unVehiculo.sumarMovimientos(0);
 	}
-
-	@Override
-	public AfectableTipo getTipo() {
-		// TODO Auto-generated method stub
-		return AfectableTipo.POZO;
-	}
-
 }

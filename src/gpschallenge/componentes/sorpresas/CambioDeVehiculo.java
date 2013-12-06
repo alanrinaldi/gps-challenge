@@ -1,7 +1,6 @@
 package gpschallenge.componentes.sorpresas;
 
 import gpschallenge.componentes.obstaculos.Afectable;
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.CuatroXCuatro;
 import gpschallenge.componentes.vehiculos.Moto;
@@ -25,11 +24,5 @@ public class CambioDeVehiculo implements Afectable {
 	public void afectarMoto(Vehiculo unVehiculo) {
 		unVehiculo.setEstado(Auto.getInstancia());
 
-	}
-
-	@Override
-	public AfectableTipo getTipo() {
-		// TODO Auto-generated method stub
-		return AfectableTipo.CAMBIODEVEHICULO;
 	}
 }

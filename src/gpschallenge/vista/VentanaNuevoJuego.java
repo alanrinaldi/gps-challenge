@@ -34,17 +34,16 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 	 * 
 	 *  
 	 */
-	public VentanaNuevoJuego(Jugador unjugador, EstadoVehiculo unestado, Dificultad unadificultad) throws EsquinasInvalidasException {
+	public VentanaNuevoJuego(Jugador unJugador, EstadoVehiculo unEstado, Dificultad unaDificultad) throws EsquinasInvalidasException {
 
 		// Jugador, Vehiculo, Juego
-		jugador = unjugador;
+		jugador = unJugador;
 		vehiculo = Vehiculo.getInstancia();
-		vehiculo.setEstado(unestado);
+		vehiculo.setEstado(unEstado);
 		juego = new Juego(jugador);
-		juego.iniciarEnModo(unadificultad);
+		juego.iniciarEnModo(unaDificultad);
 		panelMapa = new PanelMapa(juego.getMapa());
 		juego.getMapa().setVehiculoEnEsquina(1, 1);
-
 		// Inicia Juego
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,6 +64,8 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 		panelInformacion.setBounds(830, 0, 250, 600);
 		contentPane.add(panelInformacion);
 		panelInformacion.setLayout(null);
+		panelInformacion.actualizarInfo(juego.getInformacion());
+
 
 		panelOpciones = new PanelOpciones(juego,vehiculo,jugador);
 		panelOpciones.setBounds(830, 600, 250, 200);
@@ -102,6 +103,7 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 				break;
 			}
 		Posicion pos = vehiculo.getPosicionActual();
+		panelInformacion.actualizarInfo(juego.getInformacion());
 		if (juego.hayGanador()) {
 			// Manda a la principal
 				System.out.println("GANASTE!!");
@@ -111,10 +113,6 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 				System.out.println("Perdiste :( ");
 			}else{
 			vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
-			panelInformacion.actualizarMovimientos(vehiculo
-					.getCantMovimientos());
-			panelInformacion.actualizarEstado(vehiculo.getTipoVehiculo()
-					.toString());
 			}
 		}
 		

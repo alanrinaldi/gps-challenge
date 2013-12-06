@@ -121,11 +121,6 @@ public class Vehiculo {
 		}
 	}
 
-	public String soyUn() {
-
-		return estado.soyUn();
-	}
-
 	public TipoVehiculo getTipoVehiculo() {
 		return estado.getTipoVehiculo();
 	}

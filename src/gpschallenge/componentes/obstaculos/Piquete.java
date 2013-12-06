@@ -1,6 +1,5 @@
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
@@ -38,10 +37,5 @@ public class Piquete implements Afectable {
 
 	}
 
-	@Override
-	public AfectableTipo getTipo() {
-		// TODO Auto-generated method stub
-		return AfectableTipo.PIQUETE;
-	}
 
 }

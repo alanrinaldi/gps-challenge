@@ -1,6 +1,5 @@
 package gpschallenge.componentes.obstaculos;
 
-import gpschallenge.componentes.utililidades.AfectableTipo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 /**
@@ -50,12 +49,6 @@ public class ControlPolicial implements Afectable {
 		if (afectaVehiculo(PROBABILIDAD_AUTO)) {
 			unVehiculo.sumarMovimientos(VALOR_PENALIZACION);
 		}
-	}
-
-	@Override
-	public AfectableTipo getTipo() {
-		// TODO Auto-generated method stub
-		return AfectableTipo.CONTROLPOLICIAL;
 	}
 
 }

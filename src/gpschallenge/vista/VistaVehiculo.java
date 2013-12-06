@@ -19,25 +19,24 @@ public class VistaVehiculo extends JLabel {
 	}
 
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
-	private ImageIcon getImagenVehiculo() {
-		ImageIcon img = null;
-		String url = URL_AUTO;
-		switch (Vehiculo.getInstancia().getTipoVehiculo()) {
-		case AUTO:
+	private ImageIcon getImagen() {
+		String url = "";
+		switch (Vehiculo.getInstancia().getEstado().getClass().getSimpleName()) {
+		case "Auto":
 			url = URL_AUTO;
 			break;
-		case MOTO:
+		case "Moto":
 			url = URL_MOTO;
 			break;
-		case CUATROXCUATRO:
+		case "CuatroXCuatro":
 			url = URL_CUATROXCUATRO;
 			break;
 		}
-		img = new ImageIcon(getClass().getResource(url));
+		ImageIcon img = new ImageIcon(getClass().getResource(url));
 		return img;
 	}
-	public void paint(Graphics g){
-		super.paint(g);
-		this.setIcon(this.getImagenVehiculo());
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		this.setIcon(this.getImagen());
 	}
 }
