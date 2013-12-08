@@ -26,23 +26,23 @@ public class VistaAfectable extends JLabel {
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
 	public ImageIcon getImagen() {
 		String url = null;
-		switch (this.afectable.getClass().getSimpleName()) {
-		case "Pozo":
+		switch (this.afectable.getTipoAfectables()) {
+		case POZO:
 			url = URL_POZO;
 			break;
-		case "Piquete":
+		case PIQUETE:
 			url = URL_PIQUETE;
 			break;
-		case "ControlPolicial":
+		case CONTROLPOLICIAL:
 			url = URL_CONTROL;
 			break;
-		case "SorpresaFavorable":
+		case SORPRESAFAVORABLE:
 			url = URL_FAVORABLE;
 			break;
-		case "SorpresaDesfavorable":
+		case SORPRESADESFAVORABLE:
 			url = URL_DESFAVORABLE;
 			break;
-		case "CambioDeVehiculo":
+		case CAMBIODEVEHICULO:
 			url = URL_CAMBIO;
 			break;
 		default:

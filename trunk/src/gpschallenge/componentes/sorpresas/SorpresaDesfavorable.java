@@ -1,6 +1,7 @@
 package gpschallenge.componentes.sorpresas;
 
 import gpschallenge.componentes.obstaculos.Afectable;
+import gpschallenge.componentes.utililidades.TipoAfectables;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 
 public class SorpresaDesfavorable implements Afectable {
@@ -24,6 +25,12 @@ public class SorpresaDesfavorable implements Afectable {
 	public void afectarMoto(Vehiculo unVehiculo) {
 		unVehiculo.sumarPorcentajeMovimientos(PORCENTAJE_MOVIMIENTOS);
 
+	}
+
+	@Override
+	public TipoAfectables getTipoAfectables() {
+		
+		return TipoAfectables.SORPRESADESFAVORABLE;
 	}
 
 }

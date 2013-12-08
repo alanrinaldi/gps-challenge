@@ -21,14 +21,14 @@ public class VistaVehiculo extends JLabel {
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
 	private ImageIcon getImagen() {
 		String url = "";
-		switch (Vehiculo.getInstancia().getEstado().getClass().getSimpleName()) {
-		case "Auto":
+		switch (Vehiculo.getInstancia().getEstado().getTipoVehiculo()) {
+		case AUTO:
 			url = URL_AUTO;
 			break;
-		case "Moto":
+		case MOTO:
 			url = URL_MOTO;
 			break;
-		case "CuatroXCuatro":
+		case CUATROXCUATRO:
 			url = URL_CUATROXCUATRO;
 			break;
 		}
