@@ -7,9 +7,11 @@ import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
 
+import java.awt.BasicStroke;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -66,9 +68,11 @@ public class PanelMapa extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
+		
 		super.paintComponent(g);
 		super.setBackground(Color.white);
 		this.dibujarVehiculo();
+		
 	}
 
 	// Dibuja el Vehiculo en el mapa
