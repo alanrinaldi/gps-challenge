@@ -43,6 +43,7 @@ public class PanelOpciones extends JPanel {
 				PrintWriter pw = null;
 				PrintWriter pw2 = null;
 				PrintWriter pw3 = null;
+				PrintWriter pw4 = null;
 				
 				try {
 					pw = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
@@ -62,7 +63,15 @@ public class PanelOpciones extends JPanel {
 				xstream.toXML(vehiculo,pw2);
 				pw2.close();
 				
+				try {
+					pw3 = new PrintWriter("Datos/juegosguardados/estadovehiculo"+jugador.getNombre()+".xml");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
+				xstream.toXML(vehiculo.getEstado(),pw3);
+				pw3.close();
 				
 				Lista = (ListaJugadores) xstream2
 						.fromXML(new File(
@@ -71,14 +80,14 @@ public class PanelOpciones extends JPanel {
 				Lista.AgregarJugador(jugador.getNombre());
 				
 					try {
-						pw3 = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
+						pw4 = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				xstream.toXML(Lista,pw3);
-				pw3.close();
+				xstream.toXML(Lista,pw4);
+				pw4.close();
 				
 				
 			}
