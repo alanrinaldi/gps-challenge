@@ -11,26 +11,28 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Juego {
-	private int MAX_FACIL = 15;
-	private int MAX_MODERADO = 20;
-	private int MAX_DIFICIL = 30;
+	private int MAX_FACIL = 20;
+	private int MAX_MODERADO = 25;
+	private int MAX_DIFICIL = 35;
 	private static int SOBRANTE_FACIL = 1;
 	private static int SOBRANTE_MODERADO = 2;
 	private static int SOBRANTE_DIFICIL = 3;
 	private Mapa mapa;
 	private ArrayList<String> records;
-	private Jugador jugador;
 	private boolean finalizado;
 	private int movimientosMax;
 	private int puntosPorMovSobrante;
 	private InfoJuego informacionJuego;
+	private Jugador jugador;
+	private Dificultad dificultad;
 
-
-	public Juego(Jugador unJugador) {
+	public Juego(Jugador unJugador,Dificultad unaDificultad) {
 		records = cargarRecords();
+		dificultad = unaDificultad;
 		jugador = unJugador;
 		finalizado = false;
 		informacionJuego = new InfoJuego();
+		this.iniciarEnModo(dificultad);
 	}
 	public void iniciarEnModo(Dificultad dif){
 		XStream xstream = new XStream(new DomDriver());
