@@ -105,12 +105,14 @@ public class VentanaNuevoJuego extends JFrame implements KeyListener {
 		Posicion pos = vehiculo.getPosicionActual();
 		panelInformacion.actualizarInfo(juego.getInformacion());
 		if (juego.hayGanador()) {
-			// Manda a la principal
-				System.out.println("GANASTE!!");
+			VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Ganaste!!");
+			ganador.setVisible(true);
+			dispose();
 		} else {
 			if(juego.juegoFinalizado()){
-				// Mensaje perdedor
-				System.out.println("Perdiste :( ");
+				VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Perdiste!!");
+				ganador.setVisible(true);
+				dispose();
 			}else{
 			vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
 			}
