@@ -2,6 +2,7 @@ package gpschallenge.vista;
 
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
+import gpschallenge.componentes.vehiculos.EstadoVehiculo;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
@@ -30,7 +31,7 @@ public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 	// Control
 	private Vehiculo vehiculo;
 	private Juego juego;
-
+	private EstadoVehiculo estado;
 	/**
 	 * 
 	 *  
@@ -40,8 +41,18 @@ public class VentanaContinuacionJuego extends JFrame implements KeyListener {
 		// Jugador, Vehiculo, Juego
 		XStream xstream = new XStream(new DomDriver());
 		
-		vehiculo = (Vehiculo)xstream.fromXML(new File("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml"));
+		
+		/*
+		 estado = (EstadoVehiculo)xstream.fromXML(new File("Datos/juegosguardados/estadovehiculo"+jugador.getNombre()+".xml"));
+		 
+		vehiculo.setEstado(estado);
+		
+		*/
 		juego = (Juego)xstream.fromXML(new File("Datos/juegosguardados/juego"+jugador.getNombre()+".xml"));
+		vehiculo = (Vehiculo)xstream.fromXML(new File("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml"));
+		System.out.println("VistaVehiculo pos: " + (vehiculo.getPosicionActual()));
+		
+		
 		
 		panelMapa = new PanelMapa(juego.getMapa());
 
