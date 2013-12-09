@@ -1,4 +1,24 @@
 <gpschallenge.componentes.utililidades.ListaJugadores>
   <listajugadores>
+    <gpschallenge.motor.Jugador>
+      <nombre>zapo</nombre>
+      <puntaje>7</puntaje>
+    </gpschallenge.motor.Jugador>
+    <gpschallenge.motor.Jugador>
+      <nombre>zapoe2</nombre>
+      <puntaje>7</puntaje>
+    </gpschallenge.motor.Jugador>
+    <gpschallenge.motor.Jugador>
+      <nombre>zapo2</nombre>
+      <puntaje>9</puntaje>
+    </gpschallenge.motor.Jugador>
+    <gpschallenge.motor.Jugador>
+      <nombre>zapo2</nombre>
+      <puntaje>9</puntaje>
+    </gpschallenge.motor.Jugador>
+    <gpschallenge.motor.Jugador>
+      <nombre>pepe2</nombre>
+      <puntaje>4</puntaje>
+    </gpschallenge.motor.Jugador>
   </listajugadores>
 </gpschallenge.componentes.utililidades.ListaJugadores>
