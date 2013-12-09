@@ -13,7 +13,6 @@ public class PanelInformacion extends JPanel{
 	private JTextField txtDesafio;
 	private JTextField txtEstado;
 	private JTextField txtMovimientos;
-	private JTextField txtPuntaje;
 
 	public PanelInformacion() {
 		setLayout(null);
@@ -53,14 +52,6 @@ public class PanelInformacion extends JPanel{
 		txtMovimientos.setBounds(40, 220, 120, 26);
 		add(txtMovimientos);
 
-		
-		JLabel lblPuntaje = new JLabel("Puntaje: ");
-		lblPuntaje.setBounds(40, 260, 117, 23);
-		add(lblPuntaje);
-		txtPuntaje = new JTextField();
-		txtPuntaje.setEditable(false);
-		txtPuntaje.setBounds(40, 280, 120, 26);
-		add(txtPuntaje);
 	}
 
 	public void actualizarInfo(InfoJuego info) {
@@ -68,6 +59,5 @@ public class PanelInformacion extends JPanel{
 		this.txtEstado.setText(info.getTipoVehiculo().toString());
 		this.txtDesafio.setText(info.getDesafio().toString());
 		this.txtMovimientos.setText(info.getMovimientos().toString());
-		this.txtPuntaje.setText(info.getPuntaje().toString());
 	}
 }

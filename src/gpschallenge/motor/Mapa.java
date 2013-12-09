@@ -17,6 +17,8 @@ public class Mapa {
 	private int separacion;
 	private int coordXprimerEsquina;
 	private int coordYprimerEsquina;
+	private static int X_INICIAL_VEHICULO = 1;
+	private static int Y_INICIAL_VEHICULO = 1;
 	public Mapa(int ancho, int alto) {
 		this.coordXprimerEsquina = 1;
 		this.coordYprimerEsquina = 1;
@@ -25,12 +27,31 @@ public class Mapa {
 		this.esquinas = new Esquina[anchoEsquinas+1][altoEsquinas+1];
 		this.crearEsquinas();
 	}
+	/* Asigna el valor posición a la esquina. Las sucesivas esquinas en la matriz de esquinas estarán separadas por
+	* el valor distanciaEntreEsquinas
+	*/
 	public void setPosicionPrimerEsquina(int x, int y, int distanciaEntreEsquinas){
 		this.separacion = distanciaEntreEsquinas;
 		this.coordXprimerEsquina = x;
 		this.coordYprimerEsquina = y;
 		this.actualizarPosiciones();
+		if(vehiculo.getEsquinaActual() == null){
+			// Posicion inicial del vehiculo
+			this.ubicarVehiculo(X_INICIAL_VEHICULO, Y_INICIAL_VEHICULO);
+		}else{
+			// El vehiculo ya tiene una esquina asignada
+			Esquina esquinaAuxiliar = this.getEsquina(vehiculo.getPosicionActual());
+			this.vehiculo.setEsquina(esquinaAuxiliar);
+		}
 		
+	}
+	/*
+	 * Ubica el vehiculo en la posicion de la matriz de esquinas. 
+	 * x <= anchoEsquinas, y <= altoEsquinas.
+	 */
+	private void ubicarVehiculo(int x, int y){
+		Esquina unaEsquina = esquinas[x][y];
+		vehiculo.setEsquina(unaEsquina);
 	}
 	
 	private void actualizarPosiciones() {
@@ -44,19 +65,22 @@ public class Mapa {
 		enlazarCallesVertical();
 		enlazarCallesHorizontal();
 	}
+	/*
+	 * Agrega una Afectable en una calle de la esquina indicada. y <= altoEsquinas, x <= AnchoEsquinas. En sentido indica
+	 * la calle donde se colocará el afectable. 
+	 */
 	public void addAfectable(Afectable afectable, int x, int y, Sentido sentido) {
 		Esquina esquina = esquinas[x][y];
 		Calle calle = esquina.getCalleEnSentido(sentido);
 		try {
 			calle.addAfectable(afectable);
 		} catch (ExcedeMaximoAfectablesException e) {
-			//Controlar
+			e.printStackTrace();
 		}
 	}
 
-	public void setVehiculoEnEsquina(int x, int y) {
-		Esquina unaEsquina = esquinas[x][y];
-		Vehiculo.getInstancia().setEsquina(unaEsquina);
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
 
 	public Vehiculo getVehiculo() {
