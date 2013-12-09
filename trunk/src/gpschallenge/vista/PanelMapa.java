@@ -74,7 +74,6 @@ public class PanelMapa extends JPanel {
 
 	// Dibuja el Vehiculo en el mapa
 	private void dibujarVehiculo() {
-		System.out.println("PanelMapa: " + mapa.getVehiculo().getPosicionActual());
 		Posicion pos = mapa.getVehiculo().getPosicionActual();
 		vistaVehiculo.setBounds(pos.getX(), pos.getY(), anchoObjeto, altoObjeto);
 		this.setBackground(Color.WHITE);

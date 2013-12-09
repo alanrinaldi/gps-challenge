@@ -54,7 +54,7 @@ public class VentanaJuegoTerminado extends JFrame implements KeyListener {
 		botonJugarDenuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Inicia un juego nuevo
-				VentanaConfiguraciones unaVentana = new VentanaConfiguraciones();
+				Main unaVentana = new Main();
 				unaVentana.setVisible(true);
 				dispose();
 			}

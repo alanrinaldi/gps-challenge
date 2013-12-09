@@ -1,6 +1,6 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.ListaJugadores;
+import gpschallenge.componentes.utililidades.ListaUsuarios;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.motor.Juego;
 import gpschallenge.motor.Jugador;
@@ -26,7 +26,7 @@ public class PanelOpciones extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private ListaJugadores Lista;
+	private ListaUsuarios lista;
 	
 	public PanelOpciones(final Juego juego,final Vehiculo vehiculo,final Jugador jugador) {
 		
@@ -40,34 +40,31 @@ public class PanelOpciones extends JPanel {
 				// Guarda el juego
 				XStream xstream = new XStream();
 				XStream xstream2 = new XStream(new DomDriver());
-				PrintWriter pw = null;
-				PrintWriter pw4 = null;
+				PrintWriter pwJuego = null;
+				PrintWriter pwJugadores = null;
 				
 				try {
-					pw = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
+					pwJuego = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				xstream.toXML(juego,pw);
-				pw.close();
+				xstream.toXML(juego,pwJuego);
+				pwJuego.close();
 
 				
-				Lista = (ListaJugadores) xstream2
-						.fromXML(new File(
-								"Datos/juegosguardados/ListaJugadores.xml"));
+				lista = (ListaUsuarios) xstream2.fromXML(new File("Datos/juegosguardados/ListaUsuarios.xml"));
 				
-				Lista.AgregarJugador(jugador.getNombre());
+				lista.agregarUsuario(jugador.getNombre());
 				
 					try {
-						pw4 = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
+						pwJugadores = new PrintWriter("Datos/juegosguardados/ListaUsuarios.xml");
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				xstream.toXML(Lista,pw4);
-				pw4.close();
+				xstream.toXML(lista,pwJugadores);
+				pwJugadores.close();
 				
 				
 			}

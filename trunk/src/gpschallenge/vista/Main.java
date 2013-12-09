@@ -41,7 +41,7 @@ public class Main extends JFrame {
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("GPS-Challenge");
-		setBounds(0, 0, 450, 300);
+		setBounds(0, 0, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.lightGray);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,12 +82,34 @@ public class Main extends JFrame {
 			}
 		});
 		contentPane.add(botonContinuar);
+		
+		
+		
+		
+		JButton botonEstadisticas = new JButton("Estadisticas");
+		botonEstadisticas.setBorder(BorderFactory.createEmptyBorder());
+		botonEstadisticas.setContentAreaFilled(false);
+		// Posicion donde se colocar este boton
+		botonEstadisticas.setBounds(141, 170, 153, 55);
+		botonEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// Carga un juego de partida guardada
+				VentanaRanking unaVentana = null;
+				
+				unaVentana = new VentanaRanking();
+			
+			unaVentana.setVisible(true);
+			dispose();
+			}
+		});
+		contentPane.add(botonEstadisticas);
+		
 
 		JButton botonSalir = new JButton("Salir");
 		botonSalir.setBorder(BorderFactory.createEmptyBorder());
 		botonSalir.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonSalir.setBounds(141, 170, 153, 55);
+		botonSalir.setBounds(141, 230, 153, 55);
 		botonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Sale del programa
