@@ -11,7 +11,7 @@ import gpschallenge.mapa.Esquina;
 import java.util.Random;
 
 public class Mapa {
-	private Meta meta = null;
+	private Meta meta;
 	private Esquina[][] esquinas;
 	private int altoEsquinas;
 	private int anchoEsquinas;
@@ -40,7 +40,7 @@ public class Mapa {
 			// Posicion inicial del vehiculo
 			this.ubicarVehiculo(1, this.unaCoordenada());
 			// Posicion inicial de la meta
-			this.ubicarMeta(anchoEsquinas, this.unaCoordenada());
+			this.ubicarMeta(altoEsquinas, this.unaCoordenada());
 		}else{
 			// El vehiculo ya tiene una esquina asignada
 			Esquina esquinaAuxiliar = this.getEsquina(vehiculo.getPosicionActual());
