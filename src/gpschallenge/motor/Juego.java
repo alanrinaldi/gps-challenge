@@ -1,13 +1,9 @@
 package gpschallenge.motor;
 
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.utililidades.Dificultad;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.vista.InfoJuego;
-
-import java.io.File;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Juego {
 	private int MAX_FACIL = 20;
@@ -35,8 +31,7 @@ public class Juego {
 		mapa.setVehiculo(this.vehiculo);
 	}
 	public void iniciarEnModo(Dificultad dif){
-		XStream xstream = new XStream(new DomDriver());
-		mapa = (Mapa)xstream.fromXML(new File("Datos/Mapas/"+dif+".xml"));
+		mapa = (Mapa)XML.obtenerObjeto("Datos/Mapas/"+dif+".xml");
 		this.mapa.setMeta(new Meta());
 		switch (dif) {
 		case FACIL:

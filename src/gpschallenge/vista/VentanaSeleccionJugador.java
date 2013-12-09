@@ -1,5 +1,6 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.utililidades.ListaUsuarios;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
@@ -9,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,9 +19,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 
@@ -33,7 +30,6 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 	private JPanel contentPane;
 	private ArrayList<String> jugadores;
 	private ListaUsuarios lista;
-	private XStream xstream = new XStream(new DomDriver());
 	
 	
 	
@@ -43,10 +39,7 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		
 		campoNombres =new JComboBox<String>();
 		campoNombres.setBounds(100, 120, 100, 20);
-		lista = (ListaUsuarios) xstream
-				.fromXML(new File(
-						"Datos/juegosguardados/ListaUsuarios.xml"));
-		
+		lista = (ListaUsuarios)XML.obtenerObjeto("Datos/juegosguardados/ListaUsuarios.xml");
 		jugadores = lista.obtenerListaUsuarios();
 	
 			Iterator<String> it = jugadores.iterator();
@@ -78,21 +71,20 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 			}
 		});
 		
-		JButton botonContinuar = new JButton("CONTINUAR");
-		botonContinuar.setBorder(BorderFactory.createLineBorder(Color.black));
-		botonContinuar.setContentAreaFilled(false);
+		
+		JButton btnContinuar = new JButton("CONTINUAR");
+		btnContinuar.setBorder(BorderFactory.createLineBorder(Color.black));
+		btnContinuar.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonContinuar.setBounds(100, 160, 100, 50);
-		botonContinuar.addActionListener(new ActionListener() {
+		btnContinuar.setBounds(100, 160, 100, 30);
+		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				VentanaJuego ventanaJuego = null;
 				try {
 					
-					
-					// Levanto datos guardados y paso a la vista VentanaJuego.
-					XStream xstream = new XStream(new DomDriver());
-					Juego juego = (Juego) xstream.fromXML(new File("Datos/juegosguardados/juego"+(String)(campoNombres.getSelectedItem())+".xml"));
+					// Obtengo datos guardados y paso a la vista VentanaJuego.
+					Juego juego = (Juego)XML.obtenerObjeto("Datos/juegosguardados/juego"+(String)(campoNombres.getSelectedItem())+".xml");
 					ventanaJuego = new VentanaJuego(juego);
 				} catch (EsquinasInvalidasException e1) {
 					// TODO Auto-generated catch block
@@ -103,10 +95,26 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 
 			}
 		});
-		add(botonContinuar);
+		add(btnContinuar);
+		
+		
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setBorder(BorderFactory.createLineBorder(Color.black));
+		btnVolver.setContentAreaFilled(false);
+		btnVolver.setBounds(100, 200, 100, 30);
+		btnVolver.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				// Vuelve a la vista principal
+				Main inicio = new Main();
+				inicio.setVisible(true);
+				dispose();
+		}});
+		add(btnVolver);
 	}
 	
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

@@ -65,8 +65,7 @@ public class PanelMapa extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
-		
-		super.paintComponent(g);
+		super.paintComponent(g);		
 		super.setBackground(Color.white);
 		this.dibujarVehiculo();
 		

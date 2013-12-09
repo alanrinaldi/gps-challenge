@@ -17,6 +17,9 @@ public class ListaUsuarios {
 	}
 	
 	public void agregarUsuario(String user){
+		if(!listaUsuarios.contains(user)){
 			listaUsuarios.add(user);
+		}
+			
 	}
 }
