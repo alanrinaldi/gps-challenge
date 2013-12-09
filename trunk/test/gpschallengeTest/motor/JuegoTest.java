@@ -1,5 +1,6 @@
 package gpschallengeTest.motor;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import gpschallenge.componentes.utililidades.Dificultad;
 import gpschallenge.componentes.vehiculos.Vehiculo;
@@ -34,6 +35,24 @@ public class JuegoTest {
 	public void juegoIniciaConJugador(){
 		juego = new Juego(jugador, vehiculo, Dificultad.DIFICIL);
 		assertTrue(juego.getJugador() != null);
+	}
+	@Test
+	public void juegoEnDificultadFacil(){
+		juego = new Juego(jugador, vehiculo, Dificultad.FACIL);
+		assertEquals(juego.getMapa().getAltoEsquinas(),  8);
+		assertEquals(juego.getMapa().getAnchoEsquinas(), 8);
+	}
+	@Test
+	public void juegoEnDificultadModerado(){
+		juego = new Juego(jugador, vehiculo, Dificultad.FACIL);
+		assertEquals(juego.getMapa().getAltoEsquinas(),  8);
+		assertEquals(juego.getMapa().getAnchoEsquinas(), 8);
+	}
+	@Test
+	public void juegoEnDificultadDificil(){
+		juego = new Juego(jugador, vehiculo, Dificultad.FACIL);
+		assertEquals(juego.getMapa().getAltoEsquinas(),  8);
+		assertEquals(juego.getMapa().getAnchoEsquinas(), 8);
 	}
 
 }

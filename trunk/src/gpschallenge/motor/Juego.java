@@ -20,8 +20,10 @@ public class Juego {
 	private Vehiculo vehiculo;
 	private Dificultad dificultad;
 	private Mapa mapa;
+	private Meta meta;
 
 	public Juego(Jugador unJugador,Vehiculo unVehiculo, Dificultad unaDificultad) {
+		this.meta = new Meta();
 		this.dificultad = unaDificultad;
 		this.jugador = unJugador;
 		this.finalizado = false;
@@ -29,7 +31,7 @@ public class Juego {
 		this.informacionJuego = new InfoJuego();
 		this.iniciarEnModo(dificultad);
 		this.mapa.setVehiculo(this.vehiculo);
-		this.mapa.setMeta(new Meta());
+		this.mapa.setMeta(meta);
 	}
 	public void iniciarEnModo(Dificultad dif){
 		mapa = (Mapa)XML.obtenerObjeto("Datos/Mapas/"+dif+".xml");
