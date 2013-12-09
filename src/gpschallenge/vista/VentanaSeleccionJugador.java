@@ -1,8 +1,7 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.utililidades.ListaUsuarios;
-import gpschallenge.excepciones.EsquinasInvalidasException;
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.motor.Juego;
 
 import java.awt.Color;
@@ -81,15 +80,10 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				VentanaJuego ventanaJuego = null;
-				try {
-					
 					// Obtengo datos guardados y paso a la vista VentanaJuego.
 					Juego juego = (Juego)XML.obtenerObjeto("Datos/juegosguardados/juego"+(String)(campoNombres.getSelectedItem())+".xml");
 					ventanaJuego = new VentanaJuego(juego);
-				} catch (EsquinasInvalidasException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				ventanaJuego.setVisible(true);
 				dispose();
 

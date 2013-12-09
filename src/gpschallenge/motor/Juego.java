@@ -22,17 +22,17 @@ public class Juego {
 	private Mapa mapa;
 
 	public Juego(Jugador unJugador,Vehiculo unVehiculo, Dificultad unaDificultad) {
-		dificultad = unaDificultad;
-		jugador = unJugador;
-		finalizado = false;
-		vehiculo = unVehiculo;
-		informacionJuego = new InfoJuego();
+		this.dificultad = unaDificultad;
+		this.jugador = unJugador;
+		this.finalizado = false;
+		this.vehiculo = unVehiculo;
+		this.informacionJuego = new InfoJuego();
 		this.iniciarEnModo(dificultad);
-		mapa.setVehiculo(this.vehiculo);
+		this.mapa.setVehiculo(this.vehiculo);
+		this.mapa.setMeta(new Meta());
 	}
 	public void iniciarEnModo(Dificultad dif){
 		mapa = (Mapa)XML.obtenerObjeto("Datos/Mapas/"+dif+".xml");
-		this.mapa.setMeta(new Meta());
 		switch (dif) {
 		case FACIL:
 			this.movimientosMax = MAX_FACIL;
