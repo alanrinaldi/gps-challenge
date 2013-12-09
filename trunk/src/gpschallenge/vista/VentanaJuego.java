@@ -5,10 +5,10 @@ import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.vehiculos.Vehiculo;
-import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
 import gpschallenge.motor.Jugador;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +18,6 @@ import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class VentanaJuego extends JFrame implements KeyListener {
 
@@ -26,52 +25,60 @@ public class VentanaJuego extends JFrame implements KeyListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 	private PanelMapa panelMapa;
 	private PanelInformacion panelInformacion;
 	private PanelOpciones panelOpciones;
+	private CapaTransparente capaTrasparente;
 	// Control
 	private Vehiculo vehiculo;
 	private Jugador jugador;
 	private Juego juego;
+	
 
-	public VentanaJuego(Juego juego) throws EsquinasInvalidasException {
-
+	public VentanaJuego(Juego juego) {	
 		this.juego = juego;
 		this.vehiculo = juego.getVehiculo();
 		this.jugador = juego.getJugador();
 
+		
 		panelMapa = new PanelMapa(juego.getMapa());
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1050, 850);
-		contentPane = new JPanel();
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		addKeyListener(this);
-		setFocusable(true);
+		
+		this.capaTrasparente = new CapaTransparente(juego.getMapa().getMeta().getPosicion());
+		this.capaTrasparente.actualizarPosicion(vehiculo.getPosicionActual());
+		
+        panelMapa.setLayout(new BorderLayout());
+        panelMapa.add(capaTrasparente, 0);
+	
 
 		// Agrego a la vista principal
-		contentPane.add(panelMapa);
-		panelMapa.setLayout(null);
+	//panelMapa.setLayout(null);
+		add(panelMapa);
 
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(0, 0, 1050, 850);
+        setLayout(null);
+        addKeyListener(this);
+        setFocusable(true);
+		
 		panelInformacion = new PanelInformacion();
 		panelInformacion.setBounds(830, 0, 250, 600);
-		contentPane.add(panelInformacion);
+		add(panelInformacion);
 		panelInformacion.setLayout(null);
 		panelInformacion.actualizarInfo(juego.getInformacion());
 
 		panelOpciones = new PanelOpciones(juego);
-		panelOpciones.setBounds(830, 600, 250, 200);
-		contentPane.add(panelOpciones);
+		panelOpciones.setBounds(830, 600, 250, 100);
+		add(panelOpciones);
 		panelOpciones.setLayout(null);
+		
+		
+
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.setContentAreaFilled(false);
 		btnVolver.setBorder(BorderFactory.createLineBorder(Color.black));
 		btnVolver.setBounds(50,45, 100, 20);
 		btnVolver.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent arg0) {
 				// Guarda el juego
 				Main inicio = new Main();
@@ -109,6 +116,8 @@ public class VentanaJuego extends JFrame implements KeyListener {
 		}
 		Posicion pos = vehiculo.getPosicionActual();
 		panelInformacion.actualizarInfo(juego.getInformacion());
+		this.capaTrasparente.actualizarPosicion(vehiculo.getPosicionActual());
+		this.capaTrasparente.repaint();
 		vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
 		if (juego.hayGanador()) {
 			VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Ganaste!!", juego.getInformacion().getPuntaje());

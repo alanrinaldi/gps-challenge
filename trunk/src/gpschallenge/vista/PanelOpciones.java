@@ -38,20 +38,6 @@ public class PanelOpciones extends JPanel {
 		}});
 		add(botonGuardar);
 
-		
-		
-		JButton botonSalir = new JButton("Salir");
-		botonSalir.setBorder(BorderFactory.createLineBorder(Color.black));
-		botonSalir.setContentAreaFilled(false);
-		// Posicion donde se colocar este boton
-		botonSalir.setBounds(50, 160, 100, 20);
-		botonSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Sale del programa
-				System.exit(0);
-			}
-		});
-		add(botonSalir);
 	}
 	private void guardarUsuario() {
 		// Obtengo lista

@@ -6,13 +6,13 @@ import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelMapa extends JPanel {
@@ -161,7 +161,7 @@ public class PanelMapa extends JPanel {
 	public void dibujarManzanas() {
 		for (int i = 0; i < mapa.getAnchoEsquinas()+1; i++) {
 			for (int j = 0; j < mapa.getAltoEsquinas()+1; j++) {
-				Canvas botonManzana = new Canvas();
+				JButton botonManzana = new JButton();
 				botonManzana.setBackground(Color.blue);
 				botonManzana.setEnabled(false);
 				botonManzana.setBounds(i*altoObjeto*2,j*altoObjeto*2, altoObjeto, altoObjeto);

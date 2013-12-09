@@ -8,6 +8,8 @@ import gpschallenge.excepciones.ExcedeMaximoAfectablesException;
 import gpschallenge.mapa.Calle;
 import gpschallenge.mapa.Esquina;
 
+import java.util.Random;
+
 public class Mapa {
 	private Meta meta = null;
 	private Esquina[][] esquinas;
@@ -17,8 +19,6 @@ public class Mapa {
 	private int separacion;
 	private int coordXprimerEsquina;
 	private int coordYprimerEsquina;
-	private static int X_INICIAL_VEHICULO = 1;
-	private static int Y_INICIAL_VEHICULO = 1;
 	public Mapa(int ancho, int alto) {
 		this.coordXprimerEsquina = 1;
 		this.coordYprimerEsquina = 1;
@@ -38,7 +38,9 @@ public class Mapa {
 		this.actualizarPosiciones();
 		if(vehiculo.getEsquinaActual() == null){
 			// Posicion inicial del vehiculo
-			this.ubicarVehiculo(X_INICIAL_VEHICULO, Y_INICIAL_VEHICULO);
+			this.ubicarVehiculo(1, this.unaCoordenada());
+			// Posicion inicial de la meta
+			this.ubicarMeta(anchoEsquinas, this.unaCoordenada());
 		}else{
 			// El vehiculo ya tiene una esquina asignada
 			Esquina esquinaAuxiliar = this.getEsquina(vehiculo.getPosicionActual());
@@ -53,8 +55,19 @@ public class Mapa {
 	private void ubicarVehiculo(int x, int y){
 		Esquina unaEsquina = esquinas[x][y];
 		vehiculo.setEsquina(unaEsquina);
+
 	}
-	
+	private void ubicarMeta(int x, int y){
+		meta.setPosicion(esquinas[x][y].getPosicion());;
+	}
+	/*
+	 * Devuelve un valor aleatorio entre 1 y altosEsquinas/2
+	 */
+	private  int unaCoordenada(){
+		Random random = new Random();
+		int i = random.nextInt(altoEsquinas - 1) + 1;
+		return i;
+	}
 	private void actualizarPosiciones() {
 		for (int i = 0; i < anchoEsquinas; i++) {
 			for (int j = 0; j < altoEsquinas; j++) {
@@ -173,7 +186,6 @@ public class Mapa {
 	public void setMeta(Meta laMeta) {
 
 		meta = laMeta;
-		meta.setPosicion(esquinas[this.anchoEsquinas][this.altoEsquinas].getPosicion());
 	}
 
 	public Meta getMeta() {
