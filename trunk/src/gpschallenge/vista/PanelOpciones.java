@@ -41,8 +41,6 @@ public class PanelOpciones extends JPanel {
 				XStream xstream = new XStream();
 				XStream xstream2 = new XStream(new DomDriver());
 				PrintWriter pw = null;
-				PrintWriter pw2 = null;
-				PrintWriter pw3 = null;
 				PrintWriter pw4 = null;
 				
 				try {
@@ -53,25 +51,7 @@ public class PanelOpciones extends JPanel {
 				}
 				xstream.toXML(juego,pw);
 				pw.close();
-				
-				try {
-					pw2 = new PrintWriter("Datos/juegosguardados/vehiculo"+jugador.getNombre()+".xml");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				xstream.toXML(vehiculo,pw2);
-				pw2.close();
-				
-				try {
-					pw3 = new PrintWriter("Datos/juegosguardados/estadovehiculo"+jugador.getNombre()+".xml");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				xstream.toXML(vehiculo.getEstado(),pw3);
-				pw3.close();
+
 				
 				Lista = (ListaJugadores) xstream2
 						.fromXML(new File(

@@ -1,8 +1,5 @@
 package gpschallenge.vista;
 
-import gpschallenge.excepciones.EsquinasInvalidasException;
-import gpschallenge.motor.Jugador;
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -76,14 +73,9 @@ public class Main extends JFrame {
 		botonContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Carga un juego de partida guardada
-				VentanaContinuacionJuego unaVentana = null;
+				VentanaSeleccionJugador unaVentana = null;
 				
-				try {
-					unaVentana = new VentanaContinuacionJuego(new Jugador("Pepe"));
-				} catch (EsquinasInvalidasException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				unaVentana = new VentanaSeleccionJugador();
 			
 			unaVentana.setVisible(true);
 			dispose();

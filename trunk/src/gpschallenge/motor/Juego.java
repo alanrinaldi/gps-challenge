@@ -5,7 +5,6 @@ import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.vista.InfoJuego;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -17,22 +16,23 @@ public class Juego {
 	private static int SOBRANTE_FACIL = 1;
 	private static int SOBRANTE_MODERADO = 2;
 	private static int SOBRANTE_DIFICIL = 3;
-	private Mapa mapa;
-	private ArrayList<String> records;
 	private boolean finalizado;
 	private int movimientosMax;
 	private int puntosPorMovSobrante;
 	private InfoJuego informacionJuego;
 	private Jugador jugador;
+	private Vehiculo vehiculo;
 	private Dificultad dificultad;
+	private Mapa mapa;
 
-	public Juego(Jugador unJugador,Dificultad unaDificultad) {
-		records = cargarRecords();
+	public Juego(Jugador unJugador,Vehiculo unVehiculo, Dificultad unaDificultad) {
 		dificultad = unaDificultad;
 		jugador = unJugador;
 		finalizado = false;
+		vehiculo = unVehiculo;
 		informacionJuego = new InfoJuego();
 		this.iniciarEnModo(dificultad);
+		mapa.setVehiculo(this.vehiculo);
 	}
 	public void iniciarEnModo(Dificultad dif){
 		XStream xstream = new XStream(new DomDriver());
@@ -52,14 +52,9 @@ public class Juego {
 			this.puntosPorMovSobrante = SOBRANTE_DIFICIL;
 			break;
 		}
-		jugador.setPuntaje(this.calcularPuntaje());
 	}
 	private int calcularPuntaje(){
-		return ((movimientosMax - Vehiculo.getInstancia().getCantMovimientos()) * puntosPorMovSobrante);
-	}
-	private ArrayList<String> cargarRecords() {
-		// TODO Auto-generated method stub
-		return null;
+		return ((movimientosMax - vehiculo.getCantMovimientos()) * puntosPorMovSobrante);
 	}
 
 	public Mapa getMapa() {
@@ -69,12 +64,6 @@ public class Juego {
 	}
 	public int getMovimientosMaximos(){
 		return this.movimientosMax;
-	}
-
-	public Object getPosiciones() {
-
-		return records;
-
 	}
 
 	public Jugador getJugador() {
@@ -87,7 +76,7 @@ public class Juego {
 	 */
 	public Boolean hayGanador(){
 		this.jugador.setPuntaje(this.calcularPuntaje());
-		if(mapa.getMeta().getPosicion().esIgual(Vehiculo.getInstancia().getPosicionActual())){
+		if(mapa.getMeta().getPosicion().esIgual(vehiculo.getPosicionActual())){
 			return true;
 		}
 		return false;
@@ -100,7 +89,7 @@ public class Juego {
 	 */
 	public boolean juegoFinalizado() {
 		this.jugador.setPuntaje(this.calcularPuntaje());
-		if (Vehiculo.getInstancia().getCantMovimientos() >= this.movimientosMax){
+		if (vehiculo.getCantMovimientos() >= this.movimientosMax){
 			this.finalizado = true;
 		}
 		return finalizado;
@@ -109,10 +98,13 @@ public class Juego {
 	public InfoJuego getInformacion() {
 		informacionJuego.setDesafio(this.movimientosMax);
 		informacionJuego.setJugador(this.jugador.getNombre());
-		informacionJuego.setMovimientos(Vehiculo.getInstancia().getCantMovimientos());
+		informacionJuego.setMovimientos(vehiculo.getCantMovimientos());
 		informacionJuego.setPuntaje(jugador.getPuntaje());
-		informacionJuego.setTipoVehiculo(Vehiculo.getInstancia().getTipoVehiculo());
+		informacionJuego.setTipoVehiculo(vehiculo.getTipoVehiculo());
 		return informacionJuego;
+	}
+	public Vehiculo getVehiculo() {
+		return vehiculo;
 	}
 
 }

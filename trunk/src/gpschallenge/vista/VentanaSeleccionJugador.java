@@ -2,7 +2,7 @@ package gpschallenge.vista;
 
 import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.excepciones.EsquinasInvalidasException;
-import gpschallenge.motor.Jugador;
+import gpschallenge.motor.Juego;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -19,8 +19,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -89,14 +87,20 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		botonContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				VentanaContinuacionJuego frame = null;
+				VentanaJuego ventanaJuego = null;
 				try {
-					frame = new VentanaContinuacionJuego(new Jugador((String)(campoNombres.getSelectedItem())));
+					
+					
+					// Levanto datos guardados y paso a la vista VentanaJuego.
+					XStream xstream = new XStream(new DomDriver());
+					Juego juego = (Juego) xstream.fromXML(new File("Datos/juegosguardados/juego"+(String)(campoNombres.getSelectedItem())+".xml"));
+					ventanaJuego = new VentanaJuego(juego);
 				} catch (EsquinasInvalidasException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				frame.setVisible(true);
+				ventanaJuego.setVisible(true);
+				dispose();
 
 			}
 		});

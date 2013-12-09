@@ -1,5 +1,6 @@
 package gpschallenge.vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -22,26 +23,33 @@ public class VentanaJuegoTerminado extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel content;
 
-	public VentanaJuegoTerminado(String titulo){
+	public VentanaJuegoTerminado(String titulo, Integer puntaje){
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(titulo);
-		setBounds(0, 0, 300, 300);
+		setLayout(new BorderLayout());
+		
+		setBounds(0, 0, 400, 300);
 		content = new JPanel();
 		content.setBackground(Color.lightGray);
 		content.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(content);
 		
-		JLabel ganaste = new JLabel("Ganaste!!!");
-		ganaste.setFont(new Font("Serif", Font.PLAIN, 28));
-		ganaste.setBounds(85, 30, 120, 60);
-		content.add(ganaste);
+		JLabel lblGanaste = new JLabel(titulo);
+		lblGanaste.setFont(new Font("Serif", Font.PLAIN, 25));
+		lblGanaste.setBounds(100, 30, 160, 60);
+		content.add(lblGanaste);
 		
-		JButton botonJugarDenuevo = new JButton("Jugar Denuevo");
+		JLabel lblPuntaje = new JLabel("Puntaje: " + puntaje.toString());
+		lblPuntaje.setFont(new Font("Serif", Font.PLAIN, 28));
+		lblPuntaje.setBounds(85, 80, 160, 60);
+		content.add(lblPuntaje);
+		
+		JButton botonJugarDenuevo = new JButton("Nuevo juego!");
 		botonJugarDenuevo.setBorder(BorderFactory.createLineBorder(Color.black));
 		botonJugarDenuevo.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonJugarDenuevo.setBounds(60, 110, 150, 40);
+		botonJugarDenuevo.setBounds(85, 140, 150, 40);
 		botonJugarDenuevo.setFont(new Font("Serif", Font.PLAIN, 20));
 		botonJugarDenuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -58,7 +66,7 @@ public class VentanaJuegoTerminado extends JFrame implements KeyListener {
 		salir.setBorder(BorderFactory.createLineBorder(Color.black));
 		salir.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		salir.setBounds(80, 170, 110, 40);
+		salir.setBounds(85, 210, 150, 40);
 		salir.setFont(new Font("Serif", Font.PLAIN, 20));
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
