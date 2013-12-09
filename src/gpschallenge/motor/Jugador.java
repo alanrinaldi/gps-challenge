@@ -1,13 +1,15 @@
 package gpschallenge.motor;
 
+
 /**
  * @author delpinor/apredazzi
+ * @param <T>
  * 
  */
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
 
 	private String nombre;
-	private int puntaje;
+	private Integer puntaje;
 
 	public Jugador(String nombreJugador) {
 
@@ -22,7 +24,7 @@ public class Jugador {
 
 	}
 
-	public int getPuntaje() {
+	public Integer getPuntaje() {
 
 		return puntaje;
 
@@ -30,5 +32,13 @@ public class Jugador {
 	public void setPuntaje(int puntos){
 		this.puntaje = puntos;
 	}
+	public boolean esIgual(Jugador jugador){
+		if(this.nombre == jugador.getNombre())
+			return true;
+		return false;
+	}
 
+	public int compareTo(Jugador jug) {
+		return (this.getPuntaje() > jug.getPuntaje() ? -1 : (jug.getPuntaje() == this.getPuntaje() ? 0 : 1));
+	}
 }

@@ -1,6 +1,6 @@
 package gpschallenge.vista;
 
-import gpschallenge.componentes.utililidades.ListaJugadores;
+import gpschallenge.componentes.utililidades.ListaUsuarios;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
 
@@ -31,8 +31,8 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	private JComboBox<String> campoNombres;
 	private JPanel contentPane;
-	private ArrayList <String> nombres;
-	private ListaJugadores Lista;
+	private ArrayList<String> jugadores;
+	private ListaUsuarios lista;
 	private XStream xstream = new XStream(new DomDriver());
 	
 	
@@ -43,18 +43,17 @@ public class VentanaSeleccionJugador extends JFrame implements KeyListener {
 		
 		campoNombres =new JComboBox<String>();
 		campoNombres.setBounds(100, 120, 100, 20);
-		campoNombres.addItem(null);
-		Lista = (ListaJugadores) xstream
+		lista = (ListaUsuarios) xstream
 				.fromXML(new File(
-						"Datos/juegosguardados/ListaJugadores.xml"));
+						"Datos/juegosguardados/ListaUsuarios.xml"));
 		
-		nombres = Lista.ObtenerListaJugadores();
-		
-		if(nombres != null){
-			Iterator<String> it = nombres.iterator();
+		jugadores = lista.obtenerListaUsuarios();
+	
+			Iterator<String> it = jugadores.iterator();
+			String usuario;
 			while (it.hasNext()) {
-				campoNombres.addItem(it.next());
-			}
+				usuario = it.next();
+				campoNombres.addItem(usuario);
 		}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -54,29 +54,22 @@ public class PanelJugador extends JPanel {
 		
         campoDificultad =new JComboBox<Dificultad>();
         campoDificultad.setBounds(0,210,100,20);
-        campoDificultad.addItem(null);
-        campoDificultad.addItem(Dificultad.FACIL);
-        campoDificultad.addItem(Dificultad.MODERADO);
-        campoDificultad.addItem(Dificultad.DIFICIL);
-        add(campoDificultad);
-        
         campoDificultad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dificultadnivel =(Dificultad) (campoDificultad.getSelectedItem());
 			}
 		});
+        campoDificultad.addItem(Dificultad.FACIL);
+        campoDificultad.addItem(Dificultad.MODERADO);
+        campoDificultad.addItem(Dificultad.DIFICIL);
+        add(campoDificultad);
+        
         
        
 		
 		campoEstado =new JComboBox<TipoVehiculo>();
 		campoEstado.setBounds(0,130,120,20);
-		campoEstado.addItem(null);
-		campoEstado.addItem(TipoVehiculo.AUTO);
-		campoEstado.addItem(TipoVehiculo.CUATROXCUATRO);
-		campoEstado.addItem(TipoVehiculo.MOTO);
-        add(campoEstado);
-        
-        campoEstado.addActionListener(new ActionListener() {
+		campoEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switch ((TipoVehiculo)campoEstado.getSelectedItem()){
 				case AUTO:
@@ -95,9 +88,14 @@ public class PanelJugador extends JPanel {
 				
 			}
 		});
+		campoEstado.addItem(TipoVehiculo.AUTO);
+		campoEstado.addItem(TipoVehiculo.CUATROXCUATRO);
+		campoEstado.addItem(TipoVehiculo.MOTO);
+        add(campoEstado);
+        
+ 
         
     }
-
 	public String getNombreJugador() {
 		
 		return campoNombre.getText();

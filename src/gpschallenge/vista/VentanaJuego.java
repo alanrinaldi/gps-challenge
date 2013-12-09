@@ -1,5 +1,6 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
 import gpschallenge.componentes.vehiculos.Vehiculo;
@@ -9,9 +10,15 @@ import gpschallenge.motor.Jugador;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class VentanaJuego extends JFrame implements KeyListener {
 
@@ -91,8 +98,16 @@ public class VentanaJuego extends JFrame implements KeyListener {
 		}
 		Posicion pos = vehiculo.getPosicionActual();
 		panelInformacion.actualizarInfo(juego.getInformacion());
+		vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
 		if (juego.hayGanador()) {
+			try {
+				Thread.sleep(300);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Ganaste!!", juego.getInformacion().getPuntaje());
+			this.guardarPuntajes(juego.getJugador());
 			ganador.setVisible(true);
 			dispose();
 		} else {
@@ -100,11 +115,24 @@ public class VentanaJuego extends JFrame implements KeyListener {
 				VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Perdiste!!",  juego.getInformacion().getPuntaje());
 				ganador.setVisible(true);
 				dispose();
-			} else {
-				vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
-			}
+			} 
 		}
+	}
 
+	private void guardarPuntajes(Jugador jugador) {
+		XStream xstream = new XStream(new DomDriver());
+		PrintWriter pwJugadores = null;
+		ListaJugadores lista = (ListaJugadores) xstream.fromXML(new File("Datos/juegosguardados/ListaJugadores.xml"));
+		lista.AgregarJugador(jugador);
+		try {
+				pwJugadores = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+
+		xstream.toXML(lista,pwJugadores);
+		pwJugadores.close();
+		
 	}
 
 	public void keyTyped(KeyEvent e) {
