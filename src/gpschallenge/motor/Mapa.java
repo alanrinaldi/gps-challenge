@@ -26,6 +26,7 @@ public class Mapa {
 		this.altoEsquinas = alto;		
 		this.esquinas = new Esquina[anchoEsquinas+1][altoEsquinas+1];
 		this.crearEsquinas();
+		this.vehiculo = Vehiculo.getInstancia();
 	}
 	/* Asigna el valor posición a la esquina. Las sucesivas esquinas en la matriz de esquinas estarán separadas por
 	* el valor distanciaEntreEsquinas
