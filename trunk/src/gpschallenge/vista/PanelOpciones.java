@@ -1,23 +1,16 @@
 package gpschallenge.vista;
 
 import gpschallenge.componentes.utililidades.ListaUsuarios;
-import gpschallenge.componentes.vehiculos.Vehiculo;
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.motor.Juego;
-import gpschallenge.motor.Jugador;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class PanelOpciones extends JPanel {
 
@@ -27,55 +20,31 @@ public class PanelOpciones extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private ListaUsuarios lista;
+	private Juego juego;
 	
-	public PanelOpciones(final Juego juego,final Vehiculo vehiculo,final Jugador jugador) {
-		
+	public PanelOpciones(final Juego juego) {
+		this.juego = juego;
 		setLayout(null);
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setContentAreaFilled(false);
 		botonGuardar.setBorder(BorderFactory.createLineBorder(Color.black));
 		botonGuardar.setBounds(50, 5, 100, 20);
 		botonGuardar.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent arg0) {
 				// Guarda el juego
-				XStream xstream = new XStream();
-				XStream xstream2 = new XStream(new DomDriver());
-				PrintWriter pwJuego = null;
-				PrintWriter pwJugadores = null;
-				
-				try {
-					pwJuego = new PrintWriter("Datos/juegosguardados/juego"+jugador.getNombre()+".xml");
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-				xstream.toXML(juego,pwJuego);
-				pwJuego.close();
-
-				
-				lista = (ListaUsuarios) xstream2.fromXML(new File("Datos/juegosguardados/ListaUsuarios.xml"));
-				
-				lista.agregarUsuario(jugador.getNombre());
-				
-					try {
-						pwJugadores = new PrintWriter("Datos/juegosguardados/ListaUsuarios.xml");
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				xstream.toXML(lista,pwJugadores);
-				pwJugadores.close();
-				
-				
-			}
-		});
+				guardarJuego();
+				guardarUsuario();				
+		}});
 		add(botonGuardar);
 
+		
+		
 		JButton botonSalir = new JButton("Salir");
 		botonSalir.setBorder(BorderFactory.createLineBorder(Color.black));
 		botonSalir.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonSalir.setBounds(50, 35, 100, 20);
+		botonSalir.setBounds(50, 160, 100, 20);
 		botonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Sale del programa
@@ -84,7 +53,19 @@ public class PanelOpciones extends JPanel {
 		});
 		add(botonSalir);
 	}
+	private void guardarUsuario() {
+		// Obtengo lista
+		lista = (ListaUsuarios) XML.obtenerObjeto("Datos/juegosguardados/ListaUsuarios.xml");
+		// Actualizo
+		lista.agregarUsuario(juego.getJugador().getNombre());
+		//Guardo
+		XML.guardarObjeto(lista, "Datos/juegosguardados/ListaUsuarios.xml");
+		
+	}
 
+	private void guardarJuego() {
+		XML.guardarObjeto(juego, "Datos/juegosguardados/juego"+juego.getJugador().getNombre()+".xml");
+	}
 
 
 }

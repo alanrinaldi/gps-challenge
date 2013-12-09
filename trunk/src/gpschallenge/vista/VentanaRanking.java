@@ -1,5 +1,6 @@
 package gpschallenge.vista;
 
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.motor.Jugador;
 
@@ -7,7 +8,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,16 +17,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-
 public class VentanaRanking extends JFrame {
 /**
 	 * 
 	 */
 	private static final long serialVersionUID = -4210348182614871641L;
 private ListaJugadores Lista;
-private XStream xstream = new XStream(new DomDriver());
 private static int CANT_RESULTADOS = 10;
 
 public VentanaRanking(){
@@ -37,11 +33,12 @@ public VentanaRanking(){
 	this.add(lblTop);
 	
 	
-	Lista = (ListaJugadores) xstream.fromXML(new File("Datos/juegosguardados/ListaJugadores.xml"));
+	Lista = (ListaJugadores) XML.obtenerObjeto("Datos/juegosguardados/ListaJugadores.xml");
 	ArrayList<Jugador> jugadores = Lista.ObtenerListaJugadores();
 	Collections.sort(jugadores);
 	Iterator<Jugador> it = jugadores.iterator();
 	int i = 1;
+	// Lista los 10 mejores puntuaciones
 	while(i <= CANT_RESULTADOS && it.hasNext()){
 		Jugador jugador = it.next();
 		JLabel lblNombre = new JLabel(i + " .- " + jugador.getNombre());
@@ -59,7 +56,7 @@ public VentanaRanking(){
 	btnVolver.setBorder(BorderFactory.createLineBorder(Color.black));
 	btnVolver.setContentAreaFilled(false);
 	// Posicion donde se colocar este boton
-	btnVolver.setBounds(130, 480, 150, 40);
+	btnVolver.setBounds(130, 480, 150, 30);
 	btnVolver.setFont(new Font("Serif", Font.PLAIN, 20));
 	btnVolver.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {

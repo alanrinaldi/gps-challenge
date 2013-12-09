@@ -3,22 +3,22 @@ package gpschallenge.vista;
 import gpschallenge.componentes.utililidades.ListaJugadores;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.utililidades.Sentido;
+import gpschallenge.componentes.utililidades.XML;
 import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.excepciones.EsquinasInvalidasException;
 import gpschallenge.motor.Juego;
 import gpschallenge.motor.Jugador;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class VentanaJuego extends JFrame implements KeyListener {
 
@@ -61,17 +61,28 @@ public class VentanaJuego extends JFrame implements KeyListener {
 		panelInformacion.setLayout(null);
 		panelInformacion.actualizarInfo(juego.getInformacion());
 
-		panelOpciones = new PanelOpciones(juego, vehiculo, jugador);
+		panelOpciones = new PanelOpciones(juego);
 		panelOpciones.setBounds(830, 600, 250, 200);
 		contentPane.add(panelOpciones);
 		panelOpciones.setLayout(null);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setContentAreaFilled(false);
+		btnVolver.setBorder(BorderFactory.createLineBorder(Color.black));
+		btnVolver.setBounds(50,45, 100, 20);
+		btnVolver.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				// Guarda el juego
+				Main inicio = new Main();
+				inicio.setVisible(true);
+				dispose();
+		}});
+		panelOpciones.add(btnVolver);
 
 	}
 
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 
-	}
 
 	public void keyReleased(KeyEvent e) {
 		switch (e.getKeyCode()) {
@@ -100,14 +111,8 @@ public class VentanaJuego extends JFrame implements KeyListener {
 		panelInformacion.actualizarInfo(juego.getInformacion());
 		vehiculo.setEsquina(juego.getMapa().getEsquina(pos));
 		if (juego.hayGanador()) {
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 			VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Ganaste!!", juego.getInformacion().getPuntaje());
-			this.guardarPuntajes(juego.getJugador());
+			this.guardarPuntajes(this.jugador);
 			ganador.setVisible(true);
 			dispose();
 		} else {
@@ -120,23 +125,19 @@ public class VentanaJuego extends JFrame implements KeyListener {
 	}
 
 	private void guardarPuntajes(Jugador jugador) {
-		XStream xstream = new XStream(new DomDriver());
-		PrintWriter pwJugadores = null;
-		ListaJugadores lista = (ListaJugadores) xstream.fromXML(new File("Datos/juegosguardados/ListaJugadores.xml"));
+		ListaJugadores lista = (ListaJugadores) XML.obtenerObjeto("Datos/juegosguardados/ListaJugadores.xml");
 		lista.AgregarJugador(jugador);
-		try {
-				pwJugadores = new PrintWriter("Datos/juegosguardados/ListaJugadores.xml");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-
-		xstream.toXML(lista,pwJugadores);
-		pwJugadores.close();
+		XML.guardarObjeto(lista, "Datos/juegosguardados/ListaJugadores.xml");
 		
 	}
 
 	public void keyTyped(KeyEvent e) {
 
+	}
+
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
