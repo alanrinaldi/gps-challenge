@@ -34,9 +34,8 @@ public class EsquinaTest {
 	  otraEsquina.setCalleEnSentido(unaCalle,Sentido.ARRIBA);
 	  
 	  EstadoVehiculo auto = Auto.getInstancia(); 
-	  Vehiculo vehiculo = Vehiculo.getInstancia();
+	  Vehiculo vehiculo = new Vehiculo();
 	  vehiculo.setEstado(auto);
-	  vehiculo.reiniciarValoresACero();
 	  vehiculo.setEsquina(unaEsquina);
 	  vehiculo.setPosicion(unaPosicion);
 	  vehiculo.setValorPorMovimiento(1);
@@ -64,8 +63,7 @@ public class EsquinaTest {
 			  otraEsquina.setCalleEnSentido(unaCalle,Sentido.ARRIBA); 
 			  
 			  EstadoVehiculo auto = Auto.getInstancia(); 
-			  Vehiculo vehiculo = Vehiculo.getInstancia();
-			  vehiculo.reiniciarValoresACero();
+			  Vehiculo vehiculo = new Vehiculo();
 			  vehiculo.setEstado(auto);
 			  vehiculo.setEsquina(unaEsquina);
 			  vehiculo.setPosicion(unaPosicion);

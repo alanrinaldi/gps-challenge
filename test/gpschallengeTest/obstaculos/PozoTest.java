@@ -20,7 +20,7 @@ public class PozoTest {
 	public void setUp() {
 		unPozo = new Pozo();
 		afectables = new ArrayList<Afectable>();
-		unVehiculo= Vehiculo.getInstancia();
+		unVehiculo= new Vehiculo();
 		auto = Auto.getInstancia();
 		afectables.add(unPozo);
 	}
@@ -28,7 +28,6 @@ public class PozoTest {
 	@Test
 	public void debePenalizarConTresMovimientosAMotos() {
 		unVehiculo.setEstado(Moto.getInstancia());
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(12);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 15);
@@ -37,7 +36,6 @@ public class PozoTest {
 	@Test
 	public void debePenalizarConTresMovimientosAAutos() {
 		unVehiculo.setEstado(auto);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(6);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 9);
@@ -46,7 +44,6 @@ public class PozoTest {
 	@Test
 	public void NoDebePenalizarAVehiculoCuatroXCuatro() {
 		unVehiculo.setEstado(CuatroXCuatro.getInstancia());
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(11);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 11);

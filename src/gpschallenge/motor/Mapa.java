@@ -26,7 +26,6 @@ public class Mapa {
 		this.altoEsquinas = alto;		
 		this.esquinas = new Esquina[anchoEsquinas+1][altoEsquinas+1];
 		this.crearEsquinas();
-		this.vehiculo = Vehiculo.getInstancia();
 	}
 	/* Asigna el valor posición a la esquina. Las sucesivas esquinas en la matriz de esquinas estarán separadas por
 	* el valor distanciaEntreEsquinas
@@ -183,11 +182,6 @@ public class Mapa {
 		return esquinas[x][y];
 	}
 
-	public void setMeta(Meta laMeta) {
-
-		meta = laMeta;
-	}
-
 	public Meta getMeta() {
 
 		return meta;
@@ -199,6 +193,10 @@ public class Mapa {
 
 	public int getAltoEsquinas() {
 		return this.altoEsquinas;
+	}
+	public void setMeta(Meta meta) {
+		this.meta = meta;
+		
 	}
 
 }

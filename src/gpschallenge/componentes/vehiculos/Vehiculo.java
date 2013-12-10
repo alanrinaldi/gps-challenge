@@ -17,21 +17,15 @@ public class Vehiculo {
 	private Posicion posicionActual;
 	private Posicion posicionAnterior;
 	private Esquina esquinaActual;
-	private Esquina esquinaAnterior;
 	private int cantidad;
-	private static Vehiculo unicaInstancia = null;
-	private Vehiculo() {
+	public Vehiculo() {
 		this.posicionActual = new Posicion(0, 0);
 		this.posicionAnterior = new Posicion(0, 0);
 		this.esquinaActual = null;
+		this.cantMovimientos = 0;
+		this.cantidad = 0;
+		this.estado = null;
 	}
-	public static Vehiculo getInstancia() {
-		if (unicaInstancia == null) {
-			unicaInstancia = new Vehiculo();
-		}
-		return unicaInstancia;
-	}
-
 	public void setEstado(EstadoVehiculo unEstado) {
 		this.estado = unEstado;
 	}
@@ -40,12 +34,6 @@ public class Vehiculo {
 		return this.estado;
 	}
 
-	public void reiniciarValoresACero() {
-		/* Setea a valores iniciales(cero) */
-		this.cantMovimientos = 0;
-		this.posicionActual = new Posicion(0, 0);
-		this.posicionAnterior = new Posicion(0, 0);
-	}
 	public void setValorPorMovimiento(int valor){
 		this.cantidad = valor;
 	}
@@ -127,9 +115,6 @@ public class Vehiculo {
 
 	public Esquina getEsquinaActual() {
 		return esquinaActual;
-	}
-	public Esquina getEsquinaAnterior() {
-		return esquinaAnterior;
 	}
 	
 	public void setEsquina(Esquina esquina) {

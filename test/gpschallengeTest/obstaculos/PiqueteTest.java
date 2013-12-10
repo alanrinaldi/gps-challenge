@@ -31,7 +31,7 @@ public class PiqueteTest {
 		unaMoto = Moto.getInstancia();
 		unAuto = Auto.getInstancia();
 		una4x4 = CuatroXCuatro.getInstancia();
-		unVehiculo = Vehiculo.getInstancia();
+		unVehiculo = new Vehiculo();
 		afectables = new ArrayList<Afectable>();
 		afectables.add(unPiquete);
 		
@@ -42,7 +42,6 @@ public class PiqueteTest {
 	public void NoDebePenalizarAVehiculoAutos() {
 		
 		unVehiculo.setEstado(unAuto);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(6);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 6);
@@ -51,7 +50,6 @@ public class PiqueteTest {
 	@Test
 	public void NoDebePenalizarAVehiculoCuatroXCuatro() {
 		unVehiculo.setEstado(una4x4);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(6);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 6);
@@ -60,7 +58,6 @@ public class PiqueteTest {
 	@Test
 	public void debePenalizarConDosMovimientosAMotos() {
 		unVehiculo.setEstado(unaMoto);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(12);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 14);
@@ -80,7 +77,6 @@ public class PiqueteTest {
 			  
 			  EstadoVehiculo auto = Auto.getInstancia(); 
 			  unVehiculo.setEstado(auto);
-			  unVehiculo.reiniciarValoresACero();
 			  unVehiculo.setEsquina(unaEsquina);
 			  unVehiculo.setPosicion(unaPosicion);
 			  unVehiculo.setValorPorMovimiento(1);
@@ -107,7 +103,6 @@ public class PiqueteTest {
 			  
 			  EstadoVehiculo cuatroxcuatro = CuatroXCuatro.getInstancia(); 
 			  unVehiculo.setEstado(cuatroxcuatro);
-			  unVehiculo.reiniciarValoresACero();
 			  unVehiculo.setEsquina(unaEsquina);
 			  unVehiculo.setPosicion(unaPosicion);
 			  unVehiculo.setValorPorMovimiento(1);
@@ -134,7 +129,6 @@ public class PiqueteTest {
 			  
 			  EstadoVehiculo moto = Moto.getInstancia(); 
 			  unVehiculo.setEstado(moto);
-			  unVehiculo.reiniciarValoresACero();
 			  unVehiculo.setEsquina(unaEsquina);
 			  unVehiculo.setPosicion(unaPosicion);
 			  unVehiculo.setValorPorMovimiento(1);

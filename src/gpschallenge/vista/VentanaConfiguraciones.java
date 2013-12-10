@@ -51,6 +51,8 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener {
 		// Posicion donde se colocar este boton
 		botonJugar.setBounds(150, 250, 150, 55);
 		botonJugar.addActionListener(new ActionListener() {
+			private Vehiculo vehiculo;
+
 			public void actionPerformed(ActionEvent arg0) {
 				// Inicia un juego nuevo
 				VentanaJuego unaVentana = null;
@@ -58,10 +60,10 @@ public class VentanaConfiguraciones extends JFrame implements KeyListener {
 				jugador = new Jugador(paneljugador.getNombreJugador());
 				dificultad = paneljugador.getDificultad();
 				estado = paneljugador.getEstado();
-				Vehiculo.getInstancia().setEstado(estado);
+				vehiculo = new Vehiculo();
+				vehiculo.setEstado(estado);
 
-				Juego juego = new Juego(jugador, Vehiculo.getInstancia(),
-						dificultad);
+				Juego juego = new Juego(jugador, vehiculo,dificultad);
 				unaVentana = new VentanaJuego(juego);
 				unaVentana.setVisible(true);
 				dispose();
