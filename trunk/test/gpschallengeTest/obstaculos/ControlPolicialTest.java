@@ -29,7 +29,8 @@ public class ControlPolicialTest {
 			if (unVehiculo.getCantMovimientos() == 8) {
 				cantidad += 1;
 			}
-			unVehiculo.reiniciarValoresACero();
+			unVehiculo = new Vehiculo();
+			unVehiculo.setEstado(unEstado);
 		}
 		/* Redondeo a un valor double de tipo 0.0 */
 		double valor = cantidad / 1000;
@@ -45,7 +46,7 @@ public class ControlPolicialTest {
 		una4x4 = CuatroXCuatro.getInstancia();
 		afectables = new ArrayList<Afectable>();
 		afectables.add(unControlPolicial);
-		unVehiculo = Vehiculo.getInstancia();
+		unVehiculo = new Vehiculo();
 	}
 
 	@Test

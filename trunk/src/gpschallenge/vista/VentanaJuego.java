@@ -125,7 +125,7 @@ public class VentanaJuego extends JFrame implements KeyListener {
 			ganador.setVisible(true);
 			dispose();
 		} else {
-			if (juego.juegoFinalizado()) {
+			if (juego.finalizado()) {
 				VentanaJuegoTerminado ganador = new VentanaJuegoTerminado("Perdiste!!",  juego.getInformacion().getPuntaje());
 				ganador.setVisible(true);
 				dispose();

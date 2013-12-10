@@ -22,7 +22,7 @@ public class CambioDeVehiculoTest {
 	public void setUp() {
 		unaSorpresa = new CambioDeVehiculo();
 		afectables = new ArrayList<Afectable>();
-		unVehiculo= Vehiculo.getInstancia();
+		unVehiculo= new Vehiculo();
 		auto = Auto.getInstancia();
 		cuatroporcuatro = CuatroXCuatro.getInstancia();
 		moto = Moto.getInstancia();

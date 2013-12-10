@@ -23,7 +23,7 @@ public class SorpresaDesfavorableTest {
 	public void setUp() {
 		unaSorpresa = new SorpresaDesfavorable();
 		afectables = new ArrayList<Afectable>();
-		unVehiculo= Vehiculo.getInstancia();
+		unVehiculo= new Vehiculo();
 		auto = Auto.getInstancia();
 		cuatroporcuatro = CuatroXCuatro.getInstancia();
 		moto = Moto.getInstancia();
@@ -33,7 +33,6 @@ public class SorpresaDesfavorableTest {
 	@Test
 	public void debeSumarMovimientosAMoto() {
 		unVehiculo.setEstado(moto);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 12);
@@ -42,7 +41,6 @@ public class SorpresaDesfavorableTest {
 	@Test
 	public void debeSumarMovimientosAAuto() {
 		unVehiculo.setEstado(auto);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 12);
@@ -51,7 +49,6 @@ public class SorpresaDesfavorableTest {
 	@Test
 	public void debeSumarMovimientosACuatroXCuatro() {
 		unVehiculo.setEstado(cuatroporcuatro);
-		unVehiculo.reiniciarValoresACero();
 		unVehiculo.sumarMovimientos(10);
 		unVehiculo.afectar(afectables);
 		assertEquals(unVehiculo.getCantMovimientos().intValue(), 12);

@@ -12,15 +12,17 @@ public class VistaVehiculo extends JLabel {
 	private static String URL_AUTO = "/gpschallenge/imagenes/auto.png";
 	private static String URL_MOTO = "/gpschallenge/imagenes/moto.png";
 	private static String URL_CUATROXCUATRO = "/gpschallenge/imagenes/4x4.png";
+	private Vehiculo vehiculo;
 
-	public VistaVehiculo() {
+	public VistaVehiculo(Vehiculo  vehiculo) {
+		this.vehiculo = vehiculo;
 	}
 
 	/* Obtiene una imagen de acuerdo al tipo de vehiculo */
 	private ImageIcon getImagenVehiculo() {
 		ImageIcon img = null;
 		String url = URL_AUTO;
-		switch (Vehiculo.getInstancia().getTipoVehiculo()) {
+		switch (vehiculo.getTipoVehiculo()) {
 		case AUTO:
 			url = URL_AUTO;
 			break;

@@ -2,18 +2,25 @@ package gpschallengeTest.motor;
 
 import static org.junit.Assert.*;
 import gpschallenge.componentes.utililidades.Posicion;
+import gpschallenge.componentes.vehiculos.Auto;
+import gpschallenge.componentes.vehiculos.Vehiculo;
 import gpschallenge.mapa.Esquina;
 import gpschallenge.motor.Mapa;
+import gpschallenge.motor.Meta;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class MapaTest {
+	private Vehiculo vehiculo;
 	private Mapa unMapa = null;
+	private Meta meta;
 
 	@Before
 	public void setUp() {
 		unMapa = new Mapa(10,10);
+		vehiculo = new Vehiculo();
+		meta = new Meta();
 	}
 
 	@Test
@@ -23,7 +30,9 @@ public class MapaTest {
 
 	@Test
 	public void agregaEsquinas() {
-
+		vehiculo.setEstado(Auto.getInstancia());
+		unMapa.setMeta(meta);
+		unMapa.setVehiculo(vehiculo);
 		unMapa.setPosicionPrimerEsquina(1, 1, 1);
 		
 		Esquina esquina = unMapa.getEsquina(1, 1);

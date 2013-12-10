@@ -53,11 +53,7 @@ public class crearMapasXML {
 	
 	private static int unaCoordenada(){
 		Random random = new Random();
-		int i = random.nextInt(mapa.getAltoEsquinas()) + 1;
-		int j = random.nextInt(1);
-		if(j == 1 && i == mapa.getAltoEsquinas()){
-			i = i + 3;
-		}
+		int i = random.nextInt(mapa.getAltoEsquinas() - 1) + 1;
 		return i;
 	}
 	

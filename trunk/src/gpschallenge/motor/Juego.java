@@ -82,7 +82,7 @@ public class Juego {
 	 * Devuelve verdadero si la cantidad de movimientos es igual o mayor a la cantidad maxima de movmientos
 	 * permitidos para el nivel elegido. Falso de lo contrario.
 	 */
-	public boolean juegoFinalizado() {
+	public boolean finalizado() {
 		this.jugador.setPuntaje(this.calcularPuntaje());
 		if (vehiculo.getCantMovimientos() >= this.movimientosMax){
 			this.finalizado = true;
