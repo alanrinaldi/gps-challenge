@@ -37,19 +37,21 @@ public class VentanaJuegoTerminado extends JFrame implements KeyListener {
 		
 		JLabel lblGanaste = new JLabel(titulo);
 		lblGanaste.setFont(new Font("Serif", Font.PLAIN, 25));
-		lblGanaste.setBounds(100, 30, 160, 60);
+		lblGanaste.setBounds(140, 20, 160, 60);
 		content.add(lblGanaste);
 		
-		JLabel lblPuntaje = new JLabel("Puntaje: " + puntaje.toString());
-		lblPuntaje.setFont(new Font("Serif", Font.PLAIN, 28));
-		lblPuntaje.setBounds(85, 80, 160, 60);
-		content.add(lblPuntaje);
+		if(puntaje>0){
+			JLabel lblPuntaje = new JLabel("Puntaje: " + puntaje.toString());
+			lblPuntaje.setFont(new Font("Serif", Font.PLAIN, 28));
+			lblPuntaje.setBounds(120, 80, 160, 60);
+			content.add(lblPuntaje);
+		}
 		
 		JButton botonJugarDenuevo = new JButton("Nuevo juego!");
 		botonJugarDenuevo.setBorder(BorderFactory.createLineBorder(Color.black));
 		botonJugarDenuevo.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		botonJugarDenuevo.setBounds(85, 140, 150, 40);
+		botonJugarDenuevo.setBounds(115, 140, 150, 40);
 		botonJugarDenuevo.setFont(new Font("Serif", Font.PLAIN, 20));
 		botonJugarDenuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -66,7 +68,7 @@ public class VentanaJuegoTerminado extends JFrame implements KeyListener {
 		salir.setBorder(BorderFactory.createLineBorder(Color.black));
 		salir.setContentAreaFilled(false);
 		// Posicion donde se colocar este boton
-		salir.setBounds(85, 210, 150, 40);
+		salir.setBounds(115, 210, 150, 40);
 		salir.setFont(new Font("Serif", Font.PLAIN, 20));
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
