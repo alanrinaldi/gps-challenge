@@ -5,6 +5,7 @@ import gpschallenge.componentes.sorpresas.CambioDeVehiculo;
 import gpschallenge.componentes.sorpresas.SorpresaDesfavorable;
 import gpschallenge.componentes.sorpresas.SorpresaFavorable;
 import gpschallenge.componentes.utililidades.ListaJugadores;
+import gpschallenge.componentes.utililidades.ListaUsuarios;
 import gpschallenge.componentes.utililidades.Posicion;
 import gpschallenge.componentes.vehiculos.Auto;
 import gpschallenge.componentes.vehiculos.EstadoVehiculo;
@@ -23,7 +24,7 @@ public class SerializacionEjemplo {
 		
 		//Voy a serializar la clase Vehiculo y auto
 		EstadoVehiculo auto = Auto.getInstancia();		
-		Vehiculo vehiculo = Vehiculo.getInstancia();
+		Vehiculo vehiculo = new Vehiculo();
 		vehiculo.setEstado(auto);
 		vehiculo.sumarMovimientos(10);
 		
@@ -84,5 +85,10 @@ public class SerializacionEjemplo {
 		xstream.toXML(Lista,pw10);
 		pw10.close();
 		
+		ListaUsuarios Lista2 = new ListaUsuarios();
+		
+		PrintWriter pw11 = new PrintWriter("Datos/juegosguardados/ListaUsuarios.xml");
+		xstream.toXML(Lista2,pw11);
+		pw11.close();
 	}
 }
