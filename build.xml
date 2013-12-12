@@ -129,9 +129,19 @@
 	</target>
 
 	<target name="empaquetar" depends="compilar.paquete">
-		<jar destfile="${build}/dist/titiritero.jar" basedir="${build}/classes"/>
+		<copydir src="src/gpschallenge/imagenes"
+				dest="${build}/classes/imagenes"
+				includes="**/*.png"/>
+		<jar destfile="${build}/dist/gps.jar" basedir="${build}/classes"/>
 	</target>
-
+	
+	<target name="ejecutar.aplicacion" depends="empaquetar">
+		<java classname="gpschallenge.vista.Main" fork="true">
+			<classpath refid="classpath" />
+			<classpath location="${build}/dist/gps.jar" />
+		</java>
+	</target>
+	
 	<target name="integracion-continua" depends="coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
 
 
